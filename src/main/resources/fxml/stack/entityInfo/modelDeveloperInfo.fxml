@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane_ModelDeveloper" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" text="Model Developer Information" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Information about selected model developer">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
+      </Label>
+      <Label text="Name:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="73.0">
+         <tooltip>
+            <Tooltip text="Model developer name" />
+         </tooltip>
+      </Label>
+      <Label AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_ModelDeveloperName" />
+         </tooltip>
+      </Label>
+      <Label text="Surname:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0" />
+      <Label AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_ModelDeveloperSurname" text="Empty Tooltip" />
+         </tooltip>
+      </Label>
+      <Label text="Telephone:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="163.0" />
+      <Label AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="163.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_ModelDeveloperTelephone" text="Empty Tooltip" />
+         </tooltip>
+      </Label>
+      <Label text="Email:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="208.0" />
+      <Label AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="208.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_ModelDeveloperEmail" text="Empty Tooltip" />
+         </tooltip>
+      </Label>
+   </children>
+</AnchorPane>

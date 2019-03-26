@@ -1,17 +1,33 @@
-package com.controllers.windows;
+package com.controllers.windows.admin;
 
+import com.controllers.requests.AdminController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
+import com.controllers.windows.menu.WindowsController;
 import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.apache.http.HttpResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.IOException;
 
 /**
  * Created by Admin on 16.03.2019.
  */
 public class LoginMenuController extends MenuController {
+
+    @Autowired
+    MainMenuController mainMenuController;
+    @Autowired
+    HttpResponse response;
+
+    private WindowsController windowsController;
+    private AdminController adminController;
+    private int statusCode;
 
     @FXML
     private TextField textField_Login;
@@ -23,20 +39,37 @@ public class LoginMenuController extends MenuController {
     private Tooltip tooltip_Login;
     @FXML
     private Tooltip tooltip_Password;
-    private Tooltip tooltip_ErrorLogin = new Tooltip();
-    private Tooltip tooltip_ErrorPassword = new Tooltip();
+    private Tooltip tooltip_ErrorLogin;
+    private Tooltip tooltip_ErrorPassword;
 
     public void initialize(Stage stage) {
         stage.setOnHidden(event -> {
             Constant.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
+        windowsController = new WindowsController();
+        adminController = new AdminController();
+        tooltip_ErrorLogin = new Tooltip();
+        tooltip_ErrorPassword = new Tooltip();
         button_SignIn.setGraphic(new ImageView("/img/icons/signIn.png"));
     }
 
     public void signIn(ActionEvent event) {
         if (checkAuth()) {
-            Constant.getAlert(null, "", Alert.AlertType.INFORMATION);
+            String[] authorization = new String[2];
+            authorization[0] = textField_Login.getText();
+            authorization[1] = passwordField_Password.getText();
+            try {
+                response = adminController.getAdminAuth(authorization);
+                statusCode = response.getStatusLine().getStatusCode();
+                if(checkStatusCode(statusCode)) {
+                    Constant.fillUserMap(authorization);
+                    windowsController.openWindow("menu/mainMenu", getStage(), mainMenuController,
+                            null, true, 950, 650);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -45,7 +78,6 @@ public class LoginMenuController extends MenuController {
         textField_Login.setStyle("-fx-border-color: inherit");
         passwordField_Password.setTooltip(tooltip_Password);
         passwordField_Password.setStyle("-fx-border-color: inherit");
-
         if (textField_Login.getText().equals("")) {
             tooltip_ErrorLogin.setText("Login is empty!");
             textField_Login.setTooltip(tooltip_ErrorLogin);

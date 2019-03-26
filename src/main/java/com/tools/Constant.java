@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 
+import java.util.ArrayList;
 import java.util.Optional;
 //import com.models.Predict;
 //import com.models.SVMParameter;
@@ -43,7 +44,7 @@ import java.util.Optional;
 public class Constant {
 
     private static final String INSTANCE_NAME = "mainAdminInstance";
-    private static final String USER_MAP_NAME = "user";
+    private static final String USER_MAP_NAME = "admin";
     private static final String KEY_MAP_NAME = "key";
     private static final String MISCELLANEOUS_MAP_NAME = "misc";
 
@@ -64,10 +65,6 @@ public class Constant {
         return Hazelcast.getHazelcastInstanceByName(INSTANCE_NAME);
     }
 
-    public static IMap getMap() {
-        return Hazelcast.getHazelcastInstanceByName(INSTANCE_NAME).getMap(USER_MAP_NAME);
-    }
-
     public static IMap getMapByName(String mapName) {
         return Hazelcast.getHazelcastInstanceByName(INSTANCE_NAME).getMap(mapName);
     }
@@ -76,6 +73,31 @@ public class Constant {
         MapConfig mapConfig = new MapConfig();
         mapConfig.setName(mapName);
         return mapConfig;
+    }
+
+    public static String[] getAuth() {
+        String[] auth = new String[2];
+        auth[0] = new Encryptor().decrypt(getMapByName(KEY_MAP_NAME).get("key").toString(),
+                getMapByName(KEY_MAP_NAME).get("vector").toString(), getMapByName(USER_MAP_NAME).get("login").toString());
+        auth[1] = new Encryptor().decrypt(getMapByName(KEY_MAP_NAME).get("key").toString(),
+                getMapByName(KEY_MAP_NAME).get("vector").toString(), getMapByName(USER_MAP_NAME).get("password").toString());
+        return auth;
+    }
+
+    public static void fillUserMap(String[] authorization){
+        String key = new Encryptor().genRandString();
+        String vector = new Encryptor().genRandString();
+        getMapByName(USER_MAP_NAME).put("login", new Encryptor().encrypt(key, vector, authorization[0]));
+        getMapByName(USER_MAP_NAME).put("password", new Encryptor().encrypt(key, vector, authorization[1]));
+        getMapByName(KEY_MAP_NAME).put("key", key);
+        getMapByName(KEY_MAP_NAME).put("vector", vector);
+    }
+
+    public static ArrayList<String> getWorkEnableList(){
+        ArrayList<String> workEnableList = new ArrayList<>();
+        workEnableList.add("Allowed");
+        workEnableList.add("Not allowed");
+        return workEnableList;
     }
 //
 //    public static void fillMap(SpecialistEntity specialistEntity, String login, String password) {
@@ -306,5 +328,17 @@ public class Constant {
         } else {
             return false;
         }
+    }
+
+    public static String getUserMapName() {
+        return USER_MAP_NAME;
+    }
+
+    public static String getKeyMapName() {
+        return KEY_MAP_NAME;
+    }
+
+    public static String getMiscellaneousMapName() {
+        return MISCELLANEOUS_MAP_NAME;
     }
 }

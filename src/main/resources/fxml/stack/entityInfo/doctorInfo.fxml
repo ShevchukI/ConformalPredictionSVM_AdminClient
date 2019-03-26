@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="24.0" text="Doctor Information" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Information about selected doctor">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Tooltip>
+         </tooltip>
+      </Label>
+      <Label layoutX="24.0" layoutY="70.0" text="Name:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="73.0">
+         <tooltip>
+            <Tooltip text="Doctor name" />
+         </tooltip>
+      </Label>
+      <Label fx:id="label_DoctorName" layoutX="130.0" layoutY="70.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="73.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_DoctorName" />
+         </tooltip>
+      </Label>
+      <Label layoutX="24.0" layoutY="106.0" text="Surname:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <tooltip>
+            <Tooltip text="Doctor surname" />
+         </tooltip>
+      </Label>
+      <Label fx:id="label_DoctorSurname" layoutX="130.0" layoutY="106.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_DoctorSurname" />
+         </tooltip>
+      </Label>
+      <Label layoutX="24.0" layoutY="142.0" text="Specialization:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="163.0">
+         <tooltip>
+            <Tooltip text="Doctor specialization" />
+         </tooltip>
+      </Label>
+      <Label fx:id="label_DoctorSpecialization" layoutX="130.0" layoutY="142.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="163.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_DoctorSpecialization" />
+         </tooltip>
+      </Label>
+      <Label layoutX="24.0" layoutY="178.0" text="Telephone:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="208.0">
+         <tooltip>
+            <Tooltip text="Doctor telephone" />
+         </tooltip>
+      </Label>
+      <Label fx:id="label_DoctorTelephone" layoutX="130.0" layoutY="178.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="208.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_DoctorTelephone" />
+         </tooltip>
+      </Label>
+      <Label layoutX="24.0" layoutY="214.0" text="Email:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="253.0">
+         <tooltip>
+            <Tooltip text="Doctor email" />
+         </tooltip>
+      </Label>
+      <Label fx:id="label_DoctorEmail" layoutX="130.0" layoutY="214.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="253.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip_DoctorEmail" />
+         </tooltip>
+      </Label>
+   </children>
+</AnchorPane>
