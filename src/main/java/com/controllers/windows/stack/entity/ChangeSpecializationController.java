@@ -1,4 +1,4 @@
-package com.controllers.windows.entity;
+package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MenuController;
@@ -44,7 +44,7 @@ public class ChangeSpecializationController extends MenuController {
                 specializationEntity.setId(Integer.parseInt(Constant
                         .getMapByName(Constant.getMiscellaneousMapName()).get("specialization").toString()));
                 specializationEntity.setName(textField_Name.getText());
-                response = SpecializationController.changeEmployeeStatus(specializationEntity);
+                response = SpecializationController.changeSpecialization(specializationEntity);
                 statusCode = response.getStatusLine().getStatusCode();
                 if (checkStatusCode(statusCode)) {
                     TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");
@@ -70,9 +70,11 @@ public class ChangeSpecializationController extends MenuController {
                 response = SpecializationController.createSpecialization(specializationEntity);
                 statusCode = response.getStatusLine().getStatusCode();
                 if (checkStatusCode(statusCode)) {
-                    Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
+                    int id = Integer.parseInt(Constant.responseToString(response));
+                    specializationEntity.setId(id);
                     TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");
                     tableView.getItems().add(specializationEntity);
+                    Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
                     TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                     textField.clear();
                     StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_SpecializationChange");

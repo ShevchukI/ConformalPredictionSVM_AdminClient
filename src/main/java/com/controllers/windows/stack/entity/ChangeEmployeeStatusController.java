@@ -1,4 +1,4 @@
-package com.controllers.windows.entity;
+package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MenuController;
@@ -77,9 +77,11 @@ public class ChangeEmployeeStatusController extends MenuController {
                 response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
                 statusCode = response.getStatusLine().getStatusCode();
                 if (checkStatusCode(statusCode)) {
-                    Constant.getAlert(null, "Employee status saved!", Alert.AlertType.INFORMATION);
+                    int id = Integer.parseInt(Constant.responseToString(response));
+                    employeeStatusEntity.setId(id);
                     TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
                     tableView.getItems().add(employeeStatusEntity);
+                    Constant.getAlert(null, "Employee status saved!", Alert.AlertType.INFORMATION);
                     TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                     textField.clear();
                     StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");

@@ -12,7 +12,10 @@ import com.hazelcast.core.IMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 //import com.models.Predict;
@@ -98,6 +101,9 @@ public class Constant {
         workEnableList.add("Allowed");
         workEnableList.add("Not allowed");
         return workEnableList;
+    }
+    public static String responseToString(HttpResponse response) throws IOException {
+        return  EntityUtils.toString(response.getEntity());
     }
 //
 //    public static void fillMap(SpecialistEntity specialistEntity, String login, String password) {

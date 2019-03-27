@@ -2,9 +2,11 @@ package com.controllers.windows.menu;
 
 import com.tools.Constant;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Admin on 10.01.2019.
@@ -62,6 +64,25 @@ public abstract class MenuController {
     }
 
     public void initialize(Stage stage, Stage newWindow) throws IOException {
+    }
+
+    public void activateStackPane(StackPane pane, ArrayList<StackPane> stackPanes) {
+        for (StackPane stackPane : stackPanes) {
+            if (stackPane.equals(pane)) {
+                stackPane.setDisable(false);
+                stackPane.setVisible(true);
+            } else {
+                stackPane.setDisable(true);
+                stackPane.setVisible(false);
+            }
+        }
+    }
+
+    public void deactivateAllStackPane(ArrayList<StackPane> stackPanes) {
+        for (StackPane stackPane : stackPanes) {
+            stackPane.setDisable(true);
+            stackPane.setVisible(false);
+        }
     }
 
 }

@@ -104,15 +104,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <TableView fx:id="tableView_Specialization" onMouseClicked="#viewSpecialization" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="tableColumnSpecialization_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-                                                        <TableColumn fx:id="tableColumnSpecialization_Name" minWidth="80.0" prefWidth="-1.0" text="Name" />
-                                                    </columns>
-                                                    <columnResizePolicy>
-                                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                                    </columnResizePolicy>
-                                                </TableView>
+                                                <fx:include fx:id="specializationTab" source="../tab/specializationTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -121,16 +113,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TableView fx:id="tableView_EmployeeStatus" onMouseClicked="#viewEmployeeStatus" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                      <columns>
-                                        <TableColumn fx:id="tableColumnEmployeeStatus_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-                                        <TableColumn fx:id="tableColumnEmployeeStatus_Name" minWidth="200.0" prefWidth="-1.0" text="Name" />
-                                          <TableColumn fx:id="tableColumnEmployeeStatus_WorkEnable" maxWidth="200.0" minWidth="100.0" prefWidth="-1.0" text="Work Enable" />
-                                      </columns>
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
+                                     <fx:include fx:id="employeeStatusTab" source="../tab/employeeStatusTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -146,7 +129,7 @@
                             </items>
                         </MenuButton>
                   <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" text="Change" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="50.0" onAction="#change"/>
-                  <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" />
+                  <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" onAction="#delete"/>
                     </children>
                 </AnchorPane>
             </children>

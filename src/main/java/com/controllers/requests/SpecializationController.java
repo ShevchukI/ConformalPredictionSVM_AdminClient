@@ -7,7 +7,9 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseFactory;
 import org.apache.http.HttpStatus;
 import org.apache.http.HttpVersion;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -21,7 +23,7 @@ import org.apache.http.message.BasicStatusLine;
 import java.io.IOException;
 import java.util.Base64;
 
-public class SpecializationController extends MainController{
+public class SpecializationController extends MainController {
 
     public static HttpResponse createSpecialization(SpecializationEntity specializationEntity) throws IOException {
         String json = new Gson().toJson(specializationEntity);
@@ -56,7 +58,7 @@ public class SpecializationController extends MainController{
         return response;
     }
 
-    public static HttpResponse changeEmployeeStatus(SpecializationEntity specializationEntity) throws IOException {
+    public static HttpResponse changeSpecialization(SpecializationEntity specializationEntity) throws IOException {
         String json = new Gson().toJson(specializationEntity);
         String basicAuthPayload = "Basic " + Base64.getEncoder().encodeToString((Constant.getAuth()[0] + ":" + Constant.getAuth()[1]).getBytes());
         CloseableHttpClient client = HttpClientBuilder.create().build();
@@ -70,6 +72,26 @@ public class SpecializationController extends MainController{
         } catch (HttpHostConnectException e) {
             HttpResponseFactory httpResponseFactory = new DefaultHttpResponseFactory();
             response = httpResponseFactory.newHttpResponse(new BasicStatusLine(HttpVersion.HTTP_1_1, HttpStatus.SC_GATEWAY_TIMEOUT, null), null);
+        }
+        return response;
+    }
+
+    public static HttpResponse deleteSpecialization(int id) {
+        String basicAuthPayload = "Basic " + Base64.getEncoder().encodeToString((Constant.getAuth()[0] + ":" + Constant.getAuth()[1]).getBytes());
+        CloseableHttpClient client = HttpClientBuilder.create().build();
+        HttpDelete request = new HttpDelete(getUrl() + "/specialization/" + id);
+        request.setHeader("Content-Type", "application/json");
+        request.setHeader("Authorization", basicAuthPayload);
+        HttpResponse response = null;
+        try {
+            response = client.execute(request);
+        } catch (HttpHostConnectException e) {
+            HttpResponseFactory httpResponseFactory = new DefaultHttpResponseFactory();
+            response = httpResponseFactory.newHttpResponse(new BasicStatusLine(HttpVersion.HTTP_1_1, HttpStatus.SC_GATEWAY_TIMEOUT, null), null);
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return response;
     }
