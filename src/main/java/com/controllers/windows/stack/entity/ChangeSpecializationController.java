@@ -2,7 +2,7 @@ package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MenuController;
-import com.models.SpecializationEntity;
+import com.entity.SpecializationEntity;
 import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,9 +18,9 @@ public class ChangeSpecializationController extends MenuController {
     HttpResponse response;
 
     private MenuController menuController;
-    private boolean change;
     private SpecializationEntity specializationEntity;
-    private int statusCode;
+    private boolean change;
+
 
     @FXML
     private Label label_PaneName;
@@ -45,8 +45,8 @@ public class ChangeSpecializationController extends MenuController {
                         .getMapByName(Constant.getMiscellaneousMapName()).get("specialization").toString()));
                 specializationEntity.setName(textField_Name.getText());
                 response = SpecializationController.changeSpecialization(specializationEntity);
-                statusCode = response.getStatusLine().getStatusCode();
-                if (checkStatusCode(statusCode)) {
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if (checkStatusCode(getStatusCode())) {
                     TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");
                     for (SpecializationEntity specialization : tableView.getItems()) {
                         if (specialization.getId() == specializationEntity.getId()) {
@@ -68,8 +68,8 @@ public class ChangeSpecializationController extends MenuController {
                 specializationEntity = new SpecializationEntity();
                 specializationEntity.setName(textField_Name.getText());
                 response = SpecializationController.createSpecialization(specializationEntity);
-                statusCode = response.getStatusLine().getStatusCode();
-                if (checkStatusCode(statusCode)) {
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if (checkStatusCode(getStatusCode())) {
                     int id = Integer.parseInt(Constant.responseToString(response));
                     specializationEntity.setId(id);
                     TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");

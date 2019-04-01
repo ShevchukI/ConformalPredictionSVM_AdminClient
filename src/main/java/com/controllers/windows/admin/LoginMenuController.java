@@ -27,7 +27,6 @@ public class LoginMenuController extends MenuController {
 
     private WindowsController windowsController;
     private AdminController adminController;
-    private int statusCode;
 
     @FXML
     private TextField textField_Login;
@@ -61,8 +60,8 @@ public class LoginMenuController extends MenuController {
             authorization[1] = passwordField_Password.getText();
             try {
                 response = adminController.getAdminAuth(authorization);
-                statusCode = response.getStatusLine().getStatusCode();
-                if(checkStatusCode(statusCode)) {
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if(checkStatusCode(getStatusCode())) {
                     Constant.fillUserMap(authorization);
                     windowsController.openWindow("menu/mainMenu", getStage(), mainMenuController,
                             null, true, 950, 650);

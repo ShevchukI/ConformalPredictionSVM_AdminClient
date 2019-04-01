@@ -15,6 +15,7 @@ public abstract class MenuController {
 
     private Stage stage;
     private Stage newWindow;
+    private int statusCode;
 
     public void initialize(Stage stage) throws IOException {
         stage.setOnHidden(event -> {
@@ -85,4 +86,11 @@ public abstract class MenuController {
         }
     }
 
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
 }

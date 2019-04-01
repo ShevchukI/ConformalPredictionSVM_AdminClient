@@ -1,7 +1,4 @@
 package com.tools;
-//
-//import com.google.gson.Gson;
-//import com.google.gson.reflect.TypeToken;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.config.MapConfig;
@@ -16,33 +13,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Optional;
-//import com.models.Predict;
-//import com.models.SVMParameter;
-//import com.models.SpecialistEntity;
-//import javafx.scene.control.Alert;
-//import javafx.scene.control.ButtonBar;
-//import javafx.scene.control.ButtonType;
-//import org.apache.http.HttpEntity;
-//import org.apache.http.HttpResponse;
-//import org.apache.http.util.EntityUtils;
-//import org.apache.poi.ss.usermodel.*;
-//import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-//import org.apache.poi.xssf.usermodel.XSSFSheet;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-//
-//import java.io.DataInputStream;
-//import java.io.File;
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.lang.reflect.Type;
-//import java.text.DecimalFormat;
-//import java.util.ArrayList;
-//import java.util.Collections;
-//import java.util.Comparator;
-//import java.util.Optional;
-//
+
 
 public class Constant {
 
@@ -50,6 +22,11 @@ public class Constant {
     private static final String USER_MAP_NAME = "admin";
     private static final String KEY_MAP_NAME = "key";
     private static final String MISCELLANEOUS_MAP_NAME = "misc";
+    private static final int OBJECT_ON_PAGE = 30;
+    private final static String PHONEREG = "[+]{0,1}[0-9]{1,15}";
+    private final static String EMAILREG = "[a-zA-Z0-9]+[@][a-z]+[.][a-z]{2,3}";
+
+
 
     public static void createInstanceAndMap() {
         Config config = new Config();
@@ -94,18 +71,19 @@ public class Constant {
         getMapByName(USER_MAP_NAME).put("password", new Encryptor().encrypt(key, vector, authorization[1]));
         getMapByName(KEY_MAP_NAME).put("key", key);
         getMapByName(KEY_MAP_NAME).put("vector", vector);
+        getMapByName(MISCELLANEOUS_MAP_NAME).put("pageIndexDoctor", 1);
+        getMapByName(MISCELLANEOUS_MAP_NAME).put("pageIndexModelDeveloper", 1);
     }
 
-    public static ArrayList<String> getWorkEnableList(){
-        ArrayList<String> workEnableList = new ArrayList<>();
-        workEnableList.add("Allowed");
-        workEnableList.add("Not allowed");
-        return workEnableList;
-    }
     public static String responseToString(HttpResponse response) throws IOException {
         return  EntityUtils.toString(response.getEntity());
     }
-//
+
+    public static int getObjectOnPage() {
+        return OBJECT_ON_PAGE;
+    }
+
+    //
 //    public static void fillMap(SpecialistEntity specialistEntity, String login, String password) {
 //        String key = new Encryptor().genRandString();
 //        String vector = new Encryptor().genRandString();
@@ -346,5 +324,13 @@ public class Constant {
 
     public static String getMiscellaneousMapName() {
         return MISCELLANEOUS_MAP_NAME;
+    }
+
+    public static String getPHONEREG() {
+        return PHONEREG;
+    }
+
+    public static String getEMAILREG() {
+        return EMAILREG;
     }
 }

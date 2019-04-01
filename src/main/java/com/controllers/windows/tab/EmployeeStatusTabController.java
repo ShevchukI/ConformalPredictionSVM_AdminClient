@@ -2,7 +2,7 @@ package com.controllers.windows.tab;
 
 import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MenuController;
-import com.models.EmployeeStatusEntity;
+import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -15,7 +15,6 @@ import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class EmployeeStatusTabController extends MenuController {
@@ -23,13 +22,12 @@ public class EmployeeStatusTabController extends MenuController {
     @Autowired
     HttpResponse response;
 
+    private MenuController menuController;
     private StackPane stackPane_Change;
     private StackPane stackPane_Info;
     private ArrayList<StackPane> stackPanes;
     private ArrayList<EmployeeStatusEntity> statusEntities;
     private ObservableList<EmployeeStatusEntity> employeeStatusEntities;
-    private MenuController menuController;
-    private int statusCode;
     private Label label_PaneNameChange;
     private TextField textField_NameChange;
     private CheckBox checkBox_WorkEnableChange;
@@ -39,29 +37,21 @@ public class EmployeeStatusTabController extends MenuController {
     @FXML
     private TableView<EmployeeStatusEntity> tableView_EmployeeStatus;
     @FXML
-    private TableColumn<EmployeeStatusEntity, Number> tableColumnEmployeeStatus_Number;
+    private TableColumn<EmployeeStatusEntity, Number> tableColumn_Number;
     @FXML
-    private TableColumn tableColumnEmployeeStatus_Name;
+    private TableColumn tableColumn_Name;
     @FXML
-    private TableColumn tableColumnEmployeeStatus_WorkEnable;
+    private TableColumn tableColumn_WorkEnable;
 
-    public void init(MenuController menuController) {
+    public void init(MenuController menuController, ArrayList<EmployeeStatusEntity> statusEntities) {
         this.menuController = menuController;
-        tableColumnEmployeeStatus_Number.setSortable(false);
-        tableColumnEmployeeStatus_Number.setCellValueFactory(column ->
+        this.statusEntities = statusEntities;
+        tableColumn_Number.setSortable(false);
+        tableColumn_Number.setCellValueFactory(column ->
                 new ReadOnlyObjectWrapper<Number>((tableView_EmployeeStatus.getItems().
                         indexOf(column.getValue()) + 1)));
-        tableColumnEmployeeStatus_Name.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("name"));
-        tableColumnEmployeeStatus_WorkEnable.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("visibleWorkEnable"));
-        try {
-            response = EmployeeStatusController.getAllEmployeeStatus();
-            statusCode = response.getStatusLine().getStatusCode();
-            if (checkStatusCode(statusCode)) {
-                statusEntities = new EmployeeStatusEntity().getListFromResponse(response);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        tableColumn_Name.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("name"));
+        tableColumn_WorkEnable.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("visibleWorkEnable"));
         employeeStatusEntities = FXCollections.observableList(statusEntities);
         tableView_EmployeeStatus.setItems(employeeStatusEntities);
     }
@@ -92,8 +82,8 @@ public class EmployeeStatusTabController extends MenuController {
         if (result) {
             int id = tableView.getSelectionModel().getSelectedItem().getId();
             response = EmployeeStatusController.deleteEmployeeStatus(id);
-            statusCode = response.getStatusLine().getStatusCode();
-            if (checkStatusCode(statusCode)) {
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if (checkStatusCode(getStatusCode())) {
                 for (EmployeeStatusEntity employeeStatusEntity : tableView.getItems()) {
                     if (employeeStatusEntity.getId() == id) {
                         tableView.getItems().remove(employeeStatusEntity);
@@ -189,5 +179,13 @@ public class EmployeeStatusTabController extends MenuController {
 
     public void setCheckBox_WorkEnableChange(CheckBox checkBox_WorkEnableChange) {
         this.checkBox_WorkEnableChange = checkBox_WorkEnableChange;
+    }
+
+    public ArrayList<EmployeeStatusEntity> getStatusEntities() {
+        return statusEntities;
+    }
+
+    public void setStatusEntities(ArrayList<EmployeeStatusEntity> statusEntities) {
+        this.statusEntities = statusEntities;
     }
 }

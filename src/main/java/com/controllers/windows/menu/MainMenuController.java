@@ -1,13 +1,20 @@
 package com.controllers.windows.menu;
 
+import com.controllers.requests.EmployeeStatusController;
+import com.controllers.requests.SpecializationController;
+import com.controllers.windows.stack.entity.ChangeDoctorController;
 import com.controllers.windows.stack.entity.ChangeEmployeeStatusController;
+import com.controllers.windows.stack.entity.ChangeModelDeveloperController;
 import com.controllers.windows.stack.entity.ChangeSpecializationController;
 import com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController;
+import com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController;
 import com.controllers.windows.stack.entityInfo.SpecializationInfoController;
 import com.controllers.windows.tab.EmployeeStatusTabController;
+import com.controllers.windows.tab.ModelDeveloperTabController;
 import com.controllers.windows.tab.SpecializationTabController;
-import com.models.EmployeeStatusEntity;
-import com.models.SpecializationEntity;
+import com.entity.EmployeeStatusEntity;
+import com.entity.ModelDeveloperEntity;
+import com.entity.SpecializationEntity;
 import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +26,7 @@ import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -29,13 +37,23 @@ public class MainMenuController extends MenuController {
     @Autowired
     HttpResponse response;
 
+    private TableView<ModelDeveloperEntity> tableView_ModelDeveloper;
     private TableView<SpecializationEntity> tableView_Specialization;
     private TableView<EmployeeStatusEntity> tableView_EmployeeStatus;
     private ArrayList<StackPane> stackPanes;
-    private int statusCode;
+    private ArrayList<EmployeeStatusEntity> statusEntities;
+    private ArrayList<SpecializationEntity> specializationEntities;
 
     @FXML
     private MenuBarController menuBarController;
+    @FXML
+    private ChangeDoctorController changeDoctorController;
+    @FXML
+    private ModelDeveloperTabController modelDeveloperTabController;
+    @FXML
+    private ModelDeveloperInfoController modelDeveloperInfoController;
+    @FXML
+    private ChangeModelDeveloperController changeModelDeveloperController;
     @FXML
     private SpecializationTabController specializationTabController;
     @FXML
@@ -51,9 +69,11 @@ public class MainMenuController extends MenuController {
     @FXML
     private StackPane stackPane_DoctorInfo;
     @FXML
+    private StackPane stackPane_DoctorChange;
+    @FXML
     private StackPane stackPane_ModelDeveloperInfo;
     @FXML
-    private StackPane stackPane_DoctorRegistration;
+    private StackPane stackPane_ModelDeveloperChange;
     @FXML
     private StackPane stackPane_SpecializationInfo;
     @FXML
@@ -72,8 +92,6 @@ public class MainMenuController extends MenuController {
     private Tab tab_EmployeeStatus;
     @FXML
     private TableView tableView_Doctor;
-    @FXML
-    private TableView tableView_ModelDeveloper;
 
 
     public void initialize(Stage stage) {
@@ -82,11 +100,31 @@ public class MainMenuController extends MenuController {
         });
         setStage(stage);
         this.menuBarController.init(this);
+
+        try {
+            response = EmployeeStatusController.getAllEmployeeStatus();
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if (checkStatusCode(getStatusCode())) {
+                statusEntities = EmployeeStatusEntity.getListFromResponse(response);
+            }
+            response = SpecializationController.getAllSpecialization();
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if(checkStatusCode(getStatusCode())){
+                specializationEntities = SpecializationEntity.getListFromResponse(response);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.modelDeveloperInfoController.init(this);
+
         prepareStackPanes();
 
+        prepareModelDeveloperTab();
         prepareSpecializationTab();
         prepareEmployeeStatusTab();
 
+        this.changeDoctorController.init(this, statusEntities, specializationEntities);
+        this.changeModelDeveloperController.init(this, statusEntities);
         this.changeEmployeeStatusController.init(this);
         this.employeeStatusInfoController.init(this);
         this.specializationInfoController.init(this);
@@ -104,6 +142,17 @@ public class MainMenuController extends MenuController {
     }
 
 
+    public void addModelDeveloper(ActionEvent event) {
+        activateStackPane(stackPane_ModelDeveloperChange, stackPanes);
+        changeModelDeveloperController.setChange(false);
+        changeModelDeveloperController.getLabel_PaneName().setText("Add new Model Developer");
+        changeModelDeveloperController.getTextField_Name().clear();
+        changeModelDeveloperController.getTextField_Surname().clear();
+        changeModelDeveloperController.getTextField_Telephone().clear();
+        changeModelDeveloperController.getTextField_Email().clear();
+//        changeModelDeveloperController.setEmployeeStatus(statusEntities);
+    }
+
     public void addSpecialization(ActionEvent event) {
         activateStackPane(stackPane_SpecializationChange, stackPanes);
         changeSpecializationController.setChange(false);
@@ -120,7 +169,6 @@ public class MainMenuController extends MenuController {
     }
 
 
-
     public void change(ActionEvent event) {
         change();
     }
@@ -129,7 +177,8 @@ public class MainMenuController extends MenuController {
         if (tab_Doctor.isSelected() && tableView_Doctor.getSelectionModel().getSelectedItem() != null) {
 
         } else if (tab_ModelDeveloper.isSelected() && tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
-
+            changeModelDeveloperController.setChange(true);
+            modelDeveloperTabController.changeModelDeveloper();
         } else if (tab_Specialization.isSelected() && tableView_Specialization.getSelectionModel().getSelectedItem() != null) {
             changeSpecializationController.setChange(true);
             specializationTabController.changeSpecialization();
@@ -158,18 +207,42 @@ public class MainMenuController extends MenuController {
     }
 
 
-    private void prepareStackPanes(){
+    private void prepareStackPanes() {
         stackPanes = new ArrayList<>();
         stackPanes.add(stackPane_DoctorInfo);
+        stackPanes.add(stackPane_DoctorChange);
         stackPanes.add(stackPane_ModelDeveloperInfo);
-        stackPanes.add(stackPane_DoctorRegistration);
+        stackPanes.add(stackPane_ModelDeveloperChange);
+
         stackPanes.add(stackPane_SpecializationInfo);
         stackPanes.add(stackPane_SpecializationChange);
         stackPanes.add(stackPane_EmployeeStatusInfo);
         stackPanes.add(stackPane_EmployeeStatusChange);
     }
 
-    private void prepareSpecializationTab(){
+    public void prepareModelDeveloperTab() {
+        this.modelDeveloperTabController.init(this);
+
+        this.modelDeveloperTabController.setStackPaneChange(stackPane_ModelDeveloperChange);
+        this.modelDeveloperTabController.setLabel_PaneNameChange(changeModelDeveloperController.getLabel_PaneName());
+        this.modelDeveloperTabController.setTextField_NameChange(changeModelDeveloperController.getTextField_Name());
+        this.modelDeveloperTabController.setTextField_SurnameChange(changeModelDeveloperController.getTextField_Surname());
+        this.modelDeveloperTabController.setTextField_TelephoneChange(changeModelDeveloperController.getTextField_Telephone());
+        this.modelDeveloperTabController.setTextField_EmailChange(changeModelDeveloperController.getTextField_Email());
+        this.modelDeveloperTabController.setComboBox_Status(changeModelDeveloperController.getComboBox_Status());
+
+        this.modelDeveloperTabController.setEmployeeStatusEntities(statusEntities);
+        this.modelDeveloperTabController.setLabel_NameInfo(modelDeveloperInfoController.getLabel_Name());
+        this.modelDeveloperTabController.setLabel_SurnameInfo(modelDeveloperInfoController.getLabel_Surname());
+        this.modelDeveloperTabController.setLabel_TelephoneInfo(modelDeveloperInfoController.getLabel_Telephone());
+        this.modelDeveloperTabController.setLabel_EmailInfo(modelDeveloperInfoController.getLabel_Email());
+        this.modelDeveloperTabController.setLabel_StatusInfo(modelDeveloperInfoController.getLabel_Status());
+        this.modelDeveloperTabController.setStackPaneInfo(stackPane_ModelDeveloperInfo);
+        tableView_ModelDeveloper = this.modelDeveloperTabController.getTableView_ModelDeveloper();
+        this.modelDeveloperTabController.setStackPanes(stackPanes);
+    }
+
+    private void prepareSpecializationTab() {
         this.specializationTabController.init(this);
         this.specializationTabController.setLabel_PaneNameChange(changeSpecializationController.getLabel_PaneName());
         this.specializationTabController.setTextField_NameChange(changeSpecializationController.getTextField_Name());
@@ -180,8 +253,8 @@ public class MainMenuController extends MenuController {
         this.specializationTabController.setStackPanes(stackPanes);
     }
 
-    private void prepareEmployeeStatusTab(){
-        this.employeeStatusTabController.init(this);
+    private void prepareEmployeeStatusTab() {
+        this.employeeStatusTabController.init(this, statusEntities);
         this.employeeStatusTabController.setLabel_PaneNameChange(changeEmployeeStatusController.getLabel_PaneName());
         this.employeeStatusTabController.setTextField_NameChange(changeEmployeeStatusController.getTextField_Name());
         this.employeeStatusTabController.setCheckBox_WorkEnableChange(changeEmployeeStatusController.getCheckBox_WorkEnable());
@@ -192,5 +265,10 @@ public class MainMenuController extends MenuController {
         tableView_EmployeeStatus = this.employeeStatusTabController.getTableView_EmployeeStatus();
         this.employeeStatusTabController.setStackPanes(stackPanes);
     }
+
+    public void refresh(ActionEvent event) {
+        modelDeveloperTabController.refreshPage();
+    }
+
 
 }

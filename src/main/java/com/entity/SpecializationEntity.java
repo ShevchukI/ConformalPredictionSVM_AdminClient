@@ -1,4 +1,4 @@
-package com.models;
+package com.entity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -32,7 +32,7 @@ public class SpecializationEntity {
         this.name = name;
     }
 
-    public ArrayList<SpecializationEntity> getListFromResponse(HttpResponse response) throws IOException {
+    public static ArrayList<SpecializationEntity> getListFromResponse(HttpResponse response) throws IOException {
         ArrayList<SpecializationEntity> specializationEntities;
         if (response.getStatusLine().getStatusCode() == 200) {
             StringBuilder stringBuilder = new StringBuilder();

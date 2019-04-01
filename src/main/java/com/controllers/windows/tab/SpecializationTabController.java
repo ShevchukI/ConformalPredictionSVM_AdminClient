@@ -2,7 +2,7 @@ package com.controllers.windows.tab;
 
 import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MenuController;
-import com.models.SpecializationEntity;
+import com.entity.SpecializationEntity;
 import com.tools.Constant;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -23,13 +23,12 @@ public class SpecializationTabController extends MenuController{
     @Autowired
     HttpResponse response;
 
+    private MenuController menuController;
     private StackPane stackPane_Change;
     private StackPane stackPane_Info;
     private ArrayList<StackPane> stackPanes;
     private ArrayList<SpecializationEntity> specializations;
     private ObservableList<SpecializationEntity> specializationEntities;
-    private MenuController menuController;
-    private int statusCode;
     private Label label_PaneNameChange;
     private TextField textField_NameChange;
     private Label label_NameInfo;
@@ -37,22 +36,22 @@ public class SpecializationTabController extends MenuController{
     @FXML
     private TableView<SpecializationEntity> tableView_Specialization;
     @FXML
-    private TableColumn<SpecializationEntity, Number> tableColumnSpecialization_Number;
+    private TableColumn<SpecializationEntity, Number> tableColumn_Number;
     @FXML
-    private TableColumn tableColumnSpecialization_Name;
+    private TableColumn tableColumn_Name;
 
     public void init(MenuController menuController){
         this.menuController = menuController;
-        tableColumnSpecialization_Number.setSortable(false);
-        tableColumnSpecialization_Number.setCellValueFactory(column ->
+        tableColumn_Number.setSortable(false);
+        tableColumn_Number.setCellValueFactory(column ->
                 new ReadOnlyObjectWrapper<Number>((tableView_Specialization.getItems().
                         indexOf(column.getValue()) + 1)));
-        tableColumnSpecialization_Name.setCellValueFactory(new PropertyValueFactory<SpecializationEntity, String>("name"));
+        tableColumn_Name.setCellValueFactory(new PropertyValueFactory<SpecializationEntity, String>("name"));
         try {
             response = SpecializationController.getAllSpecialization();
-            statusCode = response.getStatusLine().getStatusCode();
-            if (checkStatusCode(statusCode)) {
-                specializations = new SpecializationEntity().getListFromResponse(response);
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if (checkStatusCode(getStatusCode())) {
+                specializations = SpecializationEntity.getListFromResponse(response);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,8 +84,8 @@ public class SpecializationTabController extends MenuController{
         if (result) {
             int id = tableView.getSelectionModel().getSelectedItem().getId();
             response = SpecializationController.deleteSpecialization(id);
-            statusCode = response.getStatusLine().getStatusCode();
-            if (checkStatusCode(statusCode)) {
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if (checkStatusCode(getStatusCode())) {
                 for (SpecializationEntity specializationEntity : tableView.getItems()) {
                     if (specializationEntity.getId() == id) {
                         tableView.getItems().remove(specializationEntity);

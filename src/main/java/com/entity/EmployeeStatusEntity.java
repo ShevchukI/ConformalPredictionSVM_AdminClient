@@ -1,4 +1,4 @@
-package com.models;
+package com.entity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -49,7 +49,7 @@ public class EmployeeStatusEntity {
         }
     }
 
-    public ArrayList<EmployeeStatusEntity> getListFromResponse(HttpResponse response) throws IOException {
+    public static ArrayList<EmployeeStatusEntity> getListFromResponse(HttpResponse response) throws IOException {
         ArrayList<EmployeeStatusEntity> employeeStatusEntities;
         if (response.getStatusLine().getStatusCode() == 200) {
             StringBuilder stringBuilder = new StringBuilder();

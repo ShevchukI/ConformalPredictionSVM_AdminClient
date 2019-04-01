@@ -2,7 +2,7 @@ package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MenuController;
-import com.models.EmployeeStatusEntity;
+import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,9 +19,9 @@ public class ChangeEmployeeStatusController extends MenuController {
     HttpResponse response;
 
     private MenuController menuController;
-    private boolean change;
     private EmployeeStatusEntity employeeStatusEntity;
-    private int statusCode;
+    private boolean change;
+
 
     @FXML
     private Label label_PaneName;
@@ -50,8 +50,8 @@ public class ChangeEmployeeStatusController extends MenuController {
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
                 response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
-                statusCode = response.getStatusLine().getStatusCode();
-                if (checkStatusCode(statusCode)) {
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if (checkStatusCode(getStatusCode())) {
                     TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
                     for (EmployeeStatusEntity employeeStatus : tableView.getItems()) {
                         if (employeeStatus.getId() == employeeStatusEntity.getId()) {
@@ -75,8 +75,8 @@ public class ChangeEmployeeStatusController extends MenuController {
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
                 response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
-                statusCode = response.getStatusLine().getStatusCode();
-                if (checkStatusCode(statusCode)) {
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if (checkStatusCode(getStatusCode())) {
                     int id = Integer.parseInt(Constant.responseToString(response));
                     employeeStatusEntity.setId(id);
                     TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");

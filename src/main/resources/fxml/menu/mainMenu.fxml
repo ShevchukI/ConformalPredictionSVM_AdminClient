@@ -65,18 +65,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <Pagination fx:id="pagination_Doctor" maxPageIndicatorCount="100" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                <TableView fx:id="tableView_Doctor" onMouseClicked="#checkTab" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="tableColumnDoctor_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-                                                        <TableColumn fx:id="tableColumnDoctor_Name" minWidth="80.0" prefWidth="-1.0" text="Name" />
-                                                        <TableColumn fx:id="tableColumnDoctor_Surname" minWidth="80.0" prefWidth="-1.0" text="Surname" />
-                                                        <TableColumn fx:id="tableColumnDoctor_Specialization" minWidth="120.0" prefWidth="-1.0" text="Specialization" />
-                                                    </columns>
-                                                    <columnResizePolicy>
-                                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                                    </columnResizePolicy>
-                                                </TableView>
+                                                <fx:include fx:id="doctorTab" source="../tab/doctorTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -85,17 +74,7 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <Pagination fx:id="pagination_ModelDeveloper" maxPageIndicatorCount="100" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                <TableView fx:id="tableView_ModelDeveloper" onMouseClicked="#checkTab" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                    <columns>
-                                                        <TableColumn fx:id="tableColumnModelDeveloper_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-                                                        <TableColumn fx:id="tableColumnModelDeveloper_Name" minWidth="80.0" prefWidth="-1.0" text="Name" />
-                                                        <TableColumn fx:id="tableColumnModelDeveloper_Surname" minWidth="80.0" prefWidth="-1.0" text="Surname" />
-                                                    </columns>
-                                                    <columnResizePolicy>
-                                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                                    </columnResizePolicy>
-                                                </TableView>
+                                                <fx:include fx:id="modelDeveloperTab" source="../tab/modelDeveloperTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -123,13 +102,14 @@
                         <MenuButton fx:id="menuButton_Add" layoutX="8.0" layoutY="38.0" minWidth="140.0" mnemonicParsing="false" text="Add new" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
                             <items>
                                 <MenuItem fx:id="menuItem_AddDoctor" mnemonicParsing="false" text="Doctor" />
-                                <MenuItem fx:id="menuItem_AddModelDeveloper" mnemonicParsing="false" text="Model developer" />
-                                <MenuItem fx:id="menuItem_AddSpecialization" mnemonicParsing="false" text="Specialization" onAction="#addSpecialization"/>
+                                <MenuItem fx:id="menuItem_AddModelDeveloper" mnemonicParsing="false" onAction="#addModelDeveloper" text="Model developer" />
+                                <MenuItem fx:id="menuItem_AddSpecialization" mnemonicParsing="false" onAction="#addSpecialization" text="Specialization" />
                                 <MenuItem fx:id="menuItem_AddEmployeeStatus" mnemonicParsing="false" onAction="#addEmployeeStatus" text="Employee status" />
                             </items>
                         </MenuButton>
-                  <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" text="Change" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="50.0" onAction="#change"/>
-                  <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" onAction="#delete"/>
+                  <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#change" text="Change" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="50.0" />
+                  <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#delete" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" />
+                  <Button layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
                     </children>
                 </AnchorPane>
             </children>
@@ -147,24 +127,33 @@
                         </AnchorPane>
                     </children>
                 </StackPane>
+                <StackPane fx:id="stackPane_DoctorChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+                    <children>
+                        <AnchorPane fx:id="anchorPane_DoctorRegistration" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <fx:include fx:id="changeDoctor" source="../stack/entity/changeDoctor.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
                 <StackPane fx:id="stackPane_ModelDeveloperInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_ModelDeveloperInfo">
                             <children>
-                                <fx:include source="../stack/entityInfo/modelDeveloperInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="modelDeveloperInfo" source="../stack/entityInfo/modelDeveloperInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                             </children>
                         </AnchorPane>
                     </children>
                 </StackPane>
-                <StackPane fx:id="stackPane_DoctorRegistration" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
-                    <children>
-                        <AnchorPane fx:id="anchorPane_DoctorRegistration" prefHeight="200.0" prefWidth="200.0">
-                            <children>
-                                <fx:include source="../stack/entity/doctorRegistration.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </StackPane>
+            <StackPane fx:id="stackPane_ModelDeveloperChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+               <children>
+                   <AnchorPane fx:id="anchorPane_ModelDeveloperChange" prefHeight="200.0" prefWidth="200.0">
+                       <children>
+                           <fx:include fx:id="changeModelDeveloper" source="../stack/entity/changeModelDeveloper.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                       </children>
+                   </AnchorPane>
+               </children>
+            </StackPane>
                 <StackPane fx:id="stackPane_SpecializationInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_SpecializationInfo" prefHeight="200.0" prefWidth="200.0">
