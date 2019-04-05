@@ -4,10 +4,10 @@ public class DoctorEntity {
     private int id;
     private String name;
     private String surname;
-    private SpecializationEntity specializationEntity;
+    private SpecializationEntity specialization;
     private String telephone;
     private String email;
-    private EmployeeStatusEntity employeeStatusEntity;
+    private EmployeeStatusEntity employeeStatus;
 
     public DoctorEntity() {
     }
@@ -37,11 +37,11 @@ public class DoctorEntity {
     }
 
     public SpecializationEntity getSpecializationEntity() {
-        return specializationEntity;
+        return specialization;
     }
 
     public void setSpecializationEntity(SpecializationEntity specializationEntity) {
-        this.specializationEntity = specializationEntity;
+        this.specialization = specializationEntity;
     }
 
     public String getTelephone() {
@@ -60,11 +60,14 @@ public class DoctorEntity {
         this.email = email;
     }
 
-    public EmployeeStatusEntity getEmployeeStatusEntity() {
-        return employeeStatusEntity;
+    public EmployeeStatusEntity getEmployeeStatus() {
+        return employeeStatus;
     }
 
-    public void setEmployeeStatusEntity(EmployeeStatusEntity employeeStatusEntity) {
-        this.employeeStatusEntity = employeeStatusEntity;
+    public void setEmployeeStatus(EmployeeStatusEntity employeeStatusEntity) {
+        this.employeeStatus = employeeStatusEntity;
+    }
+    public String getVisibleSpecialization(){
+        return this.getSpecializationEntity().getName();
     }
 }

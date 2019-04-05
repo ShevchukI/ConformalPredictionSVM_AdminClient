@@ -9,12 +9,12 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.windows.tab.DoctorTabController">
    <children>
       <Pagination fx:id="pagination_Doctor" maxPageIndicatorCount="100" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-      <TableView fx:id="tableView_Doctor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="tableView_Doctor" onMouseClicked="#viewDoctor" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columns>
-            <TableColumn fx:id="tableColumnDoctor_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-            <TableColumn fx:id="tableColumnDoctor_Name" minWidth="80.0" prefWidth="-1.0" text="Name" />
-            <TableColumn fx:id="tableColumnDoctor_Surname" minWidth="80.0" prefWidth="-1.0" text="Surname" />
-            <TableColumn fx:id="tableColumnDoctor_Specialization" minWidth="120.0" prefWidth="-1.0" text="Specialization" />
+            <TableColumn fx:id="tableColumn_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
+            <TableColumn fx:id="tableColumn_Name" minWidth="80.0" prefWidth="-1.0" text="Name" />
+            <TableColumn fx:id="tableColumn_Surname" minWidth="80.0" prefWidth="-1.0" text="Surname" />
+            <TableColumn fx:id="tableColumn_Specialization" minWidth="120.0" prefWidth="-1.0" text="Specialization" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

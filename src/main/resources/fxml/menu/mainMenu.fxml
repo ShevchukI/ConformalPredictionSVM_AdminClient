@@ -101,7 +101,7 @@
                         </TabPane>
                         <MenuButton fx:id="menuButton_Add" layoutX="8.0" layoutY="38.0" minWidth="140.0" mnemonicParsing="false" text="Add new" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
                             <items>
-                                <MenuItem fx:id="menuItem_AddDoctor" mnemonicParsing="false" text="Doctor" />
+                                <MenuItem fx:id="menuItem_AddDoctor" mnemonicParsing="false" onAction="#addDoctor" text="Doctor" />
                                 <MenuItem fx:id="menuItem_AddModelDeveloper" mnemonicParsing="false" onAction="#addModelDeveloper" text="Model developer" />
                                 <MenuItem fx:id="menuItem_AddSpecialization" mnemonicParsing="false" onAction="#addSpecialization" text="Specialization" />
                                 <MenuItem fx:id="menuItem_AddEmployeeStatus" mnemonicParsing="false" onAction="#addEmployeeStatus" text="Employee status" />
@@ -122,7 +122,7 @@
                     <children>
                         <AnchorPane fx:id="anchorPane_DoctorInfo" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <fx:include source="../stack/entityInfo/doctorInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="doctorInfo" source="../stack/entityInfo/doctorInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
                             </children>
                         </AnchorPane>
                     </children>

@@ -2,8 +2,11 @@ package com.controllers.windows.menu;
 
 import com.tools.Constant;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ public abstract class MenuController {
     private Stage stage;
     private Stage newWindow;
     private int statusCode;
+    private final String borderStatusRed = "-fx-border-color: red";
+    private final String borderStatusInherit = "-fx-border-color: inherit";
 
     public void initialize(Stage stage) throws IOException {
         stage.setOnHidden(event -> {
@@ -92,5 +97,38 @@ public abstract class MenuController {
 
     public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
+    }
+
+    protected String[] getContent(HttpResponse response) {
+        String[] strings = new String[10];
+        String[] content = new String[3];
+        try {
+            strings = Constant.responseToString(response).split("\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] login = strings[3].split("_");
+        content[0] = login[2];
+        content[1] = strings[3];
+        content[2] = strings[7];
+        return content;
+    }
+
+    protected void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
+        textField.setTooltip(tooltip_Error);
+        textField.setStyle(borderStatusRed);
+    }
+
+    protected void setDefaultTooltip(TextField textField, Tooltip tooltip_Default){
+        textField.setTooltip(tooltip_Default);
+        textField.setStyle(borderStatusInherit);
+    }
+
+    public String getBorderStatusRed() {
+        return borderStatusRed;
+    }
+
+    public String getBorderStatusInherit() {
+        return borderStatusInherit;
     }
 }

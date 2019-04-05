@@ -15,7 +15,6 @@ import javafx.util.Callback;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ChangeModelDeveloperController extends MenuController {
@@ -32,8 +31,7 @@ public class ChangeModelDeveloperController extends MenuController {
     private Tooltip tooltip_ErrorSurname;
     private Tooltip tooltip_ErrorTelephone;
     private Tooltip tooltip_ErrorEmail;
-    private final String borderStatusRed = "-fx-border-color: red";
-    private final String borderStatusInherit = "-fx-border-color: inherit";
+
 
     @FXML
     private Label label_PaneName;
@@ -194,7 +192,6 @@ public class ChangeModelDeveloperController extends MenuController {
         }
         if (!textField_Telephone.getText().matches(Constant.getPHONEREG()) && !textField_Telephone.getText().equals("")) {
             setErrorTooltip(textField_Telephone, tooltip_ErrorTelephone);
-
         } else {
             setDefaultTooltip(textField_Telephone, tooltip_Telephone);
         }
@@ -206,30 +203,16 @@ public class ChangeModelDeveloperController extends MenuController {
         if (comboBox_Status.getSelectionModel().getSelectedItem() == null) {
             return false;
         }
-        if(textField_Name.getStyle().equals(borderStatusInherit)
-                && textField_Surname.getStyle().equals(borderStatusInherit)
-                && textField_Telephone.getStyle().equals(borderStatusInherit)
-                && textField_Email.getStyle().equals(borderStatusInherit)){
+        if(textField_Name.getStyle().equals(getBorderStatusInherit())
+                && textField_Surname.getStyle().equals(getBorderStatusInherit())
+                && textField_Telephone.getStyle().equals(getBorderStatusInherit())
+                && textField_Email.getStyle().equals(getBorderStatusInherit())){
             return true;
         } else {
             return false;
         }
     }
 
-    private String[] getContent(HttpResponse response) {
-        String[] strings = new String[10];
-        String[] content = new String[3];
-        try {
-            strings = Constant.responseToString(response).split("\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String[] login = strings[3].split("_");
-        content[0] = login[2];
-        content[1] = strings[3];
-        content[2] = strings[7];
-        return content;
-    }
 
     public boolean isChange() {
         return change;
@@ -295,13 +278,15 @@ public class ChangeModelDeveloperController extends MenuController {
         this.employeeStatus = employeeStatus;
     }
 
-    private void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
-        textField.setTooltip(tooltip_Error);
-        textField.setStyle(borderStatusRed);
-    }
 
-    private void setDefaultTooltip(TextField textField, Tooltip tooltip_Default){
-        textField.setTooltip(tooltip_Default);
-        textField.setStyle(borderStatusInherit);
-    }
+
+//    private void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
+//        textField.setTooltip(tooltip_Error);
+//        textField.setStyle(borderStatusRed);
+//    }
+//
+//    private void setDefaultTooltip(TextField textField, Tooltip tooltip_Default){
+//        textField.setTooltip(tooltip_Default);
+//        textField.setStyle(borderStatusInherit);
+//    }
 }

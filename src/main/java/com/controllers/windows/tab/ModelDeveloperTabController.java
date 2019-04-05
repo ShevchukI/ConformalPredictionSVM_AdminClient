@@ -98,14 +98,14 @@ public class ModelDeveloperTabController extends MenuController {
         Constant.getMapByName(Constant.getMiscellaneousMapName()).put("modelDeveloper",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
-        label_PaneNameChange.setText("Change ModelDeveloper");
+        label_PaneNameChange.setText("Change Model Developer");
         textField_NameChange
                 .setText(tableView.getSelectionModel().getSelectedItem().getName());
         textField_SurnameChange.setText(tableView.getSelectionModel().getSelectedItem().getSurname());
         textField_TelephoneChange.setText(tableView.getSelectionModel().getSelectedItem().getTelephone());
         textField_EmailChange.setText(tableView.getSelectionModel().getSelectedItem().getEmail());
         for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
-            if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getId()){
+            if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
                 comboBox_Status.getSelectionModel().select(employeeStatusEntity);
             }
         }

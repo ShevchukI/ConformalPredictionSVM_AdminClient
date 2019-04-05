@@ -1,21 +1,24 @@
 package com.controllers.windows.stack.entity;
 
+import com.controllers.requests.DoctorController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
+import com.tools.Constant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
-public class ChangeDoctorController {
+public class ChangeDoctorController extends MenuController {
     @Autowired
     HttpResponse response;
 
@@ -32,8 +35,6 @@ public class ChangeDoctorController {
     private Tooltip tooltip_ErrorTelephone;
     private Tooltip tooltip_ErrorEmail;
     private Tooltip tooltip_ErrorStatus;
-    private final String borderStatusRed = "-fx-border-color: red";
-    private final String borderStatusInherit = "-fx-border-color: inherit";
 
     @FXML
     private Label label_PaneName;
@@ -136,55 +137,214 @@ public class ChangeDoctorController {
     }
 
     public void save(ActionEvent event) {
-//        if (change) {
-//            if (checkFields()) {
-//                changeCurrent();
-//            }
-//        } else {
-//            if (checkFields()) {
-//                addNew();
-//            }
-//        }
+        if (change) {
+            if (checkFields()) {
+                changeCurrent();
+            }
+        } else {
+            if (checkFields()) {
+                addNew();
+            }
+        }
     }
 
-    public void cancel(ActionEvent event) {
+    public void cancel() {
+        textField_Name.clear();
+        textField_Surname.clear();
+        textField_Telephone.clear();
+        textField_Email.clear();
+        comboBox_Specialization.getSelectionModel().isSelected(0);
+        comboBox_Status.getSelectionModel().isSelected(0);
+        StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
+        stackPane.setDisable(true);
+        stackPane.setVisible(false);
     }
 
-//    private void changeCurrent() {
-//        boolean result = Constant.questionOkCancel("Do you really want to change Doctor "
-//                + textField_Name.getText() + "?");
-//        if (result) {
-//            doctorEntity = new DoctorEntity();
-//            doctorEntity.setId(Integer.parseInt(Constant
-//                    .getMapByName(Constant.getMiscellaneousMapName()).get("doctor").toString()));
-//            doctorEntity.setName(textField_Name.getText());
-//            doctorEntity.setSurname(textField_Surname.getText());
+    private void changeCurrent() {
+        boolean result = Constant.questionOkCancel("Do you really want to change Doctor "
+                + textField_Name.getText() + "?");
+        if (result) {
+            doctorEntity = new DoctorEntity();
+            doctorEntity.setId(Integer.parseInt(Constant
+                    .getMapByName(Constant.getMiscellaneousMapName()).get("doctor").toString()));
+            doctorEntity.setName(textField_Name.getText());
+            doctorEntity.setSurname(textField_Surname.getText());
 //            doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
-//            doctorEntity.setTelephone(textField_Telephone.getText());
-//            doctorEntity.setEmail(textField_Email.getText());
-//            doctorEntity.setEmployeeStatusEntity(comboBox_Status.getSelectionModel().getSelectedItem());
-//            response = ModelDeveloperController.createModelDeveloper(modelDeveloperEntity);
-//            setStatusCode(response.getStatusLine().getStatusCode());
-//            if (checkStatusCode(getStatusCode())) {
-//                TableView<ModelDeveloperEntity> tableView = (TableView<ModelDeveloperEntity>) this.menuController.getStage().getScene().lookup("#tableView_ModelDeveloper");
-//                for (ModelDeveloperEntity modelDeveloper : tableView.getItems()) {
-//                    if (modelDeveloper.getId() == modelDeveloperEntity.getId()) {
-//                        modelDeveloper.setName(modelDeveloperEntity.getName());
-//                        modelDeveloper.setSurname(modelDeveloperEntity.getSurname());
-//                        modelDeveloper.setTelephone(modelDeveloperEntity.getTelephone());
-//                        modelDeveloper.setEmail(modelDeveloperEntity.getEmail());
-//                        modelDeveloper.setEmployeeStatus(modelDeveloperEntity.getEmployeeStatus());
-//                    }
-//                }
-//                tableView.refresh();
-//                Constant.getAlert(null, "Employee status changed!", Alert.AlertType.INFORMATION);
-//                TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-//                textField.clear();
-//                Constant.getMapByName(Constant.getMiscellaneousMapName()).delete("modelDeveloper");
-//                StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
-//                stackPane.setDisable(true);
-//                stackPane.setVisible(false);
-//            }
-//        }
-//    }
+            doctorEntity.setTelephone(textField_Telephone.getText());
+            doctorEntity.setEmail(textField_Email.getText());
+//            doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
+            response = DoctorController.changeDoctor(doctorEntity,
+                    comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
+                    comboBox_Status.getSelectionModel().getSelectedItem().getId());
+            setStatusCode(response.getStatusLine().getStatusCode());
+            if (checkStatusCode(getStatusCode())) {
+                doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
+                doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
+                TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
+                for (DoctorEntity doctor : tableView.getItems()) {
+                    if (doctor.getId() == doctorEntity.getId()) {
+                        doctor.setName(doctorEntity.getName());
+                        doctor.setSurname(doctorEntity.getSurname());
+                        doctor.setSpecializationEntity(doctorEntity.getSpecializationEntity());
+                        doctor.setTelephone(doctorEntity.getTelephone());
+                        doctor.setEmail(doctorEntity.getEmail());
+                        doctor.setEmployeeStatus(doctorEntity.getEmployeeStatus());
+                    }
+                }
+                tableView.refresh();
+                Constant.getAlert(null, "Doctor changed!", Alert.AlertType.INFORMATION);
+                TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
+                textField.clear();
+                Constant.getMapByName(Constant.getMiscellaneousMapName()).delete("doctor");
+                StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
+                stackPane.setDisable(true);
+                stackPane.setVisible(false);
+            }
+        }
+    }
+
+    private void addNew() {
+        doctorEntity = new DoctorEntity();
+        doctorEntity.setName(textField_Name.getText());
+        doctorEntity.setSurname(textField_Surname.getText());
+//        doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
+        doctorEntity.setTelephone(textField_Telephone.getText());
+        doctorEntity.setEmail(textField_Email.getText());
+//        doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
+        response = DoctorController.createDoctor(doctorEntity,
+                comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
+                comboBox_Status.getSelectionModel().getSelectedItem().getId());
+        setStatusCode(response.getStatusLine().getStatusCode());
+        if (checkStatusCode(getStatusCode())) {
+            String[] content = getContent(response);
+            int id = Integer.parseInt(content[0]);
+            doctorEntity.setId(id);
+            doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
+            doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
+            Constant.getAlert(null, "Login: " + content[1] + "\nPassword: " + content[2], Alert.AlertType.INFORMATION);
+            TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
+            tableView.getItems().add(doctorEntity);
+            Constant.getAlert(null, "Doctor saved!", Alert.AlertType.INFORMATION);
+            StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
+            stackPane.setDisable(true);
+            stackPane.setVisible(false);
+        }
+    }
+
+
+    private boolean checkFields() {
+        if (textField_Name.getText() == null || textField_Name.getText().equals("") || textField_Name.getText().length() < 2) {
+            setErrorTooltip(textField_Name, tooltip_ErrorName);
+        } else {
+            setDefaultTooltip(textField_Name, tooltip_Name);
+        }
+        if (textField_Surname.getText() == null || textField_Surname.getText().equals("") || textField_Surname.getText().length() < 2) {
+            setErrorTooltip(textField_Surname, tooltip_ErrorSurname);
+
+        } else {
+            setDefaultTooltip(textField_Surname, tooltip_Surname);
+        }
+        if (!textField_Telephone.getText().matches(Constant.getPHONEREG()) && !textField_Telephone.getText().equals("")) {
+            setErrorTooltip(textField_Telephone, tooltip_ErrorTelephone);
+
+        } else {
+            setDefaultTooltip(textField_Telephone, tooltip_Telephone);
+        }
+        if (!textField_Email.getText().matches(Constant.getEMAILREG()) && !textField_Email.getText().equals("") ) {
+            setErrorTooltip(textField_Email, tooltip_ErrorEmail);
+        } else {
+            setDefaultTooltip(textField_Email, tooltip_Email);
+        }
+        if (comboBox_Status.getSelectionModel().getSelectedItem() == null) {
+            return false;
+        }
+        if(textField_Name.getStyle().equals(getBorderStatusInherit())
+                && textField_Surname.getStyle().equals(getBorderStatusInherit())
+                && textField_Telephone.getStyle().equals(getBorderStatusInherit())
+                && textField_Email.getStyle().equals(getBorderStatusInherit())){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public ArrayList<SpecializationEntity> getSpecializations() {
+        return specializations;
+    }
+
+    public void setSpecializations(ArrayList<SpecializationEntity> specializations) {
+        this.specializations = specializations;
+    }
+
+    public ArrayList<EmployeeStatusEntity> getEmployeeStatus() {
+        return employeeStatus;
+    }
+
+    public void setEmployeeStatus(ArrayList<EmployeeStatusEntity> employeeStatus) {
+        this.employeeStatus = employeeStatus;
+    }
+
+    public boolean isChange() {
+        return change;
+    }
+
+    public void setChange(boolean change) {
+        this.change = change;
+    }
+
+    public Label getLabel_PaneName() {
+        return label_PaneName;
+    }
+
+    public void setLabel_PaneName(Label label_PaneName) {
+        this.label_PaneName = label_PaneName;
+    }
+
+    public TextField getTextField_Name() {
+        return textField_Name;
+    }
+
+    public void setTextField_Name(TextField textField_Name) {
+        this.textField_Name = textField_Name;
+    }
+
+    public TextField getTextField_Surname() {
+        return textField_Surname;
+    }
+
+    public void setTextField_Surname(TextField textField_Surname) {
+        this.textField_Surname = textField_Surname;
+    }
+
+    public ComboBox<SpecializationEntity> getComboBox_Specialization() {
+        return comboBox_Specialization;
+    }
+
+    public void setComboBox_Specialization(ComboBox<SpecializationEntity> comboBox_Specialization) {
+        this.comboBox_Specialization = comboBox_Specialization;
+    }
+
+    public TextField getTextField_Telephone() {
+        return textField_Telephone;
+    }
+
+    public void setTextField_Telephone(TextField textField_Telephone) {
+        this.textField_Telephone = textField_Telephone;
+    }
+
+    public TextField getTextField_Email() {
+        return textField_Email;
+    }
+
+    public void setTextField_Email(TextField textField_Email) {
+        this.textField_Email = textField_Email;
+    }
+
+    public ComboBox<EmployeeStatusEntity> getComboBox_Status() {
+        return comboBox_Status;
+    }
+
+    public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
+        this.comboBox_Status = comboBox_Status;
+    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DoctorPage {
     private int numberOfPages;
-    private List<DoctorEntity> doctorEntityList;
+    private List<DoctorEntity> doctorEntities;
 
     public static DoctorPage fromJson(HttpResponse response) {
         BufferedReader reader = null;
@@ -33,11 +33,12 @@ public class DoctorPage {
         this.numberOfPages = numberOfPages;
     }
 
-    public List<DoctorEntity> getDoctorEntityList() {
-        return doctorEntityList;
+    public List<DoctorEntity> getDoctorEntities() {
+        return doctorEntities;
     }
 
-    public void setDoctorEntityList(List<DoctorEntity> doctorEntityList) {
-        this.doctorEntityList = doctorEntityList;
+    public void setDoctorEntities(List<DoctorEntity> doctorEntityList) {
+        this.doctorEntities = doctorEntityList;
     }
+
 }
