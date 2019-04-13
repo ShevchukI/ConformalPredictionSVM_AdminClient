@@ -4,6 +4,7 @@ import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -41,8 +42,8 @@ public class ChangeSpecializationController extends MenuController {
                     + textField_Name.getText() + "?");
             if (result) {
                 specializationEntity = new SpecializationEntity();
-                specializationEntity.setId(Integer.parseInt(Constant
-                        .getMapByName(Constant.getMiscellaneousMapName()).get("specialization").toString()));
+                specializationEntity.setId(Integer.parseInt(HazleCastMap
+                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("specialization").toString()));
                 specializationEntity.setName(textField_Name.getText());
                 response = SpecializationController.changeSpecialization(specializationEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
@@ -57,7 +58,7 @@ public class ChangeSpecializationController extends MenuController {
                     Constant.getAlert(null, "Specialization changed!", Alert.AlertType.INFORMATION);
                     TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                     textField.clear();
-                    Constant.getMapByName(Constant.getMiscellaneousMapName()).delete("specialization");
+                    HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("specialization");
                     StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_SpecializationChange");
                     stackPane.setDisable(true);
                     stackPane.setVisible(false);

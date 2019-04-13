@@ -4,6 +4,7 @@ import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -103,7 +104,7 @@ public class EmployeeStatusTabController extends MenuController {
     }
 
     public void changeEmployeeStatusFromTable(TableView<EmployeeStatusEntity> tableView) {
-        Constant.getMapByName(Constant.getMiscellaneousMapName()).put("employeeStatus",
+        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("employeeStatus",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Employee Status");

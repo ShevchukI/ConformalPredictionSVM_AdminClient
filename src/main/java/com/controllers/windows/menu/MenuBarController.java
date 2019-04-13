@@ -9,20 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.IOException;
 
 /**
- * Created by Admin on 07.01.2019.
+ * Created by User on 07.01.2019.
  */
 public class MenuBarController extends MenuController {
 
     @Autowired
     LoginMenuController loginMenuController;
-//    @Autowired
-//    ChangeInfoMenuController changeInfoMenuController;
 
     private WindowsController windowsController;
 
     private MenuController menuController;
-
-//    private AddDataSetMenuController addDataSetMenuController;
 
     public void init(MenuController menuController) {
         windowsController = new WindowsController();
@@ -34,7 +30,7 @@ public class MenuBarController extends MenuController {
     }
 
     public void signOut(ActionEvent event) throws IOException {
-        windowsController.openWindow("admin/loginMenu", menuController.getStage(), loginMenuController,
+        windowsController.openWindow(Constant.getLoginMenuRoot(), menuController.getStage(), loginMenuController,
                 null, false, 341, 236);
     }
 

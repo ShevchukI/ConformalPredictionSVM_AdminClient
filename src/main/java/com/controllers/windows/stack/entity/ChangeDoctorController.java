@@ -6,6 +6,7 @@ import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -165,8 +166,8 @@ public class ChangeDoctorController extends MenuController {
                 + textField_Name.getText() + "?");
         if (result) {
             doctorEntity = new DoctorEntity();
-            doctorEntity.setId(Integer.parseInt(Constant
-                    .getMapByName(Constant.getMiscellaneousMapName()).get("doctor").toString()));
+            doctorEntity.setId(Integer.parseInt(HazleCastMap
+                    .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("doctor").toString()));
             doctorEntity.setName(textField_Name.getText());
             doctorEntity.setSurname(textField_Surname.getText());
 //            doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
@@ -195,7 +196,7 @@ public class ChangeDoctorController extends MenuController {
                 Constant.getAlert(null, "Doctor changed!", Alert.AlertType.INFORMATION);
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
-                Constant.getMapByName(Constant.getMiscellaneousMapName()).delete("doctor");
+                HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("doctor");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
@@ -258,14 +259,21 @@ public class ChangeDoctorController extends MenuController {
         if (comboBox_Status.getSelectionModel().getSelectedItem() == null) {
             return false;
         }
-        if(textField_Name.getStyle().equals(getBorderStatusInherit())
-                && textField_Surname.getStyle().equals(getBorderStatusInherit())
-                && textField_Telephone.getStyle().equals(getBorderStatusInherit())
-                && textField_Email.getStyle().equals(getBorderStatusInherit())){
+        if(textField_Name.getStyle().equals(Constant.getBorderColorInherit())
+                && textField_Surname.getStyle().equals(Constant.getBorderColorInherit())
+                && textField_Telephone.getStyle().equals(Constant.getBorderColorInherit())
+                && textField_Email.getStyle().equals(Constant.getBorderColorInherit())){
             return true;
         } else {
             return false;
         }
+    }
+
+    public void clearFields(){
+        getTextField_Name().clear();
+        getTextField_Surname().clear();
+        getTextField_Telephone().clear();
+        getTextField_Email().clear();
     }
 
     public ArrayList<SpecializationEntity> getSpecializations() {

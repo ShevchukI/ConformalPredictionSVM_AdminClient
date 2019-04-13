@@ -8,10 +8,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 
-import static com.controllers.requests.MainController.crudEntity;
-import static com.controllers.requests.MainController.getUrl;
-
-public class DoctorController {
+public class DoctorController extends MainController{
     public static HttpResponse createDoctor(DoctorEntity doctorEntity, int specializationId, int employeeStatusId) {
         String json = new Gson().toJson(doctorEntity);
         String url = getUrl() + "/doctor/" + specializationId + "/" + employeeStatusId;

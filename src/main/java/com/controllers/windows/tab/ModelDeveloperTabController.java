@@ -6,6 +6,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.models.ModelDeveloperPage;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,7 +60,7 @@ public class ModelDeveloperTabController extends MenuController {
 
     public void init(MenuController menuController) {
         this.menuController = menuController;
-        pageIndex = Integer.parseInt(Constant.getMapByName(Constant.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
+        pageIndex = Integer.parseInt(HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
 
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_ModelDeveloper.getItems().
@@ -95,7 +96,7 @@ public class ModelDeveloperTabController extends MenuController {
     }
 
     public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView){
-        Constant.getMapByName(Constant.getMiscellaneousMapName()).put("modelDeveloper",
+        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("modelDeveloper",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Model Developer");

@@ -1,11 +1,5 @@
 package com.tools;
 
-import com.hazelcast.config.Config;
-import com.hazelcast.config.MapConfig;
-import com.hazelcast.config.NetworkConfig;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -18,282 +12,51 @@ import java.util.Optional;
 
 public class Constant {
 
-    private static final String INSTANCE_NAME = "mainAdminInstance";
-    private static final String USER_MAP_NAME = "admin";
-    private static final String KEY_MAP_NAME = "key";
-    private static final String MISCELLANEOUS_MAP_NAME = "misc";
-    private static final int OBJECT_ON_PAGE = 30;
+    //Hazelcast
+    private final static String KEY = "key";
+    private final static String VECTOR = "vector";
+    private final static String LOGIN = "login";
+    private final static String PASSWORD = "password";
+    private final static String PAGE_INDEX_DOCTOR = "pageIndexDoctor";
+    private final static String PAGE_INDEX_MODEL_DEVELOPER = "pageIndexModelDeveloper";
+
+    //String matches
     private final static String PHONEREG = "[+]{0,1}[0-9]{1,15}";
     private final static String EMAILREG = "[a-zA-Z0-9]+[@][a-z]+[.][a-z]{2,3}";
 
+    //Icons
+    private final static String SIGN_IN_BUTTON_ICON = "/img/icons/signIn.png";
+    private final static String APPLICATION_ICON = "img/icons/icon.png";
 
+    //FXML root
+    private final static String MAIN_MENU_ROOT = "fxml/menu/mainMenu.fxml";
+    private final static String LOGIN_MENU_ROOT = "fxml/admin/loginMenu.fxml";
 
-    public static void createInstanceAndMap() {
-        Config config = new Config();
-        config.setInstanceName(INSTANCE_NAME);
-        NetworkConfig networkConfig = config.getNetworkConfig();
-        networkConfig.setPort(2019);
-        config.addMapConfig(createMapWithName(USER_MAP_NAME));
-        config.addMapConfig(createMapWithName(KEY_MAP_NAME));
-        config.addMapConfig(createMapWithName(MISCELLANEOUS_MAP_NAME));
-        MapConfig mapConfig = new MapConfig();
-        mapConfig.setName(USER_MAP_NAME);
-        HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(config);
-    }
-
-    public static HazelcastInstance getInstance() {
-        return Hazelcast.getHazelcastInstanceByName(INSTANCE_NAME);
-    }
-
-    public static IMap getMapByName(String mapName) {
-        return Hazelcast.getHazelcastInstanceByName(INSTANCE_NAME).getMap(mapName);
-    }
-
-    private static MapConfig createMapWithName(String mapName) {
-        MapConfig mapConfig = new MapConfig();
-        mapConfig.setName(mapName);
-        return mapConfig;
-    }
+    //Miscellaneous
+    private static final int OBJECT_ON_PAGE = 30;
+    private final static String BORDER_COLOR_INHERIT = "-fx-border-color: inherit";
+    private final static String BORDER_COLOR_RED = "-fx-border-color: red";
 
     public static String[] getAuth() {
         String[] auth = new String[2];
-        auth[0] = new Encryptor().decrypt(getMapByName(KEY_MAP_NAME).get("key").toString(),
-                getMapByName(KEY_MAP_NAME).get("vector").toString(), getMapByName(USER_MAP_NAME).get("login").toString());
-        auth[1] = new Encryptor().decrypt(getMapByName(KEY_MAP_NAME).get("key").toString(),
-                getMapByName(KEY_MAP_NAME).get("vector").toString(), getMapByName(USER_MAP_NAME).get("password").toString());
+        String login = Encryptor.decrypt(HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(KEY).toString(),
+                HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(VECTOR).toString(), HazleCastMap.getMapByName(HazleCastMap.getUserMapName()).get(LOGIN).toString());
+        String password = Encryptor.decrypt(HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(KEY).toString(),
+                HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(VECTOR).toString(), HazleCastMap.getMapByName(HazleCastMap.getUserMapName()).get(PASSWORD).toString());
+        auth[0] = login;
+        auth[1] = password;
         return auth;
     }
 
-    public static void fillUserMap(String[] authorization){
-        String key = new Encryptor().genRandString();
-        String vector = new Encryptor().genRandString();
-        getMapByName(USER_MAP_NAME).put("login", new Encryptor().encrypt(key, vector, authorization[0]));
-        getMapByName(USER_MAP_NAME).put("password", new Encryptor().encrypt(key, vector, authorization[1]));
-        getMapByName(KEY_MAP_NAME).put("key", key);
-        getMapByName(KEY_MAP_NAME).put("vector", vector);
-        getMapByName(MISCELLANEOUS_MAP_NAME).put("pageIndexDoctor", 1);
-        getMapByName(MISCELLANEOUS_MAP_NAME).put("pageIndexModelDeveloper", 1);
-    }
-
     public static String responseToString(HttpResponse response) throws IOException {
-        return  EntityUtils.toString(response.getEntity());
+        return EntityUtils.toString(response.getEntity());
     }
 
     public static int getObjectOnPage() {
         return OBJECT_ON_PAGE;
     }
 
-    //
-//    public static void fillMap(SpecialistEntity specialistEntity, String login, String password) {
-//        String key = new Encryptor().genRandString();
-//        String vector = new Encryptor().genRandString();
-//        getMapByName("key").put("key", key);
-//        getMapByName("key").put("vector", vector);
-//        getMapByName("user").put("login", new Encryptor().encrypt(key, vector, login));
-//        getMapByName("user").put("password", new Encryptor().encrypt(key, vector, password));
-//        getMapByName("user").put("id", specialistEntity.getId());
-//        getMapByName("user").put("name", specialistEntity.getName());
-//        getMapByName("user").put("surname", specialistEntity.getSurname());
-//        getMapByName("misc").put("pageIndexAllDataset", "1");
-//        getMapByName("misc").put("pageIndexMyDataset", "1");
-//        getMapByName("misc").put("pageIndexAllConfiguration", "1");
-//        getMapByName("misc").put("pageIndexMyConfiguration", "1");
-//
-////        getMap().put("key", key);
-////        getMap().put("vector", vector);
-////        getMap().put("login", new Encryptor().encrypt(key, vector, login));
-////        getMap().put("password", new Encryptor().encrypt(key, vector, password));
-////        getMap().put("id", specialistEntity.getId());
-////        getMap().put("name", specialistEntity.getName());
-////        getMap().put("surname", specialistEntity.getSurname());
-////        getMap().put("pageIndex", "1");
-//    }
-//
-//    public static String[] getAuth() {
-//        String[] auth = new String[2];
-//        auth[0] = new Encryptor().decrypt(getMapByName("key").get("key").toString(),
-//                getMapByName("key").get("vector").toString(), getMapByName("user").get("login").toString());
-//        auth[1] = new Encryptor().decrypt(getMapByName("key").get("key").toString(),
-//                getMapByName("key").get("vector").toString(), getMapByName("user").get("password").toString());
-//        return auth;
-//    }
-//
-//    public static ArrayList<SVMParameter> fillKernelType(HttpResponse response) throws IOException {
-//        StringBuilder stringBuilder = new StringBuilder();
-//        DataInputStream dataInputStream = new DataInputStream(response.getEntity().getContent());
-//        String line;
-//        while ((line = dataInputStream.readLine()) != null) {
-//            stringBuilder.append(line);
-//        }
-//        dataInputStream.close();
-//        String json = stringBuilder.toString();
-//        Gson gson = new Gson();
-//        Type founderListType = new TypeToken<ArrayList<SVMParameter>>() {
-//        }.getType();
-//        ArrayList<SVMParameter> allTypes = gson.fromJson(json, founderListType);
-//        ArrayList<SVMParameter> SVCkernelTypes = new ArrayList<>();
-//        for (SVMParameter svmParameter : allTypes) {
-//            if (svmParameter.getName().equals("LINEAR")
-//                    || svmParameter.getName().equals("POLY")
-//                    || svmParameter.getName().equals("RBF")
-//                    || svmParameter.getName().equals("SIGMOID")) {
-//                SVCkernelTypes.add(svmParameter);
-//            }
-//        }
-//        Collections.sort(SVCkernelTypes, SVMParamNameComparator);
-//        return SVCkernelTypes;
-//    }
-//
-//    public static Comparator<SVMParameter> SVMParamNameComparator = new Comparator<SVMParameter>() {
-//
-//        @Override
-//        public int compare(SVMParameter param1, SVMParameter param2) {
-//            String parameterName1 = param1.getName().toUpperCase();
-//            String parameterName2 = param2.getName().toUpperCase();
-//            return parameterName1.compareTo(parameterName2);
-//        }
-//    };
-//
-//    public static int getCountSplitString(String string, String delimeter) {
-//        return string.split(delimeter).length;
-//    }
-//
-//    public static int getSvmDegree() {
-//        return SVM_DEGREE;
-//    }
-//
-//    public static double getSvmGamma(int columnCount) {
-//        return SVM_GAMMA / columnCount;
-//    }
-//
-//    public static double getSvmC() {
-//        return SVM_C;
-//    }
-//
-//    public static double getSvmNu() {
-//        return SVM_NU;
-//    }
-//
-//    public static double getSvmEps() {
-//        return SVM_EPS;
-//    }
-//
-//    public static double formatterSliderValueToDouble(double text, String pattern) {
-//        DecimalFormat formatter = new DecimalFormat(pattern);
-//        String string = formatter.format(text);
-//        return Double.parseDouble(string.replace(",", "."));
-//    }
-//
-//    public static String responseToString(HttpResponse response) throws IOException {
-//        HttpEntity entity = response.getEntity();
-//        String content = EntityUtils.toString(entity);
-////        return  EntityUtils.toString(response.getEntity());
-//        return content;
-//    }
-//
-//    public static ArrayList<Predict> getPredictListFromJson(HttpResponse response) throws IOException {
-//        StringBuilder stringBuilder = new StringBuilder();
-//        DataInputStream dataInputStream = new DataInputStream(response.getEntity().getContent());
-//        String line;
-//        while ((line = dataInputStream.readLine()) != null) {
-//            stringBuilder.append(line);
-//        }
-//        dataInputStream.close();
-//        String json = stringBuilder.toString();
-//        Gson gson = new Gson();
-//        Type founderListType = new TypeToken<ArrayList<Predict>>() {
-//        }.getType();
-//        ArrayList<Predict> predicts = gson.fromJson(json, founderListType);
-//        return predicts;
-//    }
-//
-//    public static void printTableAndMatrix(String outputFileName, ArrayList<Predict> predicts) throws IOException {
-//        SettingsExcel settingsExcel = new SettingsExcel();
-//        XSSFWorkbook workbook = new XSSFWorkbook();
-//        XSSFSheet sheet = workbook.createSheet("Result");
-//        XSSFCellStyle styleStandart = settingsExcel.createStyleForCellStandart(workbook);
-//
-//        String[] columnsTitle = {"Id", "Real class", "Predict class", "Confidence", "Credibility",
-//                "pPositive", "pNegative", "Alpha positive", "Alpha negative", "Parameters"};
-//        settingsExcel.createCellForTitle(sheet, columnsTitle);
-//        Row row;
-//        Cell cell;
-//
-//        settingsExcel.createMainCell(sheet, predicts);
-//
-//        int indentRow = predicts.size() + 2;
-//
-//        row = sheet.createRow(indentRow);
-//        cell = row.createCell(0, CellType.STRING);
-//        cell.setCellValue("");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(1, CellType.STRING);
-//        cell.setCellValue("Real: 1\nPredict: 1");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(2, CellType.STRING);
-//        cell.setCellValue("Real: -1\nPredict: 1");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(3, CellType.STRING);
-//        cell.setCellValue("Real: 1\nPredict: -1");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(4, CellType.STRING);
-//        cell.setCellValue("Real: -1\nPredict: -1");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(5, CellType.STRING);
-//        cell.setCellValue("Empty");
-//        cell.setCellStyle(styleStandart);
-//
-//        cell = row.createCell(6, CellType.STRING);
-//        cell.setCellValue("Uncertain predictions");
-//        cell.setCellStyle(styleStandart);
-//
-//        double[] significance = {0.01, 0.05, 0.1, 0.15, 0.2};
-//
-//        int column = 6;
-//        int[] matrix = new int[column];
-//
-//        for (int i = 0; i < significance.length; i++) {
-//            for (int j = 0; j < column; j++) {
-//                matrix[j] = 0;
-//            }
-//            for (int k = 0; k < predicts.size(); k++) {
-//                if ((predicts.get(k).getPPositive() < significance[i]
-//                        && predicts.get(k).getPNegative() < significance[i])) {
-//                    matrix[4] = matrix[4] + 1;
-//                } else if (predicts.get(k).getPPositive() >= significance[i]
-//                        && predicts.get(k).getPNegative() >= significance[i]) {
-//                    matrix[5] = matrix[5] + 1;
-//                } else if (predicts.get(k).getRealClass() == 1 && predicts.get(k).getPredictClass() == 1) {
-//                    matrix[0] = matrix[0] + 1;
-//                } else if (predicts.get(k).getRealClass() == -1 && predicts.get(k).getPredictClass() == 1) {
-//                    matrix[1] = matrix[1] + 1;
-//                } else if (predicts.get(k).getRealClass() == 1 && predicts.get(k).getPredictClass() == -1) {
-//                    matrix[2] = matrix[2] + 1;
-//                } else if (predicts.get(k).getRealClass() == -1 && predicts.get(k).getPredictClass() == -1) {
-//                    matrix[3] = matrix[3] + 1;
-//                }
-//
-//            }
-//            settingsExcel.createCellRowMatrixRegionPrediction(sheet, matrix, significance[i], indentRow + i);
-//        }
-//
-////        File file = null;
-////        try {
-//         File   file = new File(outputFileName + ".xlsx");
-//            file.getParentFile().mkdirs();
-////        } catch (NullPointerException e) {
-////            getAlert(null, "Invalid directory", Alert.AlertType.ERROR);
-////        }
-//        FileOutputStream outFile = new FileOutputStream(file);
-//        workbook.write(outFile);
-//        outFile.close();
-//    }
-//
+
     public static void getAlert(String header, String content, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setHeaderText(header);
@@ -301,29 +64,17 @@ public class Constant {
         alert.showAndWait();
     }
 
-    public static boolean questionOkCancel(String questionText){
+    public static boolean questionOkCancel(String questionText) {
         ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         Alert questionOfCancellation = new Alert(Alert.AlertType.WARNING, questionText, ok, cancel);
         questionOfCancellation.setHeaderText(null);
         Optional<ButtonType> result = questionOfCancellation.showAndWait();
-        if(result.orElse(cancel) == ok){
+        if (result.orElse(cancel) == ok) {
             return true;
         } else {
             return false;
         }
-    }
-
-    public static String getUserMapName() {
-        return USER_MAP_NAME;
-    }
-
-    public static String getKeyMapName() {
-        return KEY_MAP_NAME;
-    }
-
-    public static String getMiscellaneousMapName() {
-        return MISCELLANEOUS_MAP_NAME;
     }
 
     public static String getPHONEREG() {
@@ -332,5 +83,53 @@ public class Constant {
 
     public static String getEMAILREG() {
         return EMAILREG;
+    }
+
+    public static String getKEY() {
+        return KEY;
+    }
+
+    public static String getVECTOR() {
+        return VECTOR;
+    }
+
+    public static String getLOGIN() {
+        return LOGIN;
+    }
+
+    public static String getPASSWORD() {
+        return PASSWORD;
+    }
+
+    public static String getPageIndexDoctor() {
+        return PAGE_INDEX_DOCTOR;
+    }
+
+    public static String getPageIndexModelDeveloper() {
+        return PAGE_INDEX_MODEL_DEVELOPER;
+    }
+
+    public static String getSignInButtonIcon() {
+        return SIGN_IN_BUTTON_ICON;
+    }
+
+    public static String getMainMenuRoot() {
+        return MAIN_MENU_ROOT;
+    }
+
+    public static String getBorderColorInherit() {
+        return BORDER_COLOR_INHERIT;
+    }
+
+    public static String getBorderColorRed() {
+        return BORDER_COLOR_RED;
+    }
+
+    public static String getLoginMenuRoot() {
+        return LOGIN_MENU_ROOT;
+    }
+
+    public static String getApplicationIcon() {
+        return APPLICATION_ICON;
     }
 }

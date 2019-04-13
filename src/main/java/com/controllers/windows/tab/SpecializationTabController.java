@@ -4,6 +4,7 @@ import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -105,7 +106,7 @@ public class SpecializationTabController extends MenuController{
     }
 
     public void changeSpecializationFromTable(TableView<SpecializationEntity> tableView) {
-        Constant.getMapByName(Constant.getMiscellaneousMapName()).put("specialization",
+        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("specialization",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Specialization");

@@ -4,6 +4,7 @@ import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -45,8 +46,8 @@ public class ChangeEmployeeStatusController extends MenuController {
                     + textField_Name.getText() + "?");
             if (result) {
                 employeeStatusEntity = new EmployeeStatusEntity();
-                employeeStatusEntity.setId(Integer.parseInt(Constant
-                        .getMapByName(Constant.getMiscellaneousMapName()).get("employeeStatus").toString()));
+                employeeStatusEntity.setId(Integer.parseInt(HazleCastMap
+                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("employeeStatus").toString()));
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
                 response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
@@ -63,7 +64,7 @@ public class ChangeEmployeeStatusController extends MenuController {
                     Constant.getAlert(null, "Employee status changed!", Alert.AlertType.INFORMATION);
                     TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                     textField.clear();
-                    Constant.getMapByName(Constant.getMiscellaneousMapName()).delete("employeeStatus");
+                    HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("employeeStatus");
                     StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
                     stackPane.setDisable(true);
                     stackPane.setVisible(false);

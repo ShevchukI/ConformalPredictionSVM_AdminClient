@@ -2,6 +2,7 @@ package com.controllers.windows.menu;
 
 import com.controllers.windows.admin.LoginMenuController;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -14,7 +15,7 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by Admin on 16.03.2019.
+ * Created by User on 16.03.2019.
  */
 public class WindowsController {
 
@@ -22,8 +23,8 @@ public class WindowsController {
     private Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
     public void start(Stage stage) throws IOException {
-        Constant.createInstanceAndMap();
-        openWindow("admin/loginMenu", stage, new LoginMenuController(), "Admin client", false, 341, 236);
+        HazleCastMap.createInstanceAndMap();
+        openWindow(Constant.getLoginMenuRoot(), stage, new LoginMenuController(), "User client", false, 341, 236);
 //        FXMLLoader loginMenuLoader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/admin/loginMenu.fxml"));
 //        Pane loginMenuPane = (Pane) loginMenuLoader.load();
 //        Scene loginMenuScene = new Scene(loginMenuPane);
@@ -37,7 +38,7 @@ public class WindowsController {
     }
 
     public void openWindow(String rootName, Stage stage, MenuController controller, String title, boolean resizable, int width, int height) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/" + rootName + ".fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(rootName));
         Pane pane = (Pane) loader.load();
         Scene scene = new Scene(pane);
         stage.setScene(scene);
@@ -56,7 +57,7 @@ public class WindowsController {
         if (title != null) {
             stage.setTitle(title);
         }
-        stage.getIcons().add(new Image("img/icons/icon.png"));
+        stage.getIcons().add(new Image(Constant.getApplicationIcon()));
         controller = (MenuController) loader.getController();
         controller.initialize(stage);
 //        if (rootName.equals("loginMenu.fxml")) {
@@ -66,20 +67,20 @@ public class WindowsController {
         stage.show();
     }
 
-    public void openWindowResizable(String rootName, Stage stage, MenuController controller, String title, int minWidth, int minHeight) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/" + rootName + ".fxml"));
-        Pane pane = (Pane) loader.load();
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.setMinWidth(minWidth);
-        stage.setMinHeight(minHeight);
-        stage.setMaxWidth(sSize.getWidth());
-        stage.setMaxHeight(sSize.getHeight());
-        stage.setResizable(true);
-        stage.setTitle(title);
-        stage.getIcons().add(new Image("img/icons/icon.png"));
-        controller = (MenuController) loader.getController();
-        controller.initialize(stage);
-        stage.show();
-    }
+//    public void openWindowResizable(String rootName, Stage stage, MenuController controller, String title, int minWidth, int minHeight) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(rootName));
+//        Pane pane = (Pane) loader.load();
+//        Scene scene = new Scene(pane);
+//        stage.setScene(scene);
+//        stage.setMinWidth(minWidth);
+//        stage.setMinHeight(minHeight);
+//        stage.setMaxWidth(sSize.getWidth());
+//        stage.setMaxHeight(sSize.getHeight());
+//        stage.setResizable(true);
+//        stage.setTitle(title);
+//        stage.getIcons().add(new Image(Constant.getApplicationIcon()));
+//        controller = (MenuController) loader.getController();
+//        controller.initialize(stage);
+//        stage.show();
+//    }
 }

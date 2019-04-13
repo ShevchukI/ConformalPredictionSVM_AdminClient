@@ -19,6 +19,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,7 +34,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by Admin on 16.03.2019.
+ * Created by User on 16.03.2019.
  */
 public class MainMenuController extends MenuController {
 
@@ -47,6 +48,10 @@ public class MainMenuController extends MenuController {
     private ArrayList<StackPane> stackPanes;
     private ArrayList<EmployeeStatusEntity> statusEntities;
     private ArrayList<SpecializationEntity> specializationEntities;
+    private static final String ADD_NEW_DOCTOR = "Add new Doctor";
+    private static final String ADD_NEW_MODEL_DEVELOPER = "Add new Model Developer";
+    private static final String ADD_NEW_SPECIALIZATION = "Add New Specialization";
+    private static final String ADD_NEW_EMPLOYEE_STATUS = "Add New Employee Status";
 
     @FXML
     private MenuBarController menuBarController;
@@ -100,10 +105,9 @@ public class MainMenuController extends MenuController {
     private Tab tab_EmployeeStatus;
 
 
-
     public void initialize(Stage stage) {
         stage.setOnHidden(event -> {
-            Constant.getInstance().getLifecycleService().shutdown();
+            HazleCastMap.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
         this.menuBarController.init(this);
@@ -138,50 +142,34 @@ public class MainMenuController extends MenuController {
         this.employeeStatusInfoController.init(this);
         this.specializationInfoController.init(this);
         this.changeSpecializationController.init(this);
-
-
-    }
-
-    public void checkTab() {
-        if (tab_Doctor.isSelected()) {
-            activateStackPane(stackPane_DoctorInfo, stackPanes);
-        } else if (tab_ModelDeveloper.isSelected()) {
-            activateStackPane(stackPane_ModelDeveloperInfo, stackPanes);
-        }
     }
 
     public void addDoctor(ActionEvent event) {
         activateStackPane(stackPane_DoctorChange, stackPanes);
         changeDoctorController.setChange(false);
-        changeDoctorController.getLabel_PaneName().setText("Add new Doctor");
-        changeDoctorController.getTextField_Name().clear();
-        changeDoctorController.getTextField_Surname().clear();
-        changeDoctorController.getTextField_Telephone().clear();
-        changeDoctorController.getTextField_Email().clear();
+        changeDoctorController.getLabel_PaneName().setText(ADD_NEW_DOCTOR);
+        changeDoctorController.clearFields();
     }
 
     public void addModelDeveloper(ActionEvent event) {
         activateStackPane(stackPane_ModelDeveloperChange, stackPanes);
         changeModelDeveloperController.setChange(false);
-        changeModelDeveloperController.getLabel_PaneName().setText("Add new Model Developer");
-        changeModelDeveloperController.getTextField_Name().clear();
-        changeModelDeveloperController.getTextField_Surname().clear();
-        changeModelDeveloperController.getTextField_Telephone().clear();
-        changeModelDeveloperController.getTextField_Email().clear();
+        changeModelDeveloperController.getLabel_PaneName().setText(ADD_NEW_MODEL_DEVELOPER);
+        changeDoctorController.clearFields();
 //        changeModelDeveloperController.setEmployeeStatus(statusEntities);
     }
 
     public void addSpecialization(ActionEvent event) {
         activateStackPane(stackPane_SpecializationChange, stackPanes);
         changeSpecializationController.setChange(false);
-        changeSpecializationController.getLabel_PaneName().setText("Add New Specialization");
+        changeSpecializationController.getLabel_PaneName().setText(ADD_NEW_SPECIALIZATION);
         changeSpecializationController.getTextField_Name().clear();
     }
 
     public void addEmployeeStatus(ActionEvent event) {
         activateStackPane(stackPane_EmployeeStatusChange, stackPanes);
         changeEmployeeStatusController.setChange(false);
-        changeEmployeeStatusController.getLabel_PaneName().setText("Add New Employee Status");
+        changeEmployeeStatusController.getLabel_PaneName().setText(ADD_NEW_EMPLOYEE_STATUS);
         changeEmployeeStatusController.getTextField_Name().clear();
         changeEmployeeStatusController.getCheckBox_WorkEnable().setSelected(true);
     }
@@ -314,7 +302,5 @@ public class MainMenuController extends MenuController {
         doctorTabController.refreshPage();
         modelDeveloperTabController.refreshPage();
     }
-
-
 
 }

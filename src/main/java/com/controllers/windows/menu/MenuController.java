@@ -1,6 +1,7 @@
 package com.controllers.windows.menu;
 
 import com.tools.Constant;
+import com.tools.HazleCastMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
@@ -12,19 +13,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by Admin on 10.01.2019.
+ * Created by User on 10.01.2019.
  */
 public abstract class MenuController {
 
     private Stage stage;
     private Stage newWindow;
     private int statusCode;
-    private final String borderStatusRed = "-fx-border-color: red";
-    private final String borderStatusInherit = "-fx-border-color: inherit";
 
     public void initialize(Stage stage) throws IOException {
         stage.setOnHidden(event -> {
-            Constant.getInstance().getLifecycleService().shutdown();
+            HazleCastMap.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
     }
@@ -116,19 +115,12 @@ public abstract class MenuController {
 
     protected void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
         textField.setTooltip(tooltip_Error);
-        textField.setStyle(borderStatusRed);
+        textField.setStyle(Constant.getBorderColorRed());
     }
 
     protected void setDefaultTooltip(TextField textField, Tooltip tooltip_Default){
         textField.setTooltip(tooltip_Default);
-        textField.setStyle(borderStatusInherit);
+        textField.setStyle(Constant.getBorderColorInherit());
     }
 
-    public String getBorderStatusRed() {
-        return borderStatusRed;
-    }
-
-    public String getBorderStatusInherit() {
-        return borderStatusInherit;
-    }
 }
