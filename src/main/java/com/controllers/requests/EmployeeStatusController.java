@@ -7,8 +7,9 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 
-import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class EmployeeStatusController extends MainController {
 
@@ -16,7 +17,12 @@ public class EmployeeStatusController extends MainController {
         String json = new Gson().toJson(employeeStatusEntity);
         String url = getUrl() + "/employee-status/";
         HttpPost request = new HttpPost(url);
-        HttpResponse response = crudEntity(json, request, null, null, null);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), request, null, null, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         return response;
     }
 
@@ -27,11 +33,16 @@ public class EmployeeStatusController extends MainController {
         return response;
     }
 
-    public static HttpResponse changeEmployeeStatus(EmployeeStatusEntity employeeStatusEntity) throws IOException {
+    public static HttpResponse changeEmployeeStatus(EmployeeStatusEntity employeeStatusEntity) {
         String json = new Gson().toJson(employeeStatusEntity);
         String url = getUrl() + "/employee-status/" + employeeStatusEntity.getId();
         HttpPut request = new HttpPut(url);
-        HttpResponse response = crudEntity(json, null, null, request, null);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), null, null, request, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         return response;
     }
 

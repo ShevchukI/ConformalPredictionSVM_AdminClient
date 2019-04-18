@@ -44,7 +44,7 @@ public abstract class MenuController {
         return newWindow;
     }
 
-    public boolean checkStatusCode(int statusCode) {
+    public static boolean checkStatusCode(int statusCode) {
         switch (statusCode) {
             case 200:
                 return true;
@@ -83,12 +83,6 @@ public abstract class MenuController {
         }
     }
 
-    public void deactivateAllStackPane(ArrayList<StackPane> stackPanes) {
-        for (StackPane stackPane : stackPanes) {
-            stackPane.setDisable(true);
-            stackPane.setVisible(false);
-        }
-    }
 
     public int getStatusCode() {
         return statusCode;

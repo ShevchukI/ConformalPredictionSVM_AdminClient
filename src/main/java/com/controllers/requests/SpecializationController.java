@@ -7,16 +7,23 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class SpecializationController extends MainController {
 
-    public static HttpResponse createSpecialization(SpecializationEntity specializationEntity) throws IOException {
+    public static HttpResponse createSpecialization(SpecializationEntity specializationEntity) {
         String json = new Gson().toJson(specializationEntity);
         String url = getUrl() + "/specialization/";
         HttpPost request = new HttpPost(url);
-        HttpResponse response = crudEntity(json, request, null, null, null);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), request, null, null, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         return response;
     }
 
@@ -27,11 +34,16 @@ public class SpecializationController extends MainController {
         return response;
     }
 
-    public static HttpResponse changeSpecialization(SpecializationEntity specializationEntity) throws IOException {
+    public static HttpResponse changeSpecialization(SpecializationEntity specializationEntity){
         String json = new Gson().toJson(specializationEntity);
         String url = getUrl() + "/specialization/" + specializationEntity.getId();
         HttpPut request = new HttpPut(url);
-        HttpResponse response = crudEntity(json, null, null, request, null);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), null, null, request, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         return response;
     }
 

@@ -45,7 +45,7 @@ public class MainMenuController extends MenuController {
     private TableView<ModelDeveloperEntity> tableView_ModelDeveloper;
     private TableView<SpecializationEntity> tableView_Specialization;
     private TableView<EmployeeStatusEntity> tableView_EmployeeStatus;
-    private ArrayList<StackPane> stackPanes;
+    private static ArrayList<StackPane> stackPanes;
     private ArrayList<EmployeeStatusEntity> statusEntities;
     private ArrayList<SpecializationEntity> specializationEntities;
     private static final String ADD_NEW_DOCTOR = "Add new Doctor";
@@ -133,8 +133,12 @@ public class MainMenuController extends MenuController {
 
         prepareDoctorTab();
         prepareModelDeveloperTab();
-        prepareSpecializationTab();
         prepareEmployeeStatusTab();
+
+        specializationTabController.init(this);
+        specializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
+        specializationTabController.setStackPaneChange(stackPane_SpecializationChange);
+        tableView_Specialization = SpecializationTabController.getSpecializationTable();
 
         this.changeDoctorController.init(this, statusEntities, specializationEntities);
         this.changeModelDeveloperController.init(this, statusEntities);
@@ -274,17 +278,6 @@ public class MainMenuController extends MenuController {
         this.modelDeveloperTabController.setStackPanes(stackPanes);
     }
 
-    private void prepareSpecializationTab() {
-        this.specializationTabController.init(this);
-        this.specializationTabController.setLabel_PaneNameChange(changeSpecializationController.getLabel_PaneName());
-        this.specializationTabController.setTextField_NameChange(changeSpecializationController.getTextField_Name());
-        this.specializationTabController.setStackPaneChange(stackPane_SpecializationChange);
-        this.specializationTabController.setLabel_NameInfo(specializationInfoController.getLabel_Name());
-        this.specializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
-        tableView_Specialization = this.specializationTabController.getTableView_Specialization();
-        this.specializationTabController.setStackPanes(stackPanes);
-    }
-
     private void prepareEmployeeStatusTab() {
         this.employeeStatusTabController.init(this, statusEntities);
         this.employeeStatusTabController.setLabel_PaneNameChange(changeEmployeeStatusController.getLabel_PaneName());
@@ -303,4 +296,14 @@ public class MainMenuController extends MenuController {
         modelDeveloperTabController.refreshPage();
     }
 
+    public static void deactivateAllStackPane() {
+        for (StackPane stackPane : stackPanes) {
+            stackPane.setDisable(true);
+            stackPane.setVisible(false);
+        }
+    }
+
+    public static ArrayList<StackPane> getStackPanes() {
+        return stackPanes;
+    }
 }

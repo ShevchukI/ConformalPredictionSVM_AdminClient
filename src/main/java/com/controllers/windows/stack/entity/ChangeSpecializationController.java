@@ -1,7 +1,9 @@
 package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.SpecializationController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
+import com.controllers.windows.tab.SpecializationTabController;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
 import com.tools.HazleCastMap;
@@ -68,19 +70,12 @@ public class ChangeSpecializationController extends MenuController {
             if (textField_Name.getText() != null) {
                 specializationEntity = new SpecializationEntity();
                 specializationEntity.setName(textField_Name.getText());
-                response = SpecializationController.createSpecialization(specializationEntity);
-                setStatusCode(response.getStatusLine().getStatusCode());
-                if (checkStatusCode(getStatusCode())) {
-                    int id = Integer.parseInt(Constant.responseToString(response));
-                    specializationEntity.setId(id);
-                    TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");
-                    tableView.getItems().add(specializationEntity);
+                boolean result = SpecializationTabController.saveSpecialization(specializationEntity);
+                if(result){
                     Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
-                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-                    textField.clear();
-                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_SpecializationChange");
-                    stackPane.setDisable(true);
-                    stackPane.setVisible(false);
+                    MainMenuController.deactivateAllStackPane();
+                } else {
+                    Constant.getAlert(null, "Error!", Alert.AlertType.ERROR);
                 }
             }
         }

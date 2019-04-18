@@ -1,6 +1,7 @@
 package com.controllers.windows.tab;
 
 import com.controllers.requests.EmployeeStatusController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
@@ -89,7 +90,7 @@ public class EmployeeStatusTabController extends MenuController {
                     if (employeeStatusEntity.getId() == id) {
                         tableView.getItems().remove(employeeStatusEntity);
                         Constant.getAlert(null, "Employee status " + employeeStatusEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
-                        deactivateAllStackPane(stackPanes);
+                        MainMenuController.deactivateAllStackPane();
                         break;
                     }
                 }
