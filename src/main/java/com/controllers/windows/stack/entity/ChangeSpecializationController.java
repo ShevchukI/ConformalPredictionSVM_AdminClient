@@ -6,24 +6,22 @@ import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.tab.SpecializationTabController;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ChangeSpecializationController extends MenuController {
-    @Autowired
-    HttpResponse response;
+public class ChangeSpecializationController extends MenuController implements Initializable {
 
-    private MenuController menuController;
-    private SpecializationEntity specializationEntity;
-    private boolean change;
-
+    private static SpecializationEntity specializationEntity;
+    private static boolean change;
+    private static Label paneName;
+    private static TextField name;
 
     @FXML
     private Label label_PaneName;
@@ -34,8 +32,23 @@ public class ChangeSpecializationController extends MenuController {
     @FXML
     private Button button_Cancel;
 
-    public void init(MenuController menuController) {
-        this.menuController = menuController;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        paneName = label_PaneName;
+        name = textField_Name;
+    }
+
+    public static void change(SpecializationEntity specialization) {
+        change = true;
+        specializationEntity = specialization;
+        paneName.setText("Change Specialization");
+        name.setText(specializationEntity.getName());
+    }
+
+    public static void create() {
+        change = false;
+        paneName.setText("Add New Specialization");
+        name.clear();
     }
 
     public void save(ActionEvent event) throws IOException {
@@ -43,14 +56,11 @@ public class ChangeSpecializationController extends MenuController {
             boolean result = Constant.questionOkCancel("Do you really want to change specialization "
                     + textField_Name.getText() + "?");
             if (result) {
-                specializationEntity = new SpecializationEntity();
-                specializationEntity.setId(Integer.parseInt(HazleCastMap
-                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("specialization").toString()));
                 specializationEntity.setName(textField_Name.getText());
-                response = SpecializationController.changeSpecialization(specializationEntity);
+                HttpResponse response = SpecializationController.changeSpecialization(specializationEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
-                    TableView<SpecializationEntity> tableView = (TableView<SpecializationEntity>) this.menuController.getStage().getScene().lookup("#tableView_Specialization");
+                    TableView<SpecializationEntity> tableView = SpecializationTabController.getSpecializationTable();
                     for (SpecializationEntity specialization : tableView.getItems()) {
                         if (specialization.getId() == specializationEntity.getId()) {
                             specialization.setName(specializationEntity.getName());
@@ -58,58 +68,39 @@ public class ChangeSpecializationController extends MenuController {
                     }
                     tableView.refresh();
                     Constant.getAlert(null, "Specialization changed!", Alert.AlertType.INFORMATION);
-                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-                    textField.clear();
-                    HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("specialization");
-                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_SpecializationChange");
-                    stackPane.setDisable(true);
-                    stackPane.setVisible(false);
+                    close();
                 }
             }
         } else {
             if (textField_Name.getText() != null) {
                 specializationEntity = new SpecializationEntity();
                 specializationEntity.setName(textField_Name.getText());
-                boolean result = SpecializationTabController.saveSpecialization(specializationEntity);
-                if(result){
+                HttpResponse response = SpecializationController.createSpecialization(specializationEntity);
+                setStatusCode(response.getStatusLine().getStatusCode());
+                if (checkStatusCode(getStatusCode())) {
+                    try {
+                        specializationEntity.setId(Integer.parseInt(Constant.responseToString(response)));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
+                    SpecializationTabController.getSpecializationTable().refresh();
                     Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
                     MainMenuController.deactivateAllStackPane();
-                } else {
-                    Constant.getAlert(null, "Error!", Alert.AlertType.ERROR);
                 }
             }
         }
     }
 
+    private void close() {
+        name.clear();
+        MainMenuController.deactivateAllStackPane();
+    }
+
     public void cancel() {
-        TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-        textField.clear();
-        StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_SpecializationChange");
-        stackPane.setDisable(true);
-        stackPane.setVisible(false);
-    }
-
-    public boolean isChange() {
-        return change;
-    }
-
-    public void setChange(boolean change) {
-        this.change = change;
-    }
-
-    public Label getLabel_PaneName() {
-        return label_PaneName;
-    }
-
-    public void setLabel_PaneName(Label label_PaneName) {
-        this.label_PaneName = label_PaneName;
-    }
-
-    public TextField getTextField_Name() {
-        return textField_Name;
-    }
-
-    public void setTextField_Name(TextField textField_Name) {
-        this.textField_Name = textField_Name;
+        boolean result = Constant.questionOkCancel("Do you want the cancel to operation?");
+        if (result) {
+            close();
+        }
     }
 }

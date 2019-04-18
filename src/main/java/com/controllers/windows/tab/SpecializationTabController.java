@@ -6,29 +6,26 @@ import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.stack.entityInfo.SpecializationInfoController;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class SpecializationTabController extends MenuController{
+public class SpecializationTabController extends MenuController implements Initializable{
 
-    @Autowired
-    HttpResponse response;
-
-    private MenuController menuController;
-    private StackPane stackPane_Change;
-    private StackPane stackPane_Info;
+    private static StackPane stackPane_Change;
+    private static StackPane stackPane_Info;
     private ArrayList<SpecializationEntity> specializations;
     private ObservableList<SpecializationEntity> specializationEntities;
     private Label label_PaneNameChange;
@@ -43,15 +40,15 @@ public class SpecializationTabController extends MenuController{
     @FXML
     private TableColumn tableColumn_Name;
 
-    public void init(MenuController menuController){
-        this.menuController = menuController;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column ->
                 new ReadOnlyObjectWrapper<Number>((tableView_Specialization.getItems().
                         indexOf(column.getValue()) + 1)));
         tableColumn_Name.setCellValueFactory(new PropertyValueFactory<SpecializationEntity, String>("name"));
         try {
-            response = SpecializationController.getAllSpecialization();
+            HttpResponse response = SpecializationController.getAllSpecialization();
             setStatusCode(response.getStatusLine().getStatusCode());
             if (checkStatusCode(getStatusCode())) {
                 specializations = SpecializationEntity.getListFromResponse(response);
@@ -75,23 +72,16 @@ public class SpecializationTabController extends MenuController{
         }
     }
 
-    public void deleteSpecialization() {
-        if (tableView_Specialization.getSelectionModel().getSelectedItem() != null) {
-            deleteSpecializationFromTable(tableView_Specialization);
-        }
-    }
-
-    public void deleteSpecializationFromTable(TableView<SpecializationEntity> tableView) {
+    public static void deleteSpecialization(SpecializationEntity specialization) {
         boolean result = Constant.questionOkCancel("Do you really want to delete Specialization "
-                + tableView.getSelectionModel().getSelectedItem().getName() + " ?");
+                + specialization.getName() + " ?");
         if (result) {
-            int id = tableView.getSelectionModel().getSelectedItem().getId();
-            response = SpecializationController.deleteSpecialization(id);
-            setStatusCode(response.getStatusLine().getStatusCode());
-            if (checkStatusCode(getStatusCode())) {
-                for (SpecializationEntity specializationEntity : tableView.getItems()) {
-                    if (specializationEntity.getId() == id) {
-                        tableView.getItems().remove(specializationEntity);
+            HttpResponse response = SpecializationController.deleteSpecialization(specialization.getId());
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (checkStatusCode(statusCode)) {
+                for (SpecializationEntity specializationEntity : specializationTable.getItems()) {
+                    if (specializationEntity.getId() == specialization.getId()) {
+                        specializationTable.getItems().remove(specializationEntity);
                         Constant.getAlert(null, "Specialization " + specializationEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
                         MainMenuController.deactivateAllStackPane();
                         break;
@@ -101,55 +91,20 @@ public class SpecializationTabController extends MenuController{
         }
     }
 
-    public void changeSpecialization(){
-        if(tableView_Specialization.getSelectionModel().getSelectedItem()!=null){
-            changeSpecializationFromTable(tableView_Specialization);
-        }
-    }
-
-    public void changeSpecializationFromTable(TableView<SpecializationEntity> tableView) {
-        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("specialization",
-                tableView.getSelectionModel().getSelectedItem().getId());
-        activateStackPane(stackPane_Change, MainMenuController.getStackPanes());
-        label_PaneNameChange.setText("Change Specialization");
-        textField_NameChange
-                .setText(tableView.getSelectionModel().getSelectedItem().getName());
-    }
-
-
-    public static boolean saveSpecialization(SpecializationEntity specializationEntity){
-        HttpResponse response = SpecializationController.createSpecialization(specializationEntity);
-        int statusCode = response.getStatusLine().getStatusCode();
-        if (checkStatusCode(statusCode)) {
-            int id = 0;
-            try {
-                id = Integer.parseInt(Constant.responseToString(response));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            specializationEntity.setId(id);
-            specializationTable.getItems().add(specializationEntity);
-            specializationTable.refresh();
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public StackPane getStackPaneChange() {
         return stackPane_Change;
     }
 
-    public void setStackPaneChange(StackPane stackPane_Change) {
-        this.stackPane_Change = stackPane_Change;
+    public static void setStackPaneChange(StackPane stackPane) {
+        stackPane_Change = stackPane;
     }
 
     public StackPane getStackPaneInfo() {
         return stackPane_Info;
     }
 
-    public void setStackPaneInfo(StackPane stackPane_Info) {
-        this.stackPane_Info = stackPane_Info;
+    public static void setStackPaneInfo(StackPane stackPane) {
+        stackPane_Info = stackPane;
     }
 
     public Label getLabel_PaneNameChange() {
@@ -183,4 +138,6 @@ public class SpecializationTabController extends MenuController{
     public static TableView<SpecializationEntity> getSpecializationTable() {
         return specializationTable;
     }
+
+
 }

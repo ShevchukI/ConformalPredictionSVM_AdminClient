@@ -9,7 +9,6 @@ import com.controllers.windows.stack.entity.ChangeSpecializationController;
 import com.controllers.windows.stack.entityInfo.DoctorInfoController;
 import com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController;
 import com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController;
-import com.controllers.windows.stack.entityInfo.SpecializationInfoController;
 import com.controllers.windows.tab.DoctorTabController;
 import com.controllers.windows.tab.EmployeeStatusTabController;
 import com.controllers.windows.tab.ModelDeveloperTabController;
@@ -43,14 +42,12 @@ public class MainMenuController extends MenuController {
 
     private TableView<DoctorEntity> tableView_Doctor;
     private TableView<ModelDeveloperEntity> tableView_ModelDeveloper;
-    private TableView<SpecializationEntity> tableView_Specialization;
     private TableView<EmployeeStatusEntity> tableView_EmployeeStatus;
     private static ArrayList<StackPane> stackPanes;
     private ArrayList<EmployeeStatusEntity> statusEntities;
     private ArrayList<SpecializationEntity> specializationEntities;
     private static final String ADD_NEW_DOCTOR = "Add new Doctor";
     private static final String ADD_NEW_MODEL_DEVELOPER = "Add new Model Developer";
-    private static final String ADD_NEW_SPECIALIZATION = "Add New Specialization";
     private static final String ADD_NEW_EMPLOYEE_STATUS = "Add New Employee Status";
 
     @FXML
@@ -67,18 +64,14 @@ public class MainMenuController extends MenuController {
     private ModelDeveloperInfoController modelDeveloperInfoController;
     @FXML
     private ChangeModelDeveloperController changeModelDeveloperController;
-    @FXML
-    private SpecializationTabController specializationTabController;
+
     @FXML
     private EmployeeStatusTabController employeeStatusTabController;
     @FXML
     private ChangeEmployeeStatusController changeEmployeeStatusController;
     @FXML
     private EmployeeStatusInfoController employeeStatusInfoController;
-    @FXML
-    private ChangeSpecializationController changeSpecializationController;
-    @FXML
-    private SpecializationInfoController specializationInfoController;
+
     @FXML
     private StackPane stackPane_DoctorInfo;
     @FXML
@@ -135,17 +128,14 @@ public class MainMenuController extends MenuController {
         prepareModelDeveloperTab();
         prepareEmployeeStatusTab();
 
-        specializationTabController.init(this);
-        specializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
-        specializationTabController.setStackPaneChange(stackPane_SpecializationChange);
-        tableView_Specialization = SpecializationTabController.getSpecializationTable();
+        SpecializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
+        SpecializationTabController.setStackPaneChange(stackPane_SpecializationChange);
 
         this.changeDoctorController.init(this, statusEntities, specializationEntities);
         this.changeModelDeveloperController.init(this, statusEntities);
         this.changeEmployeeStatusController.init(this);
         this.employeeStatusInfoController.init(this);
-        this.specializationInfoController.init(this);
-        this.changeSpecializationController.init(this);
+
     }
 
     public void addDoctor(ActionEvent event) {
@@ -165,9 +155,7 @@ public class MainMenuController extends MenuController {
 
     public void addSpecialization(ActionEvent event) {
         activateStackPane(stackPane_SpecializationChange, stackPanes);
-        changeSpecializationController.setChange(false);
-        changeSpecializationController.getLabel_PaneName().setText(ADD_NEW_SPECIALIZATION);
-        changeSpecializationController.getTextField_Name().clear();
+        ChangeSpecializationController.create();
     }
 
     public void addEmployeeStatus(ActionEvent event) {
@@ -190,17 +178,13 @@ public class MainMenuController extends MenuController {
         } else if (tab_ModelDeveloper.isSelected() && tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
             changeModelDeveloperController.setChange(true);
             modelDeveloperTabController.changeModelDeveloper();
-        } else if (tab_Specialization.isSelected() && tableView_Specialization.getSelectionModel().getSelectedItem() != null) {
-            changeSpecializationController.setChange(true);
-            specializationTabController.changeSpecialization();
+        } else if (tab_Specialization.isSelected() && SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem() != null) {
+            activateStackPane(stackPane_SpecializationChange, MainMenuController.getStackPanes());
+            ChangeSpecializationController.change(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
         } else if (tab_EmployeeStatus.isSelected()) {
             changeEmployeeStatusController.setChange(true);
             employeeStatusTabController.changeEmployeeStatus();
         }
-    }
-
-    public void delete(ActionEvent event) {
-        delete();
     }
 
     public void delete() {
@@ -208,8 +192,8 @@ public class MainMenuController extends MenuController {
 
         } else if (tab_ModelDeveloper.isSelected() && tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
 
-        } else if (tab_Specialization.isSelected() && tableView_Specialization.getSelectionModel().getSelectedItem() != null) {
-            specializationTabController.deleteSpecialization();
+        } else if (tab_Specialization.isSelected() && SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem() != null) {
+            SpecializationTabController.deleteSpecialization(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
         } else if (tab_EmployeeStatus.isSelected()) {
             employeeStatusTabController.deleteEmployee();
         } else {
