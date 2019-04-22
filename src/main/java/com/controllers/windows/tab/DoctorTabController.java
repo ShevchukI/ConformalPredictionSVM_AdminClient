@@ -130,6 +130,8 @@ public class DoctorTabController extends MenuController{
         textField_NameChange
                 .setText(tableView.getSelectionModel().getSelectedItem().getName());
         textField_SurnameChange.setText(tableView.getSelectionModel().getSelectedItem().getSurname());
+        comboBox_Status.setItems(EmployeeStatusTabController.getEmployeeStatusTable().getItems());
+        comboBox_Specialization.setItems(SpecializationTabController.getSpecializationTable().getItems());
         for(SpecializationEntity specializationEntity : comboBox_Specialization.getItems()){
             if(specializationEntity.getId() == tableView.getSelectionModel().getSelectedItem().getSpecializationEntity().getId()){
                 comboBox_Specialization.getSelectionModel().select(specializationEntity);

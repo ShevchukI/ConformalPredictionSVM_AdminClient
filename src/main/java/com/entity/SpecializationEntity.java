@@ -32,16 +32,20 @@ public class SpecializationEntity {
         this.name = name;
     }
 
-    public static ArrayList<SpecializationEntity> getListFromResponse(HttpResponse response) throws IOException {
+    public static ArrayList<SpecializationEntity> getListFromResponse(HttpResponse response)  {
         ArrayList<SpecializationEntity> specializationEntities;
         if (response.getStatusLine().getStatusCode() == 200) {
             StringBuilder stringBuilder = new StringBuilder();
-            DataInputStream dataInputStream = new DataInputStream(response.getEntity().getContent());
-            String line;
-            while ((line = dataInputStream.readLine()) != null) {
-                stringBuilder.append(line);
+            try {
+                DataInputStream dataInputStream = new DataInputStream(response.getEntity().getContent());
+                String line;
+                while ((line = dataInputStream.readLine()) != null) {
+                    stringBuilder.append(line);
+                }
+                dataInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            dataInputStream.close();
             String json = stringBuilder.toString();
             Gson gson = new Gson();
             Type founderListType = new TypeToken<ArrayList<SpecializationEntity>>() {

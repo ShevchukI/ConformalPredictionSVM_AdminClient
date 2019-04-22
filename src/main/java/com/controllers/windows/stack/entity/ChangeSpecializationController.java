@@ -38,17 +38,17 @@ public class ChangeSpecializationController extends MenuController implements In
         name = textField_Name;
     }
 
+    public static void create() {
+        change = false;
+        paneName.setText("Add New Specialization");
+        name.clear();
+    }
+
     public static void change(SpecializationEntity specialization) {
         change = true;
         specializationEntity = specialization;
         paneName.setText("Change Specialization");
         name.setText(specializationEntity.getName());
-    }
-
-    public static void create() {
-        change = false;
-        paneName.setText("Add New Specialization");
-        name.clear();
     }
 
     public void save(ActionEvent event) throws IOException {
@@ -78,15 +78,13 @@ public class ChangeSpecializationController extends MenuController implements In
                 HttpResponse response = SpecializationController.createSpecialization(specializationEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
-                    try {
-                        specializationEntity.setId(Integer.parseInt(Constant.responseToString(response)));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    specializationEntity.setId(Integer.parseInt(Constant.responseToString(response)));
+//                    SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
                     SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
                     SpecializationTabController.getSpecializationTable().refresh();
                     Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
-                    MainMenuController.deactivateAllStackPane();
+                    close();
+//                    MainMenuController.deactivateAllStackPane();
                 }
             }
         }

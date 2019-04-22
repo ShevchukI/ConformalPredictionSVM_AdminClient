@@ -1,27 +1,33 @@
 package com.controllers.windows.stack.entity;
 
 import com.controllers.requests.EmployeeStatusController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
+import com.controllers.windows.tab.EmployeeStatusTabController;
 import com.entity.EmployeeStatusEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ChangeEmployeeStatusController extends MenuController {
+public class ChangeEmployeeStatusController extends MenuController implements Initializable{
 
     @Autowired
     HttpResponse response;
 
-    private MenuController menuController;
-    private EmployeeStatusEntity employeeStatusEntity;
-    private boolean change;
+//    private MenuController menuController;
+    private static EmployeeStatusEntity employeeStatusEntity;
+    private static boolean change;
+    private static Label paneName;
+    private static TextField name;
+    private static CheckBox workEnable;
 
 
     @FXML
@@ -35,25 +41,46 @@ public class ChangeEmployeeStatusController extends MenuController {
     @FXML
     private Button button_Cancel;
 
-    public void init(MenuController menuController) {
-        this.menuController = menuController;
+//    public void init(MenuController menuController) {
+//        this.menuController = menuController;
+//    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        paneName = label_PaneName;
+        name = textField_Name;
+        workEnable = checkBox_WorkEnable;
     }
 
+    public static void create(){
+        change = false;
+        paneName.setText("Add New Employee Status");
+        name.clear();
+        workEnable.setSelected(true);
+    }
+
+    public static void change(EmployeeStatusEntity employeeStatus){
+        change = true;
+        employeeStatusEntity = employeeStatus;
+        paneName.setText("Change Employee Status");
+        name.setText(employeeStatus.getName());
+        workEnable.setSelected(employeeStatus.isWorkEnable());
+    }
 
     public void save(ActionEvent event) throws IOException {
         if (change) {
             boolean result = Constant.questionOkCancel("Do you really want to change employee status "
                     + textField_Name.getText() + "?");
             if (result) {
-                employeeStatusEntity = new EmployeeStatusEntity();
-                employeeStatusEntity.setId(Integer.parseInt(HazleCastMap
-                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("employeeStatus").toString()));
+//                employeeStatusEntity = new EmployeeStatusEntity();
+//                employeeStatusEntity.setId(Integer.parseInt(HazleCastMap
+//                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("employeeStatus").toString()));
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
-                response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
+                HttpResponse response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
-                    TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
+                    TableView<EmployeeStatusEntity> tableView = EmployeeStatusTabController.getEmployeeStatusTable();
                     for (EmployeeStatusEntity employeeStatus : tableView.getItems()) {
                         if (employeeStatus.getId() == employeeStatusEntity.getId()) {
                             employeeStatus.setName(employeeStatusEntity.getName());
@@ -62,12 +89,7 @@ public class ChangeEmployeeStatusController extends MenuController {
                     }
                     tableView.refresh();
                     Constant.getAlert(null, "Employee status changed!", Alert.AlertType.INFORMATION);
-                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-                    textField.clear();
-                    HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("employeeStatus");
-                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
-                    stackPane.setDisable(true);
-                    stackPane.setVisible(false);
+                    close();
                 }
             }
         } else {
@@ -75,30 +97,44 @@ public class ChangeEmployeeStatusController extends MenuController {
                 employeeStatusEntity = new EmployeeStatusEntity();
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
-                response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
+                HttpResponse response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
-                    int id = Integer.parseInt(Constant.responseToString(response));
-                    employeeStatusEntity.setId(id);
-                    TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
-                    tableView.getItems().add(employeeStatusEntity);
+//                    int id = Integer.parseInt(Constant.responseToString(response));
+//                    employeeStatusEntity.setId(id);
+                    employeeStatusEntity.setId(Integer.parseInt(Constant.responseToString(response)));
+//                    TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
+//                    EmployeeStatusTabController.getStatusEntities().add(employeeStatusEntity);
+//                    EmployeeStatusTabController.getEmployeeStatusEntities().clear();
+//                    EmployeeStatusTabController.getEmployeeStatusEntities().addAll(EmployeeStatusTabController.getStatusEntities());
+//                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().clear();
+//                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().addAll(EmployeeStatusTabController.getEmployeeStatusEntities());
+//                    EmployeeStatusTabController.getEmployeeStatusEntities().add(employeeStatusEntity);
+                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().add(employeeStatusEntity);
+                    EmployeeStatusTabController.getEmployeeStatusTable().refresh();
                     Constant.getAlert(null, "Employee status saved!", Alert.AlertType.INFORMATION);
-                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-                    textField.clear();
-                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
-                    stackPane.setDisable(true);
-                    stackPane.setVisible(false);
+                    close();
+//                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
+//                    textField.clear();
+//                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
+//                    stackPane.setDisable(true);
+//                    stackPane.setVisible(false);
                 }
             }
         }
     }
 
+    private void close() {
+        name.clear();
+        workEnable.setSelected(true);
+        MainMenuController.deactivateAllStackPane();
+    }
+
     public void cancel() {
-        TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-        textField.clear();
-        StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
-        stackPane.setDisable(true);
-        stackPane.setVisible(false);
+        boolean result = Constant.questionOkCancel("Do you want the cancel to operation?");
+        if (result) {
+            close();
+        }
     }
 
     public boolean isChange() {
@@ -132,4 +168,6 @@ public class ChangeEmployeeStatusController extends MenuController {
     public void setCheckBox_WorkEnable(CheckBox checkBox_WorkEnable) {
         this.checkBox_WorkEnable = checkBox_WorkEnable;
     }
+
+
 }

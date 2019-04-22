@@ -9,7 +9,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class SpecializationController extends MainController {
@@ -27,7 +26,7 @@ public class SpecializationController extends MainController {
         return response;
     }
 
-    public static HttpResponse getAllSpecialization() throws IOException {
+    public static HttpResponse getAllSpecialization(){
         String url = getUrl() + "/specialization/all";
         HttpGet request = new HttpGet(url);
         HttpResponse response = crudEntity(null, null, request, null, null);

@@ -19,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
-public class ChangeDoctorController extends MenuController {
+public class ChangeDoctorController extends MenuController{
     @Autowired
     HttpResponse response;
 
@@ -136,6 +136,79 @@ public class ChangeDoctorController extends MenuController {
         tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
         tooltip_ErrorEmail = new Tooltip("");
     }
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        specializationEntities = FXCollections.observableList(this.specializations);
+//        comboBox_Specialization.setItems(specializationEntities);
+//        comboBox_Specialization.setCellFactory(new Callback<ListView<SpecializationEntity>, ListCell<SpecializationEntity>>() {
+//            @Override
+//            public ListCell<SpecializationEntity> call(ListView<SpecializationEntity> p) {
+//                ListCell cell = new ListCell<SpecializationEntity>() {
+//                    @Override
+//                    protected void updateItem(SpecializationEntity item, boolean empty) {
+//                        super.updateItem(item, empty);
+//                        if (empty) {
+//                            setText("");
+//                        } else {
+//                            setText(item.getName());
+//                        }
+//                    }
+//                };
+//                return cell;
+//            }
+//        });
+//        comboBox_Specialization.setButtonCell(new ListCell<SpecializationEntity>() {
+//            @Override
+//            protected void updateItem(SpecializationEntity t, boolean bln) {
+//                super.updateItem(t, bln);
+//                if (bln) {
+//                    setText("");
+//                } else {
+//                    setText(t.getName());
+//                }
+//            }
+//        });
+//        comboBox_Specialization.setVisibleRowCount(5);
+//        comboBox_Specialization.getSelectionModel().select(0);
+//
+//        employeeStatusEntities = FXCollections.observableList(this.employeeStatus);
+//        comboBox_Status.setItems(employeeStatusEntities);
+//        comboBox_Status.setCellFactory(new Callback<ListView<EmployeeStatusEntity>, ListCell<EmployeeStatusEntity>>() {
+//            @Override
+//            public ListCell<EmployeeStatusEntity> call(ListView<EmployeeStatusEntity> p) {
+//                ListCell cell = new ListCell<EmployeeStatusEntity>() {
+//                    @Override
+//                    protected void updateItem(EmployeeStatusEntity item, boolean empty) {
+//                        super.updateItem(item, empty);
+//                        if (empty) {
+//                            setText("");
+//                        } else {
+//                            setText(item.getName());
+//                        }
+//                    }
+//                };
+//                return cell;
+//            }
+//        });
+//        comboBox_Status.setButtonCell(new ListCell<EmployeeStatusEntity>() {
+//            @Override
+//            protected void updateItem(EmployeeStatusEntity t, boolean bln) {
+//                super.updateItem(t, bln);
+//                if (bln) {
+//                    setText("");
+//                } else {
+//                    setText(t.getName());
+//                }
+//            }
+//        });
+//        comboBox_Status.setVisibleRowCount(5);
+//        comboBox_Status.getSelectionModel().select(0);
+//        tooltip_ErrorName = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
+//        tooltip_ErrorSurname = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
+//        tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
+//        tooltip_ErrorEmail = new Tooltip("");
+//    }
 
     public void save(ActionEvent event) {
         if (change) {
@@ -355,4 +428,6 @@ public class ChangeDoctorController extends MenuController {
     public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
         this.comboBox_Status = comboBox_Status;
     }
+
+
 }

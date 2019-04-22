@@ -105,6 +105,8 @@ public class ModelDeveloperTabController extends MenuController {
         textField_SurnameChange.setText(tableView.getSelectionModel().getSelectedItem().getSurname());
         textField_TelephoneChange.setText(tableView.getSelectionModel().getSelectedItem().getTelephone());
         textField_EmailChange.setText(tableView.getSelectionModel().getSelectedItem().getEmail());
+//        for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
+        comboBox_Status.setItems(EmployeeStatusTabController.getEmployeeStatusTable().getItems());
         for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
             if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
                 comboBox_Status.getSelectionModel().select(employeeStatusEntity);

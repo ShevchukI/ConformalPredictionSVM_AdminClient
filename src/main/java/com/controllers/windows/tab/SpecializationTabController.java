@@ -13,20 +13,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SpecializationTabController extends MenuController implements Initializable{
+public class SpecializationTabController extends MenuController implements Initializable {
 
     private static StackPane stackPane_Change;
     private static StackPane stackPane_Info;
-    private ArrayList<SpecializationEntity> specializations;
+    private static ArrayList<SpecializationEntity> specializations;
     private ObservableList<SpecializationEntity> specializationEntities;
     private Label label_PaneNameChange;
     private TextField textField_NameChange;
@@ -34,7 +32,7 @@ public class SpecializationTabController extends MenuController implements Initi
     private static TableView<SpecializationEntity> specializationTable;
 
     @FXML
-    private  TableView<SpecializationEntity> tableView_Specialization;
+    private TableView<SpecializationEntity> tableView_Specialization;
     @FXML
     private TableColumn<SpecializationEntity, Number> tableColumn_Number;
     @FXML
@@ -47,23 +45,19 @@ public class SpecializationTabController extends MenuController implements Initi
                 new ReadOnlyObjectWrapper<Number>((tableView_Specialization.getItems().
                         indexOf(column.getValue()) + 1)));
         tableColumn_Name.setCellValueFactory(new PropertyValueFactory<SpecializationEntity, String>("name"));
-        try {
-            HttpResponse response = SpecializationController.getAllSpecialization();
-            setStatusCode(response.getStatusLine().getStatusCode());
-            if (checkStatusCode(getStatusCode())) {
-                specializations = SpecializationEntity.getListFromResponse(response);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        HttpResponse response = SpecializationController.getAllSpecialization();
+        setStatusCode(response.getStatusLine().getStatusCode());
+        if (checkStatusCode(getStatusCode())) {
+            specializations = SpecializationEntity.getListFromResponse(response);
         }
         specializationEntities = FXCollections.observableArrayList(specializations);
         tableView_Specialization.setItems(specializationEntities);
         specializationTable = tableView_Specialization;
     }
 
-    public void viewSpecialization(MouseEvent mouseEvent) {
-        viewSpecialization();
-    }
+//    public void viewSpecialization(MouseEvent mouseEvent) {
+//        viewSpecialization();
+//    }
 
     public void viewSpecialization() {
         if (specializationTable.getSelectionModel().getSelectedItem() != null) {
@@ -139,5 +133,7 @@ public class SpecializationTabController extends MenuController implements Initi
         return specializationTable;
     }
 
-
+    public static ArrayList<SpecializationEntity> getSpecializations() {
+        return specializations;
+    }
 }
