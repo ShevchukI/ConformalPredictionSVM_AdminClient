@@ -1,7 +1,7 @@
 package com.controllers.windows.menu;
 
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
@@ -23,7 +23,7 @@ public abstract class MenuController {
 
     public void initialize(Stage stage) throws IOException {
         stage.setOnHidden(event -> {
-            HazleCastMap.getInstance().getLifecycleService().shutdown();
+            HazelCastMap.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
     }
@@ -34,14 +34,6 @@ public abstract class MenuController {
 
     public Stage getStage() {
         return stage;
-    }
-
-    public void setNewWindow(Stage newWindow) {
-        this.newWindow = newWindow;
-    }
-
-    public Stage getNewWindow() {
-        return newWindow;
     }
 
     public static boolean checkStatusCode(int statusCode) {
@@ -56,6 +48,7 @@ public abstract class MenuController {
                 return false;
             case 404:
                 Constant.getAlert("Error!", String.valueOf(statusCode), Alert.AlertType.ERROR);
+                return false;
             case 504:
                 Constant.getAlert("Connection to the server is missing!",
                         "Error code: " + statusCode, Alert.AlertType.ERROR);

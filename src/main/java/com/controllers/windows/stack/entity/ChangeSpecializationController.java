@@ -79,12 +79,10 @@ public class ChangeSpecializationController extends MenuController implements In
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
                     specializationEntity.setId(Integer.parseInt(Constant.responseToString(response)));
-//                    SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
                     SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
                     SpecializationTabController.getSpecializationTable().refresh();
                     Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
                     close();
-//                    MainMenuController.deactivateAllStackPane();
                 }
             }
         }

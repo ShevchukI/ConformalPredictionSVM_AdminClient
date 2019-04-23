@@ -5,14 +5,13 @@ import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.menu.WindowsController;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
@@ -21,11 +20,7 @@ import java.io.IOException;
  */
 public class LoginMenuController extends MenuController {
 
-    @Autowired
-    MainMenuController mainMenuController;
-    @Autowired
-    HttpResponse response;
-
+    private MainMenuController mainMenuController;
     private WindowsController windowsController;
     private AdminController adminController;
 
@@ -44,9 +39,10 @@ public class LoginMenuController extends MenuController {
 
     public void initialize(Stage stage) {
         stage.setOnHidden(event -> {
-            HazleCastMap.getInstance().getLifecycleService().shutdown();
+            HazelCastMap.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
+        mainMenuController = new MainMenuController();
         windowsController = new WindowsController();
         adminController = new AdminController();
         tooltip_ErrorLogin = new Tooltip();
@@ -60,10 +56,10 @@ public class LoginMenuController extends MenuController {
             authorization[0] = textField_Login.getText();
             authorization[1] = passwordField_Password.getText();
             try {
-                response = adminController.getAdminAuth(authorization);
+                HttpResponse response = adminController.getAdminAuth(authorization);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if(checkStatusCode(getStatusCode())) {
-                    HazleCastMap.fillUserMap(authorization);
+                    HazelCastMap.fillUserMap(authorization);
                     windowsController.openWindow(Constant.getMainMenuRoot(), getStage(), mainMenuController,
                             null, true, 950, 650);
                 }

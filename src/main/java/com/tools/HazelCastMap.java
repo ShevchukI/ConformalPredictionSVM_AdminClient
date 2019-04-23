@@ -7,7 +7,7 @@ import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 
-public class HazleCastMap {
+public class HazelCastMap {
     private static final String INSTANCE_NAME = "mainAdminInstance";
     private static final String USER_MAP_NAME = "admin";
     private static final String KEY_MAP_NAME = "key";

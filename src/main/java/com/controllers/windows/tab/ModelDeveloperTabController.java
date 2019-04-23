@@ -6,7 +6,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.models.ModelDeveloperPage;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,13 +17,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 public class ModelDeveloperTabController extends MenuController {
-    @Autowired
-    HttpResponse response;
 
     private MenuController menuController;
     private StackPane stackPane_Change;
@@ -60,7 +57,7 @@ public class ModelDeveloperTabController extends MenuController {
 
     public void init(MenuController menuController) {
         this.menuController = menuController;
-        pageIndex = Integer.parseInt(HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
+        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
 
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_ModelDeveloper.getItems().
@@ -96,7 +93,7 @@ public class ModelDeveloperTabController extends MenuController {
     }
 
     public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView){
-        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("modelDeveloper",
+        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("modelDeveloper",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Model Developer");
@@ -105,7 +102,6 @@ public class ModelDeveloperTabController extends MenuController {
         textField_SurnameChange.setText(tableView.getSelectionModel().getSelectedItem().getSurname());
         textField_TelephoneChange.setText(tableView.getSelectionModel().getSelectedItem().getTelephone());
         textField_EmailChange.setText(tableView.getSelectionModel().getSelectedItem().getEmail());
-//        for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
         comboBox_Status.setItems(EmployeeStatusTabController.getEmployeeStatusTable().getItems());
         for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
             if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
@@ -240,7 +236,7 @@ public class ModelDeveloperTabController extends MenuController {
 
     private Node createPage(int pageIndex) {
         this.pageIndex = pageIndex + 1;
-        response = ModelDeveloperController.getModelDeveloperPage(this.pageIndex);
+        HttpResponse response = ModelDeveloperController.getModelDeveloperPage(this.pageIndex);
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             modelDeveloperPage = ModelDeveloperPage.fromJson(response);

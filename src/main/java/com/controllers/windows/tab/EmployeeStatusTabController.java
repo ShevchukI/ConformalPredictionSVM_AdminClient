@@ -22,15 +22,9 @@ import java.util.ResourceBundle;
 
 public class EmployeeStatusTabController extends MenuController implements Initializable {
 
-//    @Autowired
-//    HttpResponse response;
-
     private static TableView<EmployeeStatusEntity> employeeStatusTable;
-
-//    private MenuController menuController;
     private static StackPane stackPane_Change;
     private static StackPane stackPane_Info;
-//    private ArrayList<StackPane> stackPanes;
     private static ArrayList<EmployeeStatusEntity> statusEntities;
 
     private static ObservableList<EmployeeStatusEntity> employeeStatusEntities;
@@ -49,18 +43,6 @@ public class EmployeeStatusTabController extends MenuController implements Initi
     @FXML
     private TableColumn tableColumn_WorkEnable;
 
-//    public void init(MenuController menuController, ArrayList<EmployeeStatusEntity> statusEntities) {
-//        this.menuController = menuController;
-//        this.statusEntities = statusEntities;
-//        tableColumn_Number.setSortable(false);
-//        tableColumn_Number.setCellValueFactory(column ->
-//                new ReadOnlyObjectWrapper<Number>((tableView_EmployeeStatus.getItems().
-//                        indexOf(column.getValue()) + 1)));
-//        tableColumn_Name.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("name"));
-//        tableColumn_WorkEnable.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("visibleWorkEnable"));
-//        employeeStatusEntities = FXCollections.observableList(statusEntities);
-//        tableView_EmployeeStatus.setItems(employeeStatusEntities);
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -85,10 +67,6 @@ public class EmployeeStatusTabController extends MenuController implements Initi
         if (tableView_EmployeeStatus.getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_Info, MainMenuController.getStackPanes());
             EmployeeStatusInfoController.viewEmployeeStatusInfo(employeeStatusTable.getSelectionModel().getSelectedItem());
-//            label_NameInfo
-//                    .setText(tableView_EmployeeStatus.getSelectionModel().getSelectedItem().getName());
-//            label_WorkEnableInfo
-//                    .setText(tableView_EmployeeStatus.getSelectionModel().getSelectedItem().getVisibleWorkEnable());
         }
     }
 
@@ -110,49 +88,6 @@ public class EmployeeStatusTabController extends MenuController implements Initi
             }
         }
     }
-
-//    public void deleteEmployee() {
-//        if (tableView_EmployeeStatus.getSelectionModel().getSelectedItem() != null) {
-//            deleteEmployeeStatusFromTable(tableView_EmployeeStatus);
-//        }
-//    }
-//
-//    public void deleteEmployeeStatusFromTable(TableView<EmployeeStatusEntity> tableView) {
-//        boolean result = Constant.questionOkCancel("Do you really want to delete Employee Status "
-//                + tableView.getSelectionModel().getSelectedItem().getName() + " ?");
-//        if (result) {
-//            int id = tableView.getSelectionModel().getSelectedItem().getId();
-//            response = EmployeeStatusController.deleteEmployeeStatus(id);
-//            setStatusCode(response.getStatusLine().getStatusCode());
-//            if (checkStatusCode(getStatusCode())) {
-//                for (EmployeeStatusEntity employeeStatusEntity : tableView.getItems()) {
-//                    if (employeeStatusEntity.getId() == id) {
-//                        tableView.getItems().remove(employeeStatusEntity);
-//                        Constant.getAlert(null, "Employee status " + employeeStatusEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
-//                        MainMenuController.deactivateAllStackPane();
-//                        break;
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-//    public void changeEmployeeStatus() {
-//        if (tableView_EmployeeStatus.getSelectionModel().getSelectedItem() != null) {
-//            changeEmployeeStatusFromTable(tableView_EmployeeStatus);
-//        }
-//    }
-//
-//    public void changeEmployeeStatusFromTable(TableView<EmployeeStatusEntity> tableView) {
-//        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("employeeStatus",
-//                tableView.getSelectionModel().getSelectedItem().getId());
-//        activateStackPane(stackPane_Change, stackPanes);
-//        label_PaneNameChange.setText("Change Employee Status");
-//        textField_NameChange
-//                .setText(tableView.getSelectionModel().getSelectedItem().getName());
-//        checkBox_WorkEnableChange
-//                .setSelected(tableView.getSelectionModel().getSelectedItem().isWorkEnable());
-//    }
 
     public Label getLabel_NameInfo() {
         return label_NameInfo;
@@ -176,14 +111,6 @@ public class EmployeeStatusTabController extends MenuController implements Initi
 
     public static void setStackPaneInfo(StackPane stackPane) {stackPane_Info = stackPane;
     }
-
-//    public ArrayList<StackPane> getStackPanes() {
-//        return stackPanes;
-//    }
-//
-//    public void setStackPanes(ArrayList<StackPane> stackPanes) {
-//        this.stackPanes = stackPanes;
-//    }
 
     public TableView<EmployeeStatusEntity> getTableView_EmployeeStatus() {
         return tableView_EmployeeStatus;

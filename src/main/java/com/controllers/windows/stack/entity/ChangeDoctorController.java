@@ -6,7 +6,7 @@ import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,13 +15,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 public class ChangeDoctorController extends MenuController{
-    @Autowired
-    HttpResponse response;
+//    @Autowired
+//    HttpResponse response;
 
     private MenuController menuController;
     private DoctorEntity doctorEntity;
@@ -137,78 +136,6 @@ public class ChangeDoctorController extends MenuController{
         tooltip_ErrorEmail = new Tooltip("");
     }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        specializationEntities = FXCollections.observableList(this.specializations);
-//        comboBox_Specialization.setItems(specializationEntities);
-//        comboBox_Specialization.setCellFactory(new Callback<ListView<SpecializationEntity>, ListCell<SpecializationEntity>>() {
-//            @Override
-//            public ListCell<SpecializationEntity> call(ListView<SpecializationEntity> p) {
-//                ListCell cell = new ListCell<SpecializationEntity>() {
-//                    @Override
-//                    protected void updateItem(SpecializationEntity item, boolean empty) {
-//                        super.updateItem(item, empty);
-//                        if (empty) {
-//                            setText("");
-//                        } else {
-//                            setText(item.getName());
-//                        }
-//                    }
-//                };
-//                return cell;
-//            }
-//        });
-//        comboBox_Specialization.setButtonCell(new ListCell<SpecializationEntity>() {
-//            @Override
-//            protected void updateItem(SpecializationEntity t, boolean bln) {
-//                super.updateItem(t, bln);
-//                if (bln) {
-//                    setText("");
-//                } else {
-//                    setText(t.getName());
-//                }
-//            }
-//        });
-//        comboBox_Specialization.setVisibleRowCount(5);
-//        comboBox_Specialization.getSelectionModel().select(0);
-//
-//        employeeStatusEntities = FXCollections.observableList(this.employeeStatus);
-//        comboBox_Status.setItems(employeeStatusEntities);
-//        comboBox_Status.setCellFactory(new Callback<ListView<EmployeeStatusEntity>, ListCell<EmployeeStatusEntity>>() {
-//            @Override
-//            public ListCell<EmployeeStatusEntity> call(ListView<EmployeeStatusEntity> p) {
-//                ListCell cell = new ListCell<EmployeeStatusEntity>() {
-//                    @Override
-//                    protected void updateItem(EmployeeStatusEntity item, boolean empty) {
-//                        super.updateItem(item, empty);
-//                        if (empty) {
-//                            setText("");
-//                        } else {
-//                            setText(item.getName());
-//                        }
-//                    }
-//                };
-//                return cell;
-//            }
-//        });
-//        comboBox_Status.setButtonCell(new ListCell<EmployeeStatusEntity>() {
-//            @Override
-//            protected void updateItem(EmployeeStatusEntity t, boolean bln) {
-//                super.updateItem(t, bln);
-//                if (bln) {
-//                    setText("");
-//                } else {
-//                    setText(t.getName());
-//                }
-//            }
-//        });
-//        comboBox_Status.setVisibleRowCount(5);
-//        comboBox_Status.getSelectionModel().select(0);
-//        tooltip_ErrorName = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
-//        tooltip_ErrorSurname = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
-//        tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
-//        tooltip_ErrorEmail = new Tooltip("");
-//    }
 
     public void save(ActionEvent event) {
         if (change) {
@@ -239,15 +166,13 @@ public class ChangeDoctorController extends MenuController{
                 + textField_Name.getText() + "?");
         if (result) {
             doctorEntity = new DoctorEntity();
-            doctorEntity.setId(Integer.parseInt(HazleCastMap
-                    .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("doctor").toString()));
+            doctorEntity.setId(Integer.parseInt(HazelCastMap
+                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("doctor").toString()));
             doctorEntity.setName(textField_Name.getText());
             doctorEntity.setSurname(textField_Surname.getText());
-//            doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
             doctorEntity.setTelephone(textField_Telephone.getText());
             doctorEntity.setEmail(textField_Email.getText());
-//            doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-            response = DoctorController.changeDoctor(doctorEntity,
+            HttpResponse response = DoctorController.changeDoctor(doctorEntity,
                     comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
                     comboBox_Status.getSelectionModel().getSelectedItem().getId());
             setStatusCode(response.getStatusLine().getStatusCode());
@@ -269,7 +194,7 @@ public class ChangeDoctorController extends MenuController{
                 Constant.getAlert(null, "Doctor changed!", Alert.AlertType.INFORMATION);
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
-                HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("doctor");
+                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("doctor");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
@@ -281,11 +206,9 @@ public class ChangeDoctorController extends MenuController{
         doctorEntity = new DoctorEntity();
         doctorEntity.setName(textField_Name.getText());
         doctorEntity.setSurname(textField_Surname.getText());
-//        doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
         doctorEntity.setTelephone(textField_Telephone.getText());
         doctorEntity.setEmail(textField_Email.getText());
-//        doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-        response = DoctorController.createDoctor(doctorEntity,
+        HttpResponse response = DoctorController.createDoctor(doctorEntity,
                 comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
                 comboBox_Status.getSelectionModel().getSelectedItem().getId());
         setStatusCode(response.getStatusLine().getStatusCode());

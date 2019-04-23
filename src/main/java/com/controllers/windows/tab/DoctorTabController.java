@@ -7,7 +7,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
 import com.models.DoctorPage;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,13 +18,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 public class DoctorTabController extends MenuController{
-    @Autowired
-    HttpResponse response;
+
 
     private MenuController menuController;
     private StackPane stackPane_Change;
@@ -65,9 +63,7 @@ public class DoctorTabController extends MenuController{
 
     public void init(MenuController menuController) {
         this.menuController = menuController;
-        pageIndex = Integer.parseInt(HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).get(Constant.getPageIndexDoctor()).toString());
-//        doctorEntities = FXCollections.observableArrayList();
-
+        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get(Constant.getPageIndexDoctor()).toString());
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_Doctor.getItems().
                 indexOf(column.getValue()) + 1) + (pageIndex - 1) * Constant.getObjectOnPage()));
@@ -82,7 +78,7 @@ public class DoctorTabController extends MenuController{
 
     private Node createPage(int pageIndex) {
         this.pageIndex = pageIndex + 1;
-        response = DoctorController.getDoctorPage(this.pageIndex);
+        HttpResponse response = DoctorController.getDoctorPage(this.pageIndex);
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             doctorPage = DoctorPage.fromJson(response);
@@ -123,7 +119,7 @@ public class DoctorTabController extends MenuController{
     }
 
     public void changeDoctor(TableView<DoctorEntity> tableView){
-        HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).put("doctor",
+        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("doctor",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Doctor");

@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 
 public class EmployeeStatusInfoController implements Initializable{
 
-//    private MenuController menuController;
     private static Label name;
     private static Label workEnable;
 
@@ -18,10 +17,6 @@ public class EmployeeStatusInfoController implements Initializable{
     private Label label_Name;
     @FXML
     private Label label_WorkEnable;
-
-//    public void init(MenuController menuController) {
-//        this.menuController = menuController;
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

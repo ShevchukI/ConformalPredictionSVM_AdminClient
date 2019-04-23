@@ -45,16 +45,6 @@
             <artifactId>hazelcast</artifactId>
             <version>3.9.4</version>
         </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast-client</artifactId>
-            <version>3.9.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.0.5.RELEASE</version>
-        </dependency>
     </dependencies>
 
 </project>

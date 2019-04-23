@@ -55,10 +55,6 @@ public class SpecializationTabController extends MenuController implements Initi
         specializationTable = tableView_Specialization;
     }
 
-//    public void viewSpecialization(MouseEvent mouseEvent) {
-//        viewSpecialization();
-//    }
-
     public void viewSpecialization() {
         if (specializationTable.getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_Info, MainMenuController.getStackPanes());

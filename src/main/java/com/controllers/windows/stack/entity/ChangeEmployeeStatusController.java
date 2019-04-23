@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +18,6 @@ import java.util.ResourceBundle;
 
 public class ChangeEmployeeStatusController extends MenuController implements Initializable{
 
-    @Autowired
-    HttpResponse response;
-
-//    private MenuController menuController;
     private static EmployeeStatusEntity employeeStatusEntity;
     private static boolean change;
     private static Label paneName;
@@ -40,10 +35,6 @@ public class ChangeEmployeeStatusController extends MenuController implements In
     private Button button_Save;
     @FXML
     private Button button_Cancel;
-
-//    public void init(MenuController menuController) {
-//        this.menuController = menuController;
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -72,9 +63,6 @@ public class ChangeEmployeeStatusController extends MenuController implements In
             boolean result = Constant.questionOkCancel("Do you really want to change employee status "
                     + textField_Name.getText() + "?");
             if (result) {
-//                employeeStatusEntity = new EmployeeStatusEntity();
-//                employeeStatusEntity.setId(Integer.parseInt(HazleCastMap
-//                        .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("employeeStatus").toString()));
                 employeeStatusEntity.setName(textField_Name.getText());
                 employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
                 HttpResponse response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
@@ -100,25 +88,11 @@ public class ChangeEmployeeStatusController extends MenuController implements In
                 HttpResponse response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if (checkStatusCode(getStatusCode())) {
-//                    int id = Integer.parseInt(Constant.responseToString(response));
-//                    employeeStatusEntity.setId(id);
                     employeeStatusEntity.setId(Integer.parseInt(Constant.responseToString(response)));
-//                    TableView<EmployeeStatusEntity> tableView = (TableView<EmployeeStatusEntity>) this.menuController.getStage().getScene().lookup("#tableView_EmployeeStatus");
-//                    EmployeeStatusTabController.getStatusEntities().add(employeeStatusEntity);
-//                    EmployeeStatusTabController.getEmployeeStatusEntities().clear();
-//                    EmployeeStatusTabController.getEmployeeStatusEntities().addAll(EmployeeStatusTabController.getStatusEntities());
-//                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().clear();
-//                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().addAll(EmployeeStatusTabController.getEmployeeStatusEntities());
-//                    EmployeeStatusTabController.getEmployeeStatusEntities().add(employeeStatusEntity);
                     EmployeeStatusTabController.getEmployeeStatusTable().getItems().add(employeeStatusEntity);
                     EmployeeStatusTabController.getEmployeeStatusTable().refresh();
                     Constant.getAlert(null, "Employee status saved!", Alert.AlertType.INFORMATION);
                     close();
-//                    TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
-//                    textField.clear();
-//                    StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_EmployeeStatusChange");
-//                    stackPane.setDisable(true);
-//                    stackPane.setVisible(false);
                 }
             }
         }

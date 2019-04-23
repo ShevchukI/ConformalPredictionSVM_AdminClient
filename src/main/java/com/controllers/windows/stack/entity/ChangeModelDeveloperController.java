@@ -5,7 +5,7 @@ import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,14 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
 public class ChangeModelDeveloperController extends MenuController {
-
-    @Autowired
-    HttpResponse response;
 
     private MenuController menuController;
     private ModelDeveloperEntity modelDeveloperEntity;
@@ -32,7 +28,6 @@ public class ChangeModelDeveloperController extends MenuController {
     private Tooltip tooltip_ErrorSurname;
     private Tooltip tooltip_ErrorTelephone;
     private Tooltip tooltip_ErrorEmail;
-
 
     @FXML
     private Label label_PaneName;
@@ -113,14 +108,14 @@ public class ChangeModelDeveloperController extends MenuController {
                 + textField_Name.getText() + "?");
         if (result) {
             modelDeveloperEntity = new ModelDeveloperEntity();
-            modelDeveloperEntity.setId(Integer.parseInt(HazleCastMap
-                    .getMapByName(HazleCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString()));
+            modelDeveloperEntity.setId(Integer.parseInt(HazelCastMap
+                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString()));
             modelDeveloperEntity.setName(textField_Name.getText());
             modelDeveloperEntity.setSurname(textField_Surname.getText());
             modelDeveloperEntity.setTelephone(textField_Telephone.getText());
             modelDeveloperEntity.setEmail(textField_Email.getText());
             modelDeveloperEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-            response = ModelDeveloperController.changeModelDeveloper(modelDeveloperEntity);
+            HttpResponse response = ModelDeveloperController.changeModelDeveloper(modelDeveloperEntity);
             setStatusCode(response.getStatusLine().getStatusCode());
             if (checkStatusCode(getStatusCode())) {
                 TableView<ModelDeveloperEntity> tableView = (TableView<ModelDeveloperEntity>) this.menuController.getStage().getScene().lookup("#tableView_ModelDeveloper");
@@ -137,7 +132,7 @@ public class ChangeModelDeveloperController extends MenuController {
                 Constant.getAlert(null, "Model developer changed!", Alert.AlertType.INFORMATION);
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
-                HazleCastMap.getMapByName(HazleCastMap.getMiscellaneousMapName()).delete("modelDeveloper");
+                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("modelDeveloper");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
@@ -153,7 +148,7 @@ public class ChangeModelDeveloperController extends MenuController {
         modelDeveloperEntity.setTelephone(textField_Telephone.getText());
         modelDeveloperEntity.setEmail(textField_Email.getText());
         modelDeveloperEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-        response = ModelDeveloperController.createModelDeveloper(modelDeveloperEntity);
+        HttpResponse response = ModelDeveloperController.createModelDeveloper(modelDeveloperEntity);
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             String[] content = getContent(response);
@@ -286,15 +281,4 @@ public class ChangeModelDeveloperController extends MenuController {
         this.employeeStatus = employeeStatus;
     }
 
-
-
-//    private void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
-//        textField.setTooltip(tooltip_Error);
-//        textField.setStyle(borderStatusRed);
-//    }
-//
-//    private void setDefaultTooltip(TextField textField, Tooltip tooltip_Default){
-//        textField.setTooltip(tooltip_Default);
-//        textField.setStyle(borderStatusInherit);
-//    }
 }

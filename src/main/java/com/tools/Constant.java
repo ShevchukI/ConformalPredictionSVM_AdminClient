@@ -39,10 +39,10 @@ public class Constant {
 
     public static String[] getAuth() {
         String[] auth = new String[2];
-        String login = Encryptor.decrypt(HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(KEY).toString(),
-                HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(VECTOR).toString(), HazleCastMap.getMapByName(HazleCastMap.getUserMapName()).get(LOGIN).toString());
-        String password = Encryptor.decrypt(HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(KEY).toString(),
-                HazleCastMap.getMapByName(HazleCastMap.getKeyMapName()).get(VECTOR).toString(), HazleCastMap.getMapByName(HazleCastMap.getUserMapName()).get(PASSWORD).toString());
+        String login = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
+                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(), HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(LOGIN).toString());
+        String password = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
+                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(), HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(PASSWORD).toString());
         auth[0] = login;
         auth[1] = password;
         return auth;

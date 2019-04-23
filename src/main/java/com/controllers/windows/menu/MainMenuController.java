@@ -14,7 +14,7 @@ import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.tools.Constant;
-import com.tools.HazleCastMap;
+import com.tools.HazelCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -22,8 +22,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.apache.http.HttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
@@ -31,9 +29,6 @@ import java.util.ArrayList;
  * Created by User on 16.03.2019.
  */
 public class MainMenuController extends MenuController {
-
-    @Autowired
-    HttpResponse response;
 
     private TableView<DoctorEntity> tableView_Doctor;
     private TableView<ModelDeveloperEntity> tableView_ModelDeveloper;
@@ -43,7 +38,6 @@ public class MainMenuController extends MenuController {
 //    private ArrayList<SpecializationEntity> specializationEntities;
     private static final String ADD_NEW_DOCTOR = "Add new Doctor";
     private static final String ADD_NEW_MODEL_DEVELOPER = "Add new Model Developer";
-//    private static final String ADD_NEW_EMPLOYEE_STATUS = "Add New Employee Status";
 
     @FXML
     private MenuBarController menuBarController;
@@ -59,14 +53,6 @@ public class MainMenuController extends MenuController {
     private ModelDeveloperInfoController modelDeveloperInfoController;
     @FXML
     private ChangeModelDeveloperController changeModelDeveloperController;
-
-//    @FXML
-//    private EmployeeStatusTabController employeeStatusTabController;
-//    @FXML
-//    private ChangeEmployeeStatusController changeEmployeeStatusController;
-//    @FXML
-//    private EmployeeStatusInfoController employeeStatusInfoController;
-
     @FXML
     private StackPane stackPane_DoctorInfo;
     @FXML
@@ -95,25 +81,10 @@ public class MainMenuController extends MenuController {
 
     public void initialize(Stage stage) {
         stage.setOnHidden(event -> {
-            HazleCastMap.getInstance().getLifecycleService().shutdown();
+            HazelCastMap.getInstance().getLifecycleService().shutdown();
         });
         setStage(stage);
         this.menuBarController.init(this);
-
-//        try {
-////            response = EmployeeStatusController.getAllEmployeeStatus();
-////            setStatusCode(response.getStatusLine().getStatusCode());
-////            if (checkStatusCode(getStatusCode())) {
-////                statusEntities = EmployeeStatusEntity.getListFromResponse(response);
-////            }
-////            response = SpecializationController.getAllSpecialization();
-////            setStatusCode(response.getStatusLine().getStatusCode());
-////            if(checkStatusCode(getStatusCode())){
-////                specializationEntities = SpecializationEntity.getListFromResponse(response);
-////            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         this.doctorInfoController.init(this);
         this.modelDeveloperInfoController.init(this);
 
@@ -121,7 +92,6 @@ public class MainMenuController extends MenuController {
 
         prepareDoctorTab();
         prepareModelDeveloperTab();
-//        prepareEmployeeStatusTab();
 
         SpecializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
         SpecializationTabController.setStackPaneChange(stackPane_SpecializationChange);
@@ -131,9 +101,6 @@ public class MainMenuController extends MenuController {
 
         this.changeDoctorController.init(this, EmployeeStatusTabController.getStatusEntities(), SpecializationTabController.getSpecializations());
         this.changeModelDeveloperController.init(this, EmployeeStatusTabController.getStatusEntities());
-//        this.changeEmployeeStatusController.init(this);
-//        this.employeeStatusInfoController.init(this);
-
     }
 
     public void addDoctor(ActionEvent event) {
@@ -159,16 +126,7 @@ public class MainMenuController extends MenuController {
     public void addEmployeeStatus(ActionEvent event) {
         activateStackPane(stackPane_EmployeeStatusChange, stackPanes);
         ChangeEmployeeStatusController.create();
-//        changeEmployeeStatusController.setChange(false);
-//        changeEmployeeStatusController.getLabel_PaneName().setText(ADD_NEW_EMPLOYEE_STATUS);
-//        changeEmployeeStatusController.getTextField_Name().clear();
-//        changeEmployeeStatusController.getCheckBox_WorkEnable().setSelected(true);
     }
-
-
-//    public void change(ActionEvent event) {
-//        change();
-//    }
 
     public void change() {
         if (tab_Doctor.isSelected() && tableView_Doctor.getSelectionModel().getSelectedItem() != null) {
@@ -183,8 +141,6 @@ public class MainMenuController extends MenuController {
         } else if (tab_EmployeeStatus.isSelected() && EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_EmployeeStatusChange, MainMenuController.getStackPanes());
             ChangeEmployeeStatusController.change(EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem());
-//            changeEmployeeStatusController.setChange(true);
-//            employeeStatusTabController.changeEmployeeStatus();
         }
     }
 
@@ -263,19 +219,6 @@ public class MainMenuController extends MenuController {
         tableView_ModelDeveloper = this.modelDeveloperTabController.getTableView_ModelDeveloper();
         this.modelDeveloperTabController.setStackPanes(stackPanes);
     }
-
-//    private void prepareEmployeeStatusTab() {
-//        this.employeeStatusTabController.init(this, statusEntities);
-//        this.employeeStatusTabController.setLabel_PaneNameChange(changeEmployeeStatusController.getLabel_PaneName());
-//        this.employeeStatusTabController.setTextField_NameChange(changeEmployeeStatusController.getTextField_Name());
-//        this.employeeStatusTabController.setCheckBox_WorkEnableChange(changeEmployeeStatusController.getCheckBox_WorkEnable());
-//        this.employeeStatusTabController.setStackPaneChange(stackPane_EmployeeStatusChange);
-//        this.employeeStatusTabController.setLabel_NameInfo(employeeStatusInfoController.getLabel_Name());
-//        this.employeeStatusTabController.setLabel_WorkEnableInfo(employeeStatusInfoController.getLabel_WorkEnable());
-//        this.employeeStatusTabController.setStackPaneInfo(stackPane_EmployeeStatusInfo);
-//        tableView_EmployeeStatus = this.employeeStatusTabController.getTableView_EmployeeStatus();
-//        this.employeeStatusTabController.setStackPanes(stackPanes);
-//    }
 
     public void refresh(ActionEvent event) {
         doctorTabController.refreshPage();
