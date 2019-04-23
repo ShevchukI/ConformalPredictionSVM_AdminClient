@@ -10,25 +10,24 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import org.apache.http.HttpResponse;
 
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class SpecializationTabController extends MenuController implements Initializable {
+public class SpecializationTabController extends MenuController{
 
-    private static StackPane stackPane_Change;
-    private static StackPane stackPane_Info;
+    private SpecializationInfoController specializationInfoController;
+    private MenuController menuController;
+    private StackPane stackPane_Change;
+    private StackPane stackPane_Info;
     private static ArrayList<SpecializationEntity> specializations;
     private ObservableList<SpecializationEntity> specializationEntities;
-    private Label label_PaneNameChange;
-    private TextField textField_NameChange;
-    private Label label_NameInfo;
+//    private Label label_PaneNameChange;
+//    private TextField textField_NameChange;
+//    private Label label_NameInfo;
     private static TableView<SpecializationEntity> specializationTable;
 
     @FXML
@@ -38,8 +37,8 @@ public class SpecializationTabController extends MenuController implements Initi
     @FXML
     private TableColumn tableColumn_Name;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void init(MenuController menuController) {
+        this.menuController = menuController;
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column ->
                 new ReadOnlyObjectWrapper<Number>((tableView_Specialization.getItems().
@@ -58,11 +57,11 @@ public class SpecializationTabController extends MenuController implements Initi
     public void viewSpecialization() {
         if (specializationTable.getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_Info, MainMenuController.getStackPanes());
-            SpecializationInfoController.viewSpecializationInfo(specializationTable.getSelectionModel().getSelectedItem());
+            specializationInfoController.viewSpecializationInfo(specializationTable.getSelectionModel().getSelectedItem());
         }
     }
 
-    public static void deleteSpecialization(SpecializationEntity specialization) {
+    public void deleteSpecialization(SpecializationEntity specialization) {
         boolean result = Constant.questionOkCancel("Do you really want to delete Specialization "
                 + specialization.getName() + " ?");
         if (result) {
@@ -85,41 +84,41 @@ public class SpecializationTabController extends MenuController implements Initi
         return stackPane_Change;
     }
 
-    public static void setStackPaneChange(StackPane stackPane) {
-        stackPane_Change = stackPane;
+    public void setStackPaneChange(StackPane stackPane) {
+        this.stackPane_Change = stackPane;
     }
 
     public StackPane getStackPaneInfo() {
         return stackPane_Info;
     }
 
-    public static void setStackPaneInfo(StackPane stackPane) {
-        stackPane_Info = stackPane;
+    public void setStackPaneInfo(StackPane stackPane) {
+        this.stackPane_Info = stackPane;
     }
 
-    public Label getLabel_PaneNameChange() {
-        return label_PaneNameChange;
-    }
-
-    public void setLabel_PaneNameChange(Label label_PaneNameChange) {
-        this.label_PaneNameChange = label_PaneNameChange;
-    }
-
-    public TextField getTextField_NameChange() {
-        return textField_NameChange;
-    }
-
-    public void setTextField_NameChange(TextField textField_NameChange) {
-        this.textField_NameChange = textField_NameChange;
-    }
-
-    public Label getLabel_NameInfo() {
-        return label_NameInfo;
-    }
-
-    public void setLabel_NameInfo(Label label_NameInfo) {
-        this.label_NameInfo = label_NameInfo;
-    }
+//    public Label getLabel_PaneNameChange() {
+//        return label_PaneNameChange;
+//    }
+//
+//    public void setLabel_PaneNameChange(Label label_PaneNameChange) {
+//        this.label_PaneNameChange = label_PaneNameChange;
+//    }
+//
+//    public TextField getTextField_NameChange() {
+//        return textField_NameChange;
+//    }
+//
+//    public void setTextField_NameChange(TextField textField_NameChange) {
+//        this.textField_NameChange = textField_NameChange;
+//    }
+//
+//    public Label getLabel_NameInfo() {
+//        return label_NameInfo;
+//    }
+//
+//    public void setLabel_NameInfo(Label label_NameInfo) {
+//        this.label_NameInfo = label_NameInfo;
+//    }
 
     public TableView<SpecializationEntity> getTableView_Specialization() {
         return tableView_Specialization;
@@ -131,5 +130,9 @@ public class SpecializationTabController extends MenuController implements Initi
 
     public static ArrayList<SpecializationEntity> getSpecializations() {
         return specializations;
+    }
+
+    public void setSpecializationInfoController(SpecializationInfoController specializationInfoController) {
+        this.specializationInfoController = specializationInfoController;
     }
 }

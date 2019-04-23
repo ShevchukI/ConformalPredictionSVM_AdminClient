@@ -8,20 +8,16 @@ import com.entity.SpecializationEntity;
 import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.apache.http.HttpResponse;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ChangeSpecializationController extends MenuController implements Initializable {
+public class ChangeSpecializationController extends MenuController{
 
-    private static SpecializationEntity specializationEntity;
-    private static boolean change;
-    private static Label paneName;
-    private static TextField name;
+    private MenuController menuController;
+    private SpecializationEntity specializationEntity;
+    private boolean change;
 
     @FXML
     private Label label_PaneName;
@@ -32,23 +28,21 @@ public class ChangeSpecializationController extends MenuController implements In
     @FXML
     private Button button_Cancel;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        paneName = label_PaneName;
-        name = textField_Name;
+    public void init(MenuController menuController){
+        this.menuController = menuController;
     }
 
-    public static void create() {
+    public void create() {
         change = false;
-        paneName.setText("Add New Specialization");
-        name.clear();
+        label_PaneName.setText("Add New Specialization");
+        textField_Name.clear();
     }
 
-    public static void change(SpecializationEntity specialization) {
+    public void change(SpecializationEntity specialization) {
         change = true;
         specializationEntity = specialization;
-        paneName.setText("Change Specialization");
-        name.setText(specializationEntity.getName());
+        label_PaneName.setText("Change Specialization");
+        textField_Name.setText(specializationEntity.getName());
     }
 
     public void save(ActionEvent event) throws IOException {
@@ -89,7 +83,7 @@ public class ChangeSpecializationController extends MenuController implements In
     }
 
     private void close() {
-        name.clear();
+        textField_Name.clear();
         MainMenuController.deactivateAllStackPane();
     }
 

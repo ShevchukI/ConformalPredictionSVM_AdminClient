@@ -6,6 +6,7 @@ import com.controllers.windows.stack.entity.ChangeModelDeveloperController;
 import com.controllers.windows.stack.entity.ChangeSpecializationController;
 import com.controllers.windows.stack.entityInfo.DoctorInfoController;
 import com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController;
+import com.controllers.windows.stack.entityInfo.SpecializationInfoController;
 import com.controllers.windows.tab.DoctorTabController;
 import com.controllers.windows.tab.EmployeeStatusTabController;
 import com.controllers.windows.tab.ModelDeveloperTabController;
@@ -39,6 +40,12 @@ public class MainMenuController extends MenuController {
     private static final String ADD_NEW_DOCTOR = "Add new Doctor";
     private static final String ADD_NEW_MODEL_DEVELOPER = "Add new Model Developer";
 
+    @FXML
+    private SpecializationInfoController specializationInfoController;
+    @FXML
+    private ChangeSpecializationController changeSpecializationController;
+    @FXML
+    private SpecializationTabController specializationTabController;
     @FXML
     private MenuBarController menuBarController;
     @FXML
@@ -85,6 +92,9 @@ public class MainMenuController extends MenuController {
         });
         setStage(stage);
         this.menuBarController.init(this);
+//        this.specializationInfoController.init(this);
+        this.specializationTabController.init(this);
+        this.changeSpecializationController.init(this);
         this.doctorInfoController.init(this);
         this.modelDeveloperInfoController.init(this);
 
@@ -93,8 +103,9 @@ public class MainMenuController extends MenuController {
         prepareDoctorTab();
         prepareModelDeveloperTab();
 
-        SpecializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
-        SpecializationTabController.setStackPaneChange(stackPane_SpecializationChange);
+        specializationTabController.setStackPaneInfo(stackPane_SpecializationInfo);
+        specializationTabController.setStackPaneChange(stackPane_SpecializationChange);
+        specializationTabController.setSpecializationInfoController(specializationInfoController);
 
         EmployeeStatusTabController.setStackPaneInfo(stackPane_EmployeeStatusInfo);
         EmployeeStatusTabController.setStackPaneChange(stackPane_EmployeeStatusChange);
@@ -120,7 +131,7 @@ public class MainMenuController extends MenuController {
 
     public void addSpecialization(ActionEvent event) {
         activateStackPane(stackPane_SpecializationChange, stackPanes);
-        ChangeSpecializationController.create();
+        changeSpecializationController.create();
     }
 
     public void addEmployeeStatus(ActionEvent event) {
@@ -137,7 +148,7 @@ public class MainMenuController extends MenuController {
             modelDeveloperTabController.changeModelDeveloper();
         } else if (tab_Specialization.isSelected() && SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_SpecializationChange, MainMenuController.getStackPanes());
-            ChangeSpecializationController.change(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
+            changeSpecializationController.change(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
         } else if (tab_EmployeeStatus.isSelected() && EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem() != null) {
             activateStackPane(stackPane_EmployeeStatusChange, MainMenuController.getStackPanes());
             ChangeEmployeeStatusController.change(EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem());
@@ -150,7 +161,7 @@ public class MainMenuController extends MenuController {
         } else if (tab_ModelDeveloper.isSelected() && tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
 
         } else if (tab_Specialization.isSelected() && SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem() != null) {
-            SpecializationTabController.deleteSpecialization(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
+            specializationTabController.deleteSpecialization(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
         } else if (tab_EmployeeStatus.isSelected()) {
             EmployeeStatusTabController.deleteEmployeeStatus(EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem());
 //            employeeStatusTabController.deleteEmployee();
@@ -173,7 +184,7 @@ public class MainMenuController extends MenuController {
         stackPanes.add(stackPane_EmployeeStatusChange);
     }
 
-    public void prepareDoctorTab() {
+    private void prepareDoctorTab() {
         this.doctorTabController.init(this);
         this.doctorTabController.setStackPaneChange(stackPane_DoctorChange);
         this.doctorTabController.setLabel_PaneNameChange(changeDoctorController.getLabel_PaneName());
@@ -198,7 +209,7 @@ public class MainMenuController extends MenuController {
         this.doctorTabController.setStackPanes(stackPanes);
     }
 
-    public void prepareModelDeveloperTab() {
+    private void prepareModelDeveloperTab() {
         this.modelDeveloperTabController.init(this);
 
         this.modelDeveloperTabController.setStackPaneChange(stackPane_ModelDeveloperChange);
