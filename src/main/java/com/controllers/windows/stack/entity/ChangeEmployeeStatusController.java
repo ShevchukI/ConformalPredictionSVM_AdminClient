@@ -41,6 +41,8 @@ public class ChangeEmployeeStatusController extends MenuController implements In
         paneName = label_PaneName;
         name = textField_Name;
         workEnable = checkBox_WorkEnable;
+        button_Save.setGraphic(Constant.okIcon());
+        button_Cancel.setGraphic(Constant.cancelIcon());
     }
 
     public static void create(){

@@ -18,9 +18,7 @@ import com.tools.Constant;
 import com.tools.HazelCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -84,6 +82,12 @@ public class MainMenuController extends MenuController {
     private Tab tab_Specialization;
     @FXML
     private Tab tab_EmployeeStatus;
+    @FXML
+    private MenuButton menuButton_Add;
+    @FXML
+    private Button button_Change;
+    @FXML
+    private Button button_Delete;
 
 
     public void initialize(Stage stage) {
@@ -112,6 +116,10 @@ public class MainMenuController extends MenuController {
 
         this.changeDoctorController.init(this, EmployeeStatusTabController.getStatusEntities(), SpecializationTabController.getSpecializations());
         this.changeModelDeveloperController.init(this, EmployeeStatusTabController.getStatusEntities());
+
+        menuButton_Add.setGraphic(Constant.addIcon());
+        button_Change.setGraphic(Constant.editIcon());
+        button_Delete.setGraphic(Constant.deleteIcon());
     }
 
     public void addDoctor(ActionEvent event) {

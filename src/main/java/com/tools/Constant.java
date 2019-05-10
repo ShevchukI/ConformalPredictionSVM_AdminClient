@@ -3,6 +3,7 @@ package com.tools;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.ImageView;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -25,8 +26,17 @@ public class Constant {
     private final static String EMAILREG = "[a-zA-Z0-9]+[@][a-z]+[.][a-z]{2,3}";
 
     //Icons
-    private final static String SIGN_IN_BUTTON_ICON = "/img/icons/signIn.png";
+    private final static String SIGN_IN_ICON = "/img/icons/signIn.png";
     private final static String APPLICATION_ICON = "img/icons/icon.png";
+    private final static String ADD_ICON = "img/icons/add.png";
+    private final static String CANCEL_ICON = "img/icons/cancel.png";
+    private final static String DELETE_ICON = "img/icons/delete.png";
+    private final static String INFO_ICON = "img/icons/info.png";
+    private final static String OK_ICON = "img/icons/ok.png";
+    private final static String RETURN_ICON = "img/icons/return.png";
+    private final static String RUN_ICON = "img/icons/run.png";
+    private final static String SEARCH_ICON = "img/icons/search.png";
+    private final static String EDIT_ICON = "img/icons/edit.png";
 
     //FXML root
     private final static String MAIN_MENU_ROOT = "fxml/menu/mainMenu.fxml";
@@ -109,8 +119,8 @@ public class Constant {
         return PAGE_INDEX_MODEL_DEVELOPER;
     }
 
-    public static String getSignInButtonIcon() {
-        return SIGN_IN_BUTTON_ICON;
+    public static String getSignInIcon() {
+        return SIGN_IN_ICON;
     }
 
     public static String getMainMenuRoot() {
@@ -131,5 +141,85 @@ public class Constant {
 
     public static String getApplicationIcon() {
         return APPLICATION_ICON;
+    }
+
+    public static String getAddIcon() {
+        return ADD_ICON;
+    }
+
+    public static String getCancelIcon() {
+        return CANCEL_ICON;
+    }
+
+    public static String getDeleteIcon() {
+        return DELETE_ICON;
+    }
+
+    public static String getInfoIcon() {
+        return INFO_ICON;
+    }
+
+    public static String getOkIcon() {
+        return OK_ICON;
+    }
+
+    public static String getReturnIcon() {
+        return RETURN_ICON;
+    }
+
+    public static String getRunIcon() {
+        return RUN_ICON;
+    }
+
+    public static String getSearchIcon() {
+        return SEARCH_ICON;
+    }
+
+    public static String getEditIcon() {
+        return EDIT_ICON;
+    }
+
+    public static ImageView signInIcon() {
+        return new ImageView(SIGN_IN_ICON);
+    }
+
+    public static ImageView applicationIcon() {
+        return new ImageView(APPLICATION_ICON);
+    }
+
+    public static ImageView addIcon() {
+        return new ImageView(ADD_ICON);
+    }
+
+    public static ImageView cancelIcon() {
+        return new ImageView(CANCEL_ICON);
+    }
+
+    public static ImageView deleteIcon() {
+        return new ImageView(DELETE_ICON);
+    }
+
+    public static ImageView infoIcon() {
+        return new ImageView(INFO_ICON);
+    }
+
+    public static ImageView okIcon() {
+        return new ImageView(OK_ICON);
+    }
+
+    public static ImageView returnIcon() {
+        return new ImageView(RETURN_ICON);
+    }
+
+    public static ImageView runIcon() {
+        return new ImageView(RUN_ICON);
+    }
+
+    public static ImageView searchIcon() {
+        return new ImageView(SEARCH_ICON);
+    }
+
+    public static ImageView editIcon() {
+        return new ImageView(EDIT_ICON);
     }
 }

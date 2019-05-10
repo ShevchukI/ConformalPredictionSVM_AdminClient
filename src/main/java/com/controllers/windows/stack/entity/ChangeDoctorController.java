@@ -56,6 +56,10 @@ public class ChangeDoctorController extends MenuController{
     private Tooltip tooltip_Email;
     @FXML
     private ComboBox<EmployeeStatusEntity> comboBox_Status;
+    @FXML
+    private Button button_Save;
+    @FXML
+    private Button button_Cancel;
 
     public void init(MenuController menuController, ArrayList<EmployeeStatusEntity> employeeStatus, ArrayList<SpecializationEntity> specializations) {
         this.menuController = menuController;
@@ -130,6 +134,9 @@ public class ChangeDoctorController extends MenuController{
         tooltip_ErrorSurname = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
         tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
         tooltip_ErrorEmail = new Tooltip("");
+
+        button_Save.setGraphic(Constant.okIcon());
+        button_Cancel.setGraphic(Constant.cancelIcon());
     }
 
 

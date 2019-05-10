@@ -47,7 +47,7 @@ public class LoginMenuController extends MenuController {
         adminController = new AdminController();
         tooltip_ErrorLogin = new Tooltip();
         tooltip_ErrorPassword = new Tooltip();
-        button_SignIn.setGraphic(new ImageView(Constant.getSignInButtonIcon()));
+        button_SignIn.setGraphic(new ImageView(Constant.getSignInIcon()));
     }
 
     public void signIn(ActionEvent event) {

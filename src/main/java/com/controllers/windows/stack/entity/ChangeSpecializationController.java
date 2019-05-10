@@ -30,6 +30,8 @@ public class ChangeSpecializationController extends MenuController{
 
     public void init(MenuController menuController){
         this.menuController = menuController;
+        button_Save.setGraphic(Constant.okIcon());
+        button_Cancel.setGraphic(Constant.cancelIcon());
     }
 
     public void create() {

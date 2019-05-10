@@ -4,12 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -102,7 +99,7 @@
                         </MenuButton>
                   <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#change" text="Change" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="50.0" />
                   <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#delete" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" />
-                  <Button layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" />
+                  <Button disable="true" layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" visible="false" />
                     </children>
                 </AnchorPane>
             </children>
