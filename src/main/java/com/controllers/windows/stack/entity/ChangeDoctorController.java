@@ -19,8 +19,6 @@ import org.apache.http.HttpResponse;
 import java.util.ArrayList;
 
 public class ChangeDoctorController extends MenuController{
-//    @Autowired
-//    HttpResponse response;
 
     private MenuController menuController;
     private DoctorEntity doctorEntity;
@@ -31,10 +29,8 @@ public class ChangeDoctorController extends MenuController{
     private boolean change;
     private Tooltip tooltip_ErrorName;
     private Tooltip tooltip_ErrorSurname;
-    private Tooltip tooltip_ErrorSpecialization;
     private Tooltip tooltip_ErrorTelephone;
     private Tooltip tooltip_ErrorEmail;
-    private Tooltip tooltip_ErrorStatus;
 
     @FXML
     private Label label_PaneName;
@@ -271,7 +267,6 @@ public class ChangeDoctorController extends MenuController{
         getTextField_Telephone().clear();
         getTextField_Email().clear();
     }
-
     public ArrayList<SpecializationEntity> getSpecializations() {
         return specializations;
     }
@@ -351,6 +346,7 @@ public class ChangeDoctorController extends MenuController{
     public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
         this.comboBox_Status = comboBox_Status;
     }
+
 
 
 }

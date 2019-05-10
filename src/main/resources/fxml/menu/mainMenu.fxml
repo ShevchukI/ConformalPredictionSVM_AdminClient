@@ -29,13 +29,6 @@
                             <font>
                                 <Font size="24.0" />
                             </font>
-                            <tooltip>
-                                <Tooltip text="It`s main menu">
-                                    <font>
-                                        <Font size="14.0" />
-                                    </font>
-                                </Tooltip>
-                            </tooltip>
                         </Label>
                         <Separator layoutY="35.0" prefWidth="200.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                     </children>

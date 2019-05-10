@@ -25,9 +25,9 @@ public class SpecializationTabController extends MenuController{
     private StackPane stackPane_Info;
     private static ArrayList<SpecializationEntity> specializations;
     private ObservableList<SpecializationEntity> specializationEntities;
-//    private Label label_PaneNameChange;
-//    private TextField textField_NameChange;
-//    private Label label_NameInfo;
+    private Label label_PaneNameChange;
+    private TextField textField_NameChange;
+    private Label label_NameInfo;
     private static TableView<SpecializationEntity> specializationTable;
 
     @FXML
@@ -96,29 +96,29 @@ public class SpecializationTabController extends MenuController{
         this.stackPane_Info = stackPane;
     }
 
-//    public Label getLabel_PaneNameChange() {
-//        return label_PaneNameChange;
-//    }
-//
-//    public void setLabel_PaneNameChange(Label label_PaneNameChange) {
-//        this.label_PaneNameChange = label_PaneNameChange;
-//    }
-//
-//    public TextField getTextField_NameChange() {
-//        return textField_NameChange;
-//    }
-//
-//    public void setTextField_NameChange(TextField textField_NameChange) {
-//        this.textField_NameChange = textField_NameChange;
-//    }
-//
-//    public Label getLabel_NameInfo() {
-//        return label_NameInfo;
-//    }
-//
-//    public void setLabel_NameInfo(Label label_NameInfo) {
-//        this.label_NameInfo = label_NameInfo;
-//    }
+    public Label getLabel_PaneNameChange() {
+        return label_PaneNameChange;
+    }
+
+    public void setLabel_PaneNameChange(Label label_PaneNameChange) {
+        this.label_PaneNameChange = label_PaneNameChange;
+    }
+
+    public TextField getTextField_NameChange() {
+        return textField_NameChange;
+    }
+
+    public void setTextField_NameChange(TextField textField_NameChange) {
+        this.textField_NameChange = textField_NameChange;
+    }
+
+    public Label getLabel_NameInfo() {
+        return label_NameInfo;
+    }
+
+    public void setLabel_NameInfo(Label label_NameInfo) {
+        this.label_NameInfo = label_NameInfo;
+    }
 
     public TableView<SpecializationEntity> getTableView_Specialization() {
         return tableView_Specialization;

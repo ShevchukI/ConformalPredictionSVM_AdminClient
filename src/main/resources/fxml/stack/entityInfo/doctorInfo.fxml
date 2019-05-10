@@ -11,13 +11,6 @@
          <font>
             <Font size="24.0" />
          </font>
-         <tooltip>
-            <Tooltip text="Information about selected doctor">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Tooltip>
-         </tooltip>
       </Label>
       <Label layoutX="24.0" layoutY="70.0" text="Name:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="73.0">
          <tooltip>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e15006b0-8f24-4551-8d44-1febb7e79909" name="Default" comment="">
+    <list default="true" id="e15006b0-8f24-4551-8d44-1febb7e79909" name="Default" comment="change specialization&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,15 +40,64 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ChangeSpecializationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
+      <file leaf-file-name="doctorTab.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/doctorTab.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-              <folding>
-                <element signature="e#926#927#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="employeeStatusTab.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/employeeStatusTab.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modelDeveloperTab.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/modelDeveloperTab.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="specializationTab.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/specializationTab.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoctorTabController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1056">
+              <caret line="67" column="14" lean-forward="false" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,91 +105,37 @@
       <file leaf-file-name="ChangeDoctorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-814">
-              <caret line="226" column="40" lean-forward="true" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="40" />
+            <state relative-caret-position="110">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding>
+                <element signature="method#init#0;class#ChangeDoctorController#0" expanded="false" />
+                <element signature="method#save#0;class#ChangeDoctorController#0" expanded="false" />
+                <element signature="method#cancel#0;class#ChangeDoctorController#0" expanded="false" />
+                <element signature="method#changeCurrent#0;class#ChangeDoctorController#0" expanded="false" />
+                <element signature="method#addNew#0;class#ChangeDoctorController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginMenu.fxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChangeModelDeveloperController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeModelDeveloperController.java">
+      <file leaf-file-name="MenuController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1412">
-              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpecializationInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelDeveloperInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/ModelDeveloperInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-              <folding>
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#569#570#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DoctorInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/DoctorInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-262">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpecializationTabController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-946">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="e#4013#4014#0" expanded="true" />
-                <element signature="e#4062#4063#0" expanded="true" />
-                <element signature="e#4199#4200#0" expanded="true" />
-                <element signature="e#4246#4247#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployeeStatusInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/EmployeeStatusInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+            <state relative-caret-position="1914">
+              <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -145,8 +144,18 @@
       <file leaf-file-name="ModelDeveloperTabController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="2024">
+              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="234" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecializationTabController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -207,23 +216,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/fxml/tab/specializationTab.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/models/ModelDeveloperPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/ModelDeveloperInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/tab/modelDeveloperTab.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/tab/doctorStatusTab.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/DoctorInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/tab/doctorTab.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/models/DoctorPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tools/Encryptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/tools/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/DoctorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java" />
@@ -239,18 +242,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuBarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/WindowsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeModelDeveloperController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/EmployeeStatusInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java" />
       </list>
     </option>
   </component>
@@ -316,7 +325,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -359,6 +367,176 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entityInfo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConformalPredictionSVM_AdminClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fxml" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -712,6 +890,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -720,7 +899,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../03.04.2019/ConformalPredictSVM_DoctorClient-master_2/ConformalPredictSVM_DoctorClient-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1207,7 +1386,16 @@
       <workItem from="1555948126819" duration="571000" />
       <workItem from="1555951696791" duration="2609000" />
       <workItem from="1556022986254" duration="46000" />
-      <workItem from="1556023046953" duration="4412000" />
+      <workItem from="1556023046953" duration="5215000" />
+      <workItem from="1556040140500" duration="366000" />
+      <workItem from="1556041030105" duration="1897000" />
+      <workItem from="1556043011183" duration="119000" />
+      <workItem from="1556046778344" duration="2207000" />
+      <workItem from="1556052782111" duration="209000" />
+      <workItem from="1556266201181" duration="846000" />
+      <workItem from="1556270665246" duration="730000" />
+      <workItem from="1556708129752" duration="2409000" />
+      <workItem from="1557489492415" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="Specialization and Status CRU">
       <created>1553623388490</created>
@@ -1272,11 +1460,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556024660685</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change specialization&#10;">
+      <created>1556027473977</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556027473977</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146560000" />
+    <option name="totallyTimeSpent" value="156248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -1291,21 +1486,20 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30093676" sideWeight="0.5021482" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.4903475" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2997658" sideWeight="0.49785176" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18149883" sideWeight="0.49785176" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30558538" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29699248" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.013426423" sideWeight="0.48895434" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.704918" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27751756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27751756" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1313,6 +1507,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.013426423" sideWeight="0.51029414" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.704918" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1331,11 +1526,12 @@
     <MESSAGE value="refactoring actions on specialization" />
     <MESSAGE value="refactoring actions on work status" />
     <MESSAGE value="clean comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean comments" />
+    <MESSAGE value="change specialization&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="change specialization&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="192" />
+      <option name="time" value="194" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1344,73 +1540,56 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/com.controllers">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.controllers</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">com.controllers.requests</node>
-            <node x="0.0" y="81.0">com.controllers.windows</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-347.0" y="-64.0" />
-          <SelectedNodes>
-            <node>com.controllers.requests</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.controllers.requests">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/EmployeeStatusInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/ModelDeveloperInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="e#517#518#0" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.models">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
-          <OriginalElement>com.controllers.requests</OriginalElement>
+          <OriginalElement>com.models</OriginalElement>
           <nodes>
-            <node x="643.0" y="86.0">com.controllers.requests.SpecializationController</node>
-            <node x="1.0" y="-1.0">com.controllers.requests.DoctorController</node>
-            <node x="410.0" y="86.0">com.controllers.requests.EmployeeStatusController</node>
-            <node x="328.5" y="0.0">com.controllers.requests.MainController</node>
-            <node x="170.99999999999997" y="86.0">com.controllers.requests.ModelDeveloperController</node>
-            <node x="0.0" y="86.0">com.controllers.requests.AdminController</node>
+            <node x="0.0" y="81.0">com.models.DoctorPage</node>
+            <node x="0.0" y="0.0">com.models.ModelDeveloperPage</node>
           </nodes>
           <notes />
-          <edges>
-            <edge source="com.controllers.requests.ModelDeveloperController" target="com.controllers.requests.MainController">
-              <point x="0.0" y="-18.0" />
-              <point x="280.5" y="66.0" />
-              <point x="381.0" y="66.0" />
-              <point x="-17.5" y="18.0" />
-            </edge>
-            <edge source="com.controllers.requests.SpecializationController" target="com.controllers.requests.MainController">
-              <point x="0.0" y="-18.0" />
-              <point x="743.0" y="56.0" />
-              <point x="451.0" y="56.0" />
-              <point x="52.5" y="18.0" />
-            </edge>
-            <edge source="com.controllers.requests.DoctorController" target="com.controllers.requests.MainController">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="com.controllers.requests.AdminController" target="com.controllers.requests.MainController">
-              <point x="0.0" y="-18.0" />
-              <point x="75.5" y="56.0" />
-              <point x="346.0" y="56.0" />
-              <point x="-52.5" y="18.0" />
-            </edge>
-            <edge source="com.controllers.requests.EmployeeStatusController" target="com.controllers.requests.MainController">
-              <point x="0.0" y="-18.0" />
-              <point x="516.5" y="66.0" />
-              <point x="416.0" y="66.0" />
-              <point x="17.5" y="18.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-4.0" y="-21.0" />
-          <SelectedNodes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-305.0" y="-95.0" />
+          <SelectedNodes>
+            <node>com.models.DoctorPage</node>
+          </SelectedNodes>
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
@@ -1428,7 +1607,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-344.0" y="-64.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-317.0" y="-95.0" />
           <SelectedNodes>
             <node>com.controllers.windows.stack.entityInfo</node>
           </SelectedNodes>
@@ -1438,22 +1617,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.controllers.windows.stack.entity">
+    <entry file="uml://JAVA/fxml">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
-          <OriginalElement>com.controllers.windows.stack.entity</OriginalElement>
+          <OriginalElement>fxml</OriginalElement>
           <nodes>
-            <node x="0.0" y="81.0">com.controllers.windows.stack.entity.ChangeEmployeeStatusController</node>
-            <node x="0.0" y="0.0">com.controllers.windows.stack.entity.ChangeModelDeveloperController</node>
-            <node x="0.0" y="162.0">com.controllers.windows.stack.entity.ChangeSpecializationController</node>
-            <node x="0.0" y="243.0">com.controllers.windows.stack.entity.ChangeDoctorController</node>
+            <node x="0.0" y="81.0">fxml.menu</node>
+            <node x="178.0" y="162.0">fxml.tab</node>
+            <node x="0.0" y="162.0">fxml.stack</node>
+            <node x="0.0" y="0.0">fxml.admin</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-291.0" y="17.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-248.0" y="-55.0" />
           <SelectedNodes>
-            <node>com.controllers.windows.stack.entity.ChangeEmployeeStatusController</node>
+            <node>fxml.menu</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/fxml.menu">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>fxml.menu</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.tools">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.tools</OriginalElement>
+          <nodes>
+            <node x="0.0" y="162.0">com.tools.Constant</node>
+            <node x="0.0" y="0.0">com.tools.HazelCastMap</node>
+            <node x="0.0" y="81.0">com.tools.Encryptor</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-330.0" y="-55.0" />
+          <SelectedNodes>
+            <node>com.tools.Constant</node>
           </SelectedNodes>
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1474,7 +1691,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-304.0" y="17.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-276.0" y="-14.0" />
           <SelectedNodes>
             <node>com.controllers.windows.tab.EmployeeStatusTabController</node>
           </SelectedNodes>
@@ -1510,11 +1727,202 @@
               <point x="-34.25" y="18.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-284.0" y="-21.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-256.0" y="-52.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.stack.entityInfo">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.stack.entityInfo</OriginalElement>
+          <nodes>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.DoctorInfoController</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.SpecializationInfoController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="123.0" y="140.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.stack.entity">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.stack.entity</OriginalElement>
+          <nodes>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeEmployeeStatusController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeSpecializationController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeModelDeveloperController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeDoctorController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="135.0" y="140.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.requests">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.requests</OriginalElement>
+          <nodes>
+            <node x="171.0" y="86.0">com.controllers.requests.SpecializationController</node>
+            <node x="391.0" y="86.0">com.controllers.requests.DoctorController</node>
+            <node x="803.0" y="86.0">com.controllers.requests.EmployeeStatusController</node>
+            <node x="397.5" y="0.0">com.controllers.requests.MainController</node>
+            <node x="564.0" y="86.0">com.controllers.requests.ModelDeveloperController</node>
+            <node x="0.0" y="86.0">com.controllers.requests.AdminController</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.controllers.requests.ModelDeveloperController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-18.0" />
+              <point x="673.5" y="66.0" />
+              <point x="495.5" y="66.0" />
+              <point x="28.0" y="18.0" />
+            </edge>
+            <edge source="com.controllers.requests.SpecializationController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-18.0" />
+              <point x="271.0" y="66.0" />
+              <point x="439.5" y="66.0" />
+              <point x="-28.0" y="18.0" />
+            </edge>
+            <edge source="com.controllers.requests.DoctorController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-18.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+            <edge source="com.controllers.requests.AdminController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-18.0" />
+              <point x="75.5" y="56.0" />
+              <point x="411.5" y="56.0" />
+              <point x="-56.0" y="18.0" />
+            </edge>
+            <edge source="com.controllers.requests.EmployeeStatusController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-18.0" />
+              <point x="909.5" y="56.0" />
+              <point x="523.5" y="56.0" />
+              <point x="56.0" y="18.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="110.0" y="-93.0" />
           <SelectedNodes>
-            <node>com.controllers.windows.menu</node>
+            <node>com.controllers.requests.AdminController</node>
           </SelectedNodes>
           <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.admin">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.admin</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">com.controllers.windows.admin.LoginMenuController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-308.0" y="-136.0" />
+          <SelectedNodes>
+            <node>com.controllers.windows.admin.LoginMenuController</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.menu">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.menu</OriginalElement>
+          <nodes>
+            <node x="197.0" y="86.0">com.controllers.windows.menu.MenuBarController</node>
+            <node x="0.0" y="167.0">com.controllers.windows.menu.WindowsController</node>
+            <node x="0.0" y="86.0">com.controllers.windows.menu.MainMenuController</node>
+            <node x="112.25" y="0.0">com.controllers.windows.menu.MenuController</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-18.0" />
+              <point x="88.5" y="61.0" />
+              <point x="148.25" y="61.0" />
+              <point x="-36.0" y="18.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MenuBarController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-18.0" />
+              <point x="280.0" y="61.0" />
+              <point x="220.25" y="61.0" />
+              <point x="36.0" y="18.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-217.0" y="-52.0" />
+          <SelectedNodes>
+            <node>com.controllers.windows.menu.MenuController</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/WindowsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.Application">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.Application</OriginalElement>
+          <nodes>
+            <node x="" y="">com.controllers.requests.AdminController</node>
+            <node x="" y="">com.controllers.requests.MainController</node>
+            <node x="" y="">com.controllers.requests.ModelDeveloperController</node>
+            <node x="" y="">com.controllers.requests.DoctorController</node>
+            <node x="" y="">com.controllers.requests.EmployeeStatusController</node>
+            <node x="" y="">com.controllers.requests.SpecializationController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.10176934004907659" x="9582.0" y="4975.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
+          </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
@@ -1526,84 +1934,14 @@
           <ID>JAVA</ID>
           <OriginalElement>com.entity</OriginalElement>
           <nodes>
-            <node x="0.0" y="0.0">com.entity.ModelDeveloperEntity</node>
-            <node x="0.0" y="162.0">com.entity.SpecializationEntity</node>
-            <node x="0.0" y="243.0">com.entity.DoctorEntity</node>
-            <node x="0.0" y="81.0">com.entity.EmployeeStatusEntity</node>
+            <node x="" y="">com.entity.ModelDeveloperEntity</node>
+            <node x="" y="">com.entity.SpecializationEntity</node>
+            <node x="" y="">com.entity.DoctorEntity</node>
+            <node x="" y="">com.entity.EmployeeStatusEntity</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-331.0" y="17.0" />
-          <SelectedNodes>
-            <node>com.entity.ModelDeveloperEntity</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.models">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.models</OriginalElement>
-          <nodes>
-            <node x="0.0" y="81.0">com.models.DoctorPage</node>
-            <node x="0.0" y="0.0">com.models.ModelDeveloperPage</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-333.0" y="-64.0" />
-          <SelectedNodes>
-            <node>com.models.DoctorPage</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.tools">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.tools</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">com.tools.Constant</node>
-            <node x="149.0" y="0.0">com.tools.Encryptor</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-299.0" y="-104.0" />
-          <SelectedNodes>
-            <node>com.tools.Constant</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com</OriginalElement>
-          <nodes>
-            <node x="" y="">com.controllers</node>
-            <node x="" y="">com.google</node>
-            <node x="" y="">com.oracle</node>
-            <node x="" y="">com.Application</node>
-            <node x="" y="">com.sun</node>
-            <node x="" y="">com.tools</node>
-            <node x="" y="">com.models</node>
-            <node x="" y="">com.entity</node>
-            <node x="" y="">com.hazelcast</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="178.0" y="180.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="91.0" y="140.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1611,39 +1949,583 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.controllers.requests.DoctorController">
+    <entry file="uml://JAVA/com.tools.HazelCastMap">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
-          <OriginalElement>com.controllers.requests.DoctorController</OriginalElement>
+          <OriginalElement>com.tools.HazelCastMap</OriginalElement>
           <nodes>
-            <node x="" y="">com.controllers.requests.DoctorController</node>
+            <node x="" y="">javafx.fxml.Initializable</node>
+            <node x="" y="">com.Application</node>
+            <node x="" y="">com.entity.ModelDeveloperEntity</node>
+            <node x="" y="">com.controllers.windows.tab.SpecializationTabController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeModelDeveloperController</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController</node>
+            <node x="" y="">com.entity.DoctorEntity</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.SpecializationInfoController</node>
+            <node x="" y="">com.controllers.windows.menu.MenuController</node>
+            <node x="" y="">com.controllers.requests.AdminController</node>
+            <node x="" y="">com.controllers.windows.tab.DoctorTabController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeEmployeeStatusController</node>
+            <node x="" y="">com.controllers.windows.menu.MenuBarController</node>
             <node x="" y="">com.controllers.requests.MainController</node>
+            <node x="" y="">com.controllers.windows.menu.MainMenuController</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController</node>
+            <node x="" y="">com.entity.EmployeeStatusEntity</node>
+            <node x="" y="">com.controllers.requests.ModelDeveloperController</node>
+            <node x="" y="">com.controllers.windows.admin.LoginMenuController</node>
+            <node x="" y="">com.controllers.requests.DoctorController</node>
+            <node x="" y="">com.entity.SpecializationEntity</node>
+            <node x="" y="">com.controllers.windows.stack.entityInfo.DoctorInfoController</node>
+            <node x="" y="">com.controllers.requests.EmployeeStatusController</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeSpecializationController</node>
+            <node x="" y="">com.tools.HazelCastMap</node>
+            <node x="" y="">com.controllers.windows.stack.entity.ChangeDoctorController</node>
+            <node x="" y="">com.models.DoctorPage</node>
+            <node x="" y="">com.controllers.windows.tab.EmployeeStatusTabController</node>
+            <node x="" y="">com.tools.Constant</node>
+            <node x="" y="">com.controllers.windows.tab.ModelDeveloperTabController</node>
+            <node x="" y="">com.controllers.requests.SpecializationController</node>
+            <node x="" y="">com.models.ModelDeveloperPage</node>
+            <node x="" y="">com.controllers.windows.menu.WindowsController</node>
+            <node x="" y="">com.tools.Encryptor</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="77.0" y="61.0" />
+          <settings layout="Hierarchic Group" zoom="0.7444831186912636" x="648.0" y="263.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/DoctorInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.requests.AdminController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.requests.AdminController</OriginalElement>
+          <nodes>
+            <node x="8567.195816297903" y="6565.0">com.Application</node>
+            <node x="1153.1339115359988" y="498.0">com.entity.ModelDeveloperEntity</node>
+            <node x="7873.314973144143" y="3399.5">com.controllers.windows.tab.SpecializationTabController</node>
+            <node x="1524.500000000001" y="1400.0">com.controllers.windows.stack.entity.ChangeModelDeveloperController</node>
+            <node x="8422.314973144143" y="1737.5">com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController</node>
+            <node x="5110.967244869332" y="444.0">com.entity.DoctorEntity</node>
+            <node x="7774.564973144143" y="1899.5">com.controllers.windows.stack.entityInfo.SpecializationInfoController</node>
+            <node x="6534.4684293330165" y="538.5">com.controllers.windows.menu.MenuController</node>
+            <node x="9036.314973144143" y="5207.5">com.controllers.requests.AdminController</node>
+            <node x="4155.0" y="2940.5">com.controllers.windows.tab.DoctorTabController</node>
+            <node x="2637.500000000001" y="1643.0">com.controllers.windows.stack.entity.ChangeEmployeeStatusController</node>
+            <node x="8795.195816297903" y="6497.0">com.controllers.windows.menu.MenuBarController</node>
+            <node x="10012.592444284111" y="3615.5">com.controllers.requests.MainController</node>
+            <node x="1324.0" y="6768.0">com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController</node>
+            <node x="5556.945925525095" y="4667.0">com.controllers.windows.menu.MainMenuController</node>
+            <node x="3274.967444284112" y="0.0">com.entity.EmployeeStatusEntity</node>
+            <node x="9854.314973144143" y="5180.5">com.controllers.requests.ModelDeveloperController</node>
+            <node x="8549.774387726475" y="5871.0">com.controllers.windows.admin.LoginMenuController</node>
+            <node x="9210.164665504253" y="54.0">com.entity.SpecializationEntity</node>
+            <node x="9406.314973144143" y="5180.5">com.controllers.requests.DoctorController</node>
+            <node x="7101.564973144143" y="1697.0">com.controllers.windows.stack.entityInfo.DoctorInfoController</node>
+            <node x="10386.314973144143" y="5167.0">com.controllers.requests.EmployeeStatusController</node>
+            <node x="836.0" y="6768.0">com.tools.HazelCastMap</node>
+            <node x="9417.314973144143" y="1791.5">com.controllers.windows.stack.entity.ChangeSpecializationController</node>
+            <node x="5529.0" y="1265.0">com.controllers.windows.stack.entity.ChangeDoctorController</node>
+            <node x="4676.5" y="1872.5">com.models.DoctorPage</node>
+            <node x="3482.500000000001" y="1467.5">com.controllers.windows.tab.EmployeeStatusTabController</node>
+            <node x="0.0" y="6768.0">com.tools.Constant</node>
+            <node x="10.5" y="2846.0">com.controllers.windows.tab.ModelDeveloperTabController</node>
+            <node x="10926.314973144143" y="5167.0">com.controllers.requests.SpecializationController</node>
+            <node x="940.4459255250949" y="1872.5">com.models.ModelDeveloperPage</node>
+            <node x="8666.074387726476" y="6309.0">com.controllers.windows.menu.WindowsController</node>
+            <node x="1689.0" y="6768.0">com.tools.Encryptor</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.controllers.windows.stack.entity.ChangeModelDeveloperController" target="com.entity.EmployeeStatusEntity">
+              <point x="91.08333333333303" y="-585.5" />
+              <point x="2162.083333333334" y="1245.0" />
+              <point x="2076.5" y="1245.0" />
+              <point x="2076.5" y="404.0" />
+              <point x="3383.867444284112" y="404.0" />
+              <point x="-39.59999999999991" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.DoctorTabController" target="com.entity.SpecializationEntity">
+              <point x="601.3333333333339" y="-761.0" />
+              <point x="5432.833333333334" y="2796.0" />
+              <point x="9373.814973144143" y="2796.0" />
+              <point x="9373.814973144143" y="424.0" />
+              <point x="9318.664665504253" y="424.0" />
+              <point x="0.0" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeSpecializationController" target="com.entity.SpecializationEntity">
+              <point x="64.125" y="-194.0" />
+              <point x="9737.939973144143" y="394.0" />
+              <point x="9390.997998837585" y="394.0" />
+              <point x="72.33333333333303" y="113.0" />
+            </edge>
+            <edge source="com.controllers.requests.DoctorController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-58.5" />
+              <point x="9620.314973144143" y="4647.0" />
+              <point x="10102.592444284111" y="4647.0" />
+              <point x="-60.0" y="86.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MenuBarController" target="com.controllers.windows.menu.WindowsController">
+              <point x="-66.28571428571428" y="-113.0" />
+              <point x="8960.910102012189" y="6447.0" />
+              <point x="8841.907721059808" y="6447.0" />
+              <point x="70.33333333333326" y="59.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.WindowsController" target="com.controllers.windows.admin.LoginMenuController">
+              <point x="-70.33333333333331" y="-59.0" />
+              <point x="8701.241054393142" y="6289.0" />
+              <point x="8607.674387726474" y="6289.0" />
+              <point x="-231.60000000000002" y="194.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.DoctorTabController" target="com.entity.EmployeeStatusEntity">
+              <point x="-601.3333333333339" y="-761.0" />
+              <point x="4230.166666666666" y="2736.0" />
+              <point x="3461.000000000001" y="2736.0" />
+              <point x="3461.000000000001" y="424.0" />
+              <point x="3443.267444284112" y="424.0" />
+              <point x="19.800000000000182" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entityInfo.DoctorInfoController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-288.5" />
+              <point x="7428.064973144143" y="1185.0" />
+              <point x="6765.016048380636" y="1185.0" />
+              <point x="20.047619047619264" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.SpecializationTabController" target="com.entity.SpecializationEntity">
+              <point x="334.0" y="-302.0" />
+              <point x="8624.814973144143" y="2816.0" />
+              <point x="9406.814973144143" y="2816.0" />
+              <point x="9406.814973144143" y="404.0" />
+              <point x="9366.886887726476" y="404.0" />
+              <point x="48.222222222222626" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeDoctorController" target="com.controllers.windows.menu.MenuController">
+              <point x="565.6875" y="-720.5" />
+              <point x="6741.1875" y="1245.0" />
+              <point x="6644.730334094921" y="1245.0" />
+              <point x="-100.23809523809541" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.admin.LoginMenuController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-194.0" />
+              <point x="8839.274387726475" y="5831.0" />
+              <point x="9025.814973144143" y="5831.0" />
+              <point x="9025.814973144143" y="1135.0" />
+              <point x="6865.25414361873" y="1135.0" />
+              <point x="120.28571428571377" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.DoctorTabController" target="com.entity.DoctorEntity">
+              <point x="-150.33333333333394" y="-761.0" />
+              <point x="4681.166666666666" y="2736.0" />
+              <point x="4666.0" y="2736.0" />
+              <point x="4666.0" y="1185.0" />
+              <point x="5240.217244869332" y="1185.0" />
+              <point x="-129.25" y="315.5" />
+            </edge>
+            <edge source="com.controllers.windows.tab.EmployeeStatusTabController" target="com.entity.EmployeeStatusEntity">
+              <point x="0.0" y="-518.0" />
+              <point x="4063.500000000001" y="414.0" />
+              <point x="3502.667444284112" y="414.0" />
+              <point x="79.20000000000027" y="167.0" />
+            </edge>
+            <edge source="com.models.DoctorPage" target="com.entity.DoctorEntity">
+              <point x="0.0" y="-113.0" />
+              <point x="4831.5" y="1195.0" />
+              <point x="5326.383911535999" y="1195.0" />
+              <point x="-43.08333333333326" y="315.5" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeDoctorController" target="com.entity.EmployeeStatusEntity">
+              <point x="-242.4375" y="-720.5" />
+              <point x="5933.0625" y="1185.0" />
+              <point x="6203.675578202666" y="1185.0" />
+              <point x="6203.675578202666" y="384.0" />
+              <point x="3542.267444284112" y="384.0" />
+              <point x="118.80000000000018" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeEmployeeStatusController" target="com.controllers.windows.menu.MenuController">
+              <point x="271.0" y="-342.5" />
+              <point x="3315.000000000001" y="1225.0" />
+              <point x="6584.587476952064" y="1225.0" />
+              <point x="-160.3809523809523" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.ModelDeveloperTabController" target="com.entity.ModelDeveloperEntity">
+              <point x="-213.28571428571468" y="-855.5" />
+              <point x="543.7142857142853" y="2826.0" />
+              <point x="663.9434353455217" y="2826.0" />
+              <point x="663.9434353455217" y="1225.0" />
+              <point x="1189.5505782026648" y="1225.0" />
+              <point x="-182.08333333333394" y="261.5" />
+            </edge>
+            <edge source="com.entity.ModelDeveloperEntity" target="com.entity.EmployeeStatusEntity">
+              <point x="0.0" y="-261.5" />
+              <point x="1371.6339115359988" y="384.0" />
+              <point x="3344.267444284112" y="384.0" />
+              <point x="-79.19999999999982" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MenuBarController" target="com.controllers.windows.admin.LoginMenuController">
+              <point x="0.0" y="-113.0" />
+              <point x="9027.195816297903" y="6467.0" />
+              <point x="9099.124387726475" y="6467.0" />
+              <point x="9099.124387726475" y="6289.0" />
+              <point x="8955.074387726476" y="6289.0" />
+              <point x="115.79999999999973" y="194.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeModelDeveloperController" target="com.controllers.windows.menu.MenuController">
+              <point x="273.25" y="-585.5" />
+              <point x="2344.250000000001" y="1205.0" />
+              <point x="6544.492238856826" y="1205.0" />
+              <point x="-200.47619047619037" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-248.0" />
+              <point x="8718.814973144143" y="1145.0" />
+              <point x="6845.206524571112" y="1145.0" />
+              <point x="100.23809523809541" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.admin.LoginMenuController" target="com.controllers.windows.menu.WindowsController">
+              <point x="-115.79999999999973" y="194.0" />
+              <point x="8723.474387726475" y="6289.0" />
+              <point x="8771.574387726476" y="6289.0" />
+              <point x="0.0" y="-59.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entityInfo.SpecializationInfoController">
+              <point x="267.0" y="-572.0" />
+              <point x="6402.445925525095" y="4597.0" />
+              <point x="7862.814973144143" y="4597.0" />
+              <point x="-88.25" y="86.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entityInfo.SpecializationInfoController" target="com.controllers.windows.menu.MenuController">
+              <point x="0.0" y="-86.0" />
+              <point x="7951.064973144143" y="1175.0" />
+              <point x="6785.063667428254" y="1175.0" />
+              <point x="40.09523809523762" y="221.0" />
+            </edge>
+            <edge source="com.Application" target="com.controllers.windows.menu.WindowsController">
+              <point x="0.0" y="-45.0" />
+              <point x="8671.195816297903" y="6477.0" />
+              <point x="8701.241054393142" y="6477.0" />
+              <point x="-70.33333333333331" y="59.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.SpecializationTabController" target="com.controllers.windows.stack.entityInfo.SpecializationInfoController">
+              <point x="-334.0" y="-302.0" />
+              <point x="7956.814973144143" y="2786.0" />
+              <point x="8039.314973144143" y="2786.0" />
+              <point x="88.25" y="86.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entity.ChangeModelDeveloperController">
+              <point x="-267.0" y="-572.0" />
+              <point x="5868.445925525095" y="4617.0" />
+              <point x="2071.000000000001" y="4617.0" />
+              <point x="0.0" y="585.5" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeEmployeeStatusController" target="com.entity.EmployeeStatusEntity">
+              <point x="-271.0" y="-342.5" />
+              <point x="2773.000000000001" y="1195.0" />
+              <point x="2927.0505782026657" y="1195.0" />
+              <point x="2927.0505782026657" y="414.0" />
+              <point x="3403.6674442841118" y="414.0" />
+              <point x="-19.800000000000182" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.entity.ModelDeveloperEntity">
+              <point x="-356.0" y="-572.0" />
+              <point x="5779.445925525095" y="4627.0" />
+              <point x="1514.0" y="4627.0" />
+              <point x="1514.0" y="1245.0" />
+              <point x="1408.0505782026648" y="1245.0" />
+              <point x="36.41666666666606" y="261.5" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entityInfo.DoctorInfoController">
+              <point x="178.0" y="-572.0" />
+              <point x="6313.445925525095" y="4587.0" />
+              <point x="7428.064973144143" y="4587.0" />
+              <point x="0.0" y="288.5" />
+            </edge>
+            <edge source="com.controllers.windows.tab.DoctorTabController" target="com.controllers.windows.menu.MenuController">
+              <point x="150.33333333333394" y="-761.0" />
+              <point x="4981.833333333334" y="2766.0" />
+              <point x="6854.5" y="2766.0" />
+              <point x="6854.5" y="1215.0" />
+              <point x="6704.873191237778" y="1215.0" />
+              <point x="-40.09523809523853" y="221.0" />
+            </edge>
+            <edge source="com.controllers.requests.EmployeeStatusController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-72.0" />
+              <point x="10646.314973144143" y="4647.0" />
+              <point x="10222.592444284111" y="4647.0" />
+              <point x="60.0" y="86.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.entity.EmployeeStatusEntity">
+              <point x="-534.0" y="-572.0" />
+              <point x="5601.445925525095" y="4647.0" />
+              <point x="0.0" y="4647.0" />
+              <point x="0.0" y="354.0" />
+              <point x="3284.867444284112" y="354.0" />
+              <point x="-138.5999999999999" y="167.0" />
+            </edge>
+            <edge source="com.controllers.requests.ModelDeveloperController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-58.5" />
+              <point x="10110.314973144143" y="4647.0" />
+              <point x="10162.592444284111" y="4647.0" />
+              <point x="0.0" y="86.0" />
+            </edge>
+            <edge source="com.controllers.requests.SpecializationController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-72.0" />
+              <point x="11173.314973144143" y="4637.0" />
+              <point x="10282.592444284111" y="4637.0" />
+              <point x="120.0" y="86.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.ModelDeveloperTabController" target="com.entity.EmployeeStatusEntity">
+              <point x="-639.8571428571431" y="-855.5" />
+              <point x="117.14285714285688" y="2806.0" />
+              <point x="641.9434353455217" y="2806.0" />
+              <point x="641.9434353455217" y="364.0" />
+              <point x="3304.6674442841118" y="364.0" />
+              <point x="-118.80000000000018" y="167.0" />
+            </edge>
+            <edge source="com.entity.DoctorEntity" target="com.entity.SpecializationEntity">
+              <point x="129.25" y="-315.5" />
+              <point x="5498.717244869332" y="394.0" />
+              <point x="9222.220221059808" y="394.0" />
+              <point x="-96.44444444444434" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entity.ChangeSpecializationController">
+              <point x="534.0" y="-572.0" />
+              <point x="6669.445925525095" y="4627.0" />
+              <point x="9194.314973144143" y="4627.0" />
+              <point x="9194.314973144143" y="2826.0" />
+              <point x="9673.814973144143" y="2826.0" />
+              <point x="0.0" y="194.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entity.ChangeDoctorController">
+              <point x="0.0" y="-572.0" />
+              <point x="6135.445925525095" y="4647.0" />
+              <point x="6175.5" y="4647.0" />
+              <point x="0.0" y="720.5" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.stack.entityInfo.ModelDeveloperInfoController">
+              <point x="445.0" y="-572.0" />
+              <point x="6580.445925525095" y="4617.0" />
+              <point x="8718.814973144143" y="4617.0" />
+              <point x="0.0" y="248.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeModelDeveloperController" target="com.entity.ModelDeveloperEntity">
+              <point x="-273.25" y="-585.5" />
+              <point x="1797.750000000001" y="1225.0" />
+              <point x="1553.7172448693327" y="1225.0" />
+              <point x="182.08333333333348" y="261.5" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.tab.DoctorTabController">
+              <point x="-178.0" y="-572.0" />
+              <point x="5957.445925525095" y="4607.0" />
+              <point x="4831.5" y="4607.0" />
+              <point x="0.0" y="761.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.ModelDeveloperTabController" target="com.models.ModelDeveloperPage">
+              <point x="213.28571428571377" y="-855.5" />
+              <point x="970.2857142857138" y="2826.0" />
+              <point x="1095.445925525095" y="2826.0" />
+              <point x="0.0" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.menu.MenuController">
+              <point x="89.0" y="-572.0" />
+              <point x="6224.445925525095" y="4577.0" />
+              <point x="7091.064973144143" y="4577.0" />
+              <point x="7091.064973144143" y="1195.0" />
+              <point x="6744.9684293330165" y="1195.0" />
+              <point x="0.0" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.admin.LoginMenuController" target="com.controllers.requests.AdminController">
+              <point x="231.60000000000002" y="-194.0" />
+              <point x="9070.874387726475" y="5851.0" />
+              <point x="9273.314973144143" y="5851.0" />
+              <point x="79.0" y="31.5" />
+            </edge>
+            <edge source="com.controllers.windows.tab.ModelDeveloperTabController" target="com.controllers.windows.menu.MenuController">
+              <point x="426.57142857142844" y="-855.5" />
+              <point x="1183.5714285714284" y="2746.0" />
+              <point x="6832.5" y="2746.0" />
+              <point x="6832.5" y="1235.0" />
+              <point x="6664.77795314254" y="1235.0" />
+              <point x="-80.19047619047615" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeSpecializationController" target="com.controllers.windows.menu.MenuController">
+              <point x="-64.125" y="-194.0" />
+              <point x="9609.689973144143" y="1095.0" />
+              <point x="6945.444619809206" y="1095.0" />
+              <point x="200.4761904761899" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.menu.MenuBarController">
+              <point x="-385.66666666666674" y="572.0" />
+              <point x="5749.779258858428" y="6467.0" />
+              <point x="8828.338673440761" y="6467.0" />
+              <point x="-198.85714285714266" y="-113.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeDoctorController" target="com.entity.SpecializationEntity">
+              <point x="80.8125" y="-720.5" />
+              <point x="6256.3125" y="404.0" />
+              <point x="9246.331332170921" y="404.0" />
+              <point x="-72.33333333333303" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.SpecializationTabController" target="com.controllers.windows.menu.MenuController">
+              <point x="-167.0" y="-302.0" />
+              <point x="8123.814973144143" y="2786.0" />
+              <point x="8208.939973144143" y="2786.0" />
+              <point x="8208.939973144143" y="1165.0" />
+              <point x="6805.111286475873" y="1165.0" />
+              <point x="60.14285714285688" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.tab.SpecializationTabController">
+              <point x="356.0" y="-572.0" />
+              <point x="6491.445925525095" y="4607.0" />
+              <point x="8290.814973144143" y="4607.0" />
+              <point x="0.0" y="302.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.DoctorTabController" target="com.models.DoctorPage">
+              <point x="0.0" y="-761.0" />
+              <point x="0.0" y="113.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MenuBarController" target="com.controllers.windows.menu.MenuController">
+              <point x="198.85714285714312" y="-113.0" />
+              <point x="9226.052959155048" y="6477.0" />
+              <point x="9395.814973144143" y="6477.0" />
+              <point x="9395.814973144143" y="1115.0" />
+              <point x="6905.349381713969" y="1115.0" />
+              <point x="160.3809523809523" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.entity.DoctorEntity">
+              <point x="-89.0" y="-572.0" />
+              <point x="6046.445925525095" y="4597.0" />
+              <point x="5518.5" y="4597.0" />
+              <point x="5518.5" y="1195.0" />
+              <point x="5412.550578202665" y="1195.0" />
+              <point x="43.083333333333485" y="315.5" />
+            </edge>
+            <edge source="com.controllers.windows.admin.LoginMenuController" target="com.controllers.windows.menu.MainMenuController">
+              <point x="-231.60000000000002" y="-194.0" />
+              <point x="8607.674387726474" y="5851.0" />
+              <point x="6135.445925525095" y="5851.0" />
+              <point x="0.0" y="572.0" />
+            </edge>
+            <edge source="com.controllers.windows.tab.EmployeeStatusTabController" target="com.controllers.windows.menu.MenuController">
+              <point x="387.33333333333394" y="-518.0" />
+              <point x="4450.833333333335" y="1235.0" />
+              <point x="6604.635095999683" y="1235.0" />
+              <point x="-140.33333333333348" y="221.0" />
+            </edge>
+            <edge source="com.controllers.windows.stack.entity.ChangeDoctorController" target="com.entity.DoctorEntity">
+              <point x="-404.0625" y="-720.5" />
+              <point x="5771.4375" y="1175.0" />
+              <point x="5584.883911535999" y="1175.0" />
+              <point x="215.41666666666674" y="315.5" />
+            </edge>
+            <edge source="com.models.ModelDeveloperPage" target="com.entity.ModelDeveloperEntity">
+              <point x="0.0" y="-113.0" />
+              <point x="1095.445925525095" y="1245.0" />
+              <point x="1335.2172448693327" y="1245.0" />
+              <point x="-36.416666666666515" y="261.5" />
+            </edge>
+            <edge source="com.entity.DoctorEntity" target="com.entity.EmployeeStatusEntity">
+              <point x="-129.25" y="-315.5" />
+              <point x="5240.217244869332" y="404.0" />
+              <point x="3522.467444284112" y="404.0" />
+              <point x="99.0" y="167.0" />
+            </edge>
+            <edge source="com.controllers.windows.menu.MainMenuController" target="com.controllers.windows.tab.ModelDeveloperTabController">
+              <point x="-445.0" y="-572.0" />
+              <point x="5690.445925525095" y="4637.0" />
+              <point x="757.0" y="4637.0" />
+              <point x="0.0" y="855.5" />
+            </edge>
+            <edge source="com.controllers.requests.AdminController" target="com.controllers.requests.MainController">
+              <point x="0.0" y="-31.5" />
+              <point x="9194.314973144143" y="4637.0" />
+              <point x="10042.592444284111" y="4637.0" />
+              <point x="-120.0" y="86.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.10176934004907659" x="5711.0" y="3022.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Constructors</Category>
+            <Category>Fields</Category>
+            <Category>Methods</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/com.Application">
+    <entry file="uml://JAVA/com.controllers.windows.admin.LoginMenuController">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>JAVA</ID>
-          <OriginalElement>com.Application</OriginalElement>
+          <OriginalElement>com.controllers.windows.admin.LoginMenuController</OriginalElement>
           <nodes>
-            <node x="" y="">javafx.application.Application</node>
-            <node x="" y="">com.Application</node>
+            <node x="" y="">javafx.fxml.Initializable</node>
+            <node x="" y="">com.controllers.windows.tab.EmployeeStatusTabController</node>
+            <node x="" y="">com.controllers.windows.tab.DoctorTabController</node>
+            <node x="" y="">com.controllers.windows.admin.LoginMenuController</node>
+            <node x="" y="">com.controllers.windows.tab.ModelDeveloperTabController</node>
+            <node x="" y="">com.controllers.windows.tab.SpecializationTabController</node>
+            <node x="" y="">com.controllers.windows.menu.MainMenuController</node>
+            <node x="" y="">com.controllers.windows.menu.MenuController</node>
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="59.0" y="61.0" />
+          <settings layout="Hierarchic Group" zoom="0.8" x="690.0" y="736.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/admin/LoginMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeModelDeveloperController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2530">
+          <caret line="145" column="0" lean-forward="false" selection-start-line="113" selection-start-column="4" selection-end-line="145" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.menu.MainMenuController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.menu.MainMenuController</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6413652572592969" x="1001.0" y="843.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1651,339 +2533,257 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/User.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="10" column="256" lean-forward="false" selection-start-line="10" selection-start-column="256" selection-end-line="10" selection-end-column="256" />
+        <state relative-caret-position="2618">
+          <caret line="167" column="5" lean-forward="false" selection-start-line="91" selection-start-column="4" selection-end-line="167" selection-end-column="5" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="uml://JAVA/com.controllers.windows.tab.DoctorTabController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.controllers.windows.tab.DoctorTabController</OriginalElement>
+          <nodes>
+            <node x="" y="">com.controllers.windows.tab.EmployeeStatusTabController</node>
+            <node x="" y="">javafx.fxml.Initializable</node>
+            <node x="" y="">com.controllers.windows.tab.DoctorTabController</node>
+            <node x="" y="">com.controllers.windows.admin.LoginMenuController</node>
+            <node x="" y="">com.controllers.windows.tab.ModelDeveloperTabController</node>
+            <node x="" y="">com.controllers.windows.tab.SpecializationTabController</node>
+            <node x="" y="">com.controllers.windows.menu.MainMenuController</node>
+            <node x="" y="">com.controllers.windows.menu.MenuController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6141855027279813" x="737.0" y="752.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="53" column="17" lean-forward="false" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="110" column="135" lean-forward="true" selection-start-line="110" selection-start-column="135" selection-end-line="110" selection-end-column="135" />
+        <state relative-caret-position="528">
+          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/menu/menuBar.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeEmployeeStatus.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeSpecialization.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="18" column="189" lean-forward="false" selection-start-line="18" selection-start-column="189" selection-end-line="18" selection-end-column="189" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="264">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/ModelDeveloperController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/employeeStatusInfo.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="32" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="264">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/admin/LoginMenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/specializationInfo.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1131">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/doctorTab.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/employeeStatusTab.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-537">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/modelDeveloperTab.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-317">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/models/DoctorPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-          <folding>
-            <element signature="e#1003#1004#0" expanded="false" />
-            <element signature="e#1040#1041#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/models/ModelDeveloperPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tools/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1061">
-          <caret line="37" column="75" lean-forward="false" selection-start-line="34" selection-start-column="4" selection-end-line="37" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tools/Encryptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-427">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/tools/HazelCastMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-647">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/DoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="36" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="22" column="103" lean-forward="false" selection-start-line="22" selection-start-column="103" selection-end-line="22" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuBarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/tab/specializationTab.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="9" column="102" lean-forward="true" selection-start-line="9" selection-start-column="102" selection-end-line="9" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/WindowsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-308">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="103" column="23" lean-forward="false" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-429">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeModelDeveloperController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-814">
-          <caret line="226" column="40" lean-forward="true" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="40" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="42" />
+        <state relative-caret-position="2024">
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="234" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/DoctorInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-262">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/ModelDeveloperInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding>
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/EmployeeStatusInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-          <folding>
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-946">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="264">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="29" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="67" column="14" lean-forward="false" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1914">
+          <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <element signature="e#4013#4014#0" expanded="true" />
-            <element signature="e#4062#4063#0" expanded="true" />
-            <element signature="e#4199#4200#0" expanded="true" />
-            <element signature="e#4246#4247#0" expanded="true" />
+            <element signature="method#init#0;class#ChangeDoctorController#0" expanded="false" />
+            <element signature="method#save#0;class#ChangeDoctorController#0" expanded="false" />
+            <element signature="method#cancel#0;class#ChangeDoctorController#0" expanded="false" />
+            <element signature="method#changeCurrent#0;class#ChangeDoctorController#0" expanded="false" />
+            <element signature="method#addNew#0;class#ChangeDoctorController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1412">
-          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

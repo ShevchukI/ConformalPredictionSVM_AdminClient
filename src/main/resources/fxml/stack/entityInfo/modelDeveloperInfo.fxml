@@ -11,13 +11,6 @@
          <font>
             <Font size="24.0" />
          </font>
-         <tooltip>
-            <Tooltip text="Information about selected model developer">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Tooltip>
-         </tooltip>
       </Label>
       <Label text="Name:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="73.0">
          <tooltip>
