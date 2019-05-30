@@ -13,6 +13,8 @@ public class HazelCastMap {
     private static final String KEY_MAP_NAME = "key";
     private static final String MISCELLANEOUS_MAP_NAME = "misc";
 
+    private static HazelcastInstance hazelcastInstance;
+
     public static void createInstanceAndMap() {
         Config config = new Config();
         config.setInstanceName(INSTANCE_NAME);
@@ -23,7 +25,7 @@ public class HazelCastMap {
         config.addMapConfig(createMapWithName(MISCELLANEOUS_MAP_NAME));
         MapConfig mapConfig = new MapConfig();
         mapConfig.setName(USER_MAP_NAME);
-        HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(config);
+        hazelcastInstance = Hazelcast.newHazelcastInstance(config);
     }
 
     public static HazelcastInstance getInstance() {
