@@ -1,6 +1,7 @@
 package com.controllers.windows.tab;
 
 import com.controllers.requests.DoctorController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
@@ -141,6 +142,28 @@ public class DoctorTabController extends MenuController{
             }
         }
     }
+
+
+    public void deleteDoctor(DoctorEntity doctor) {
+        boolean result = Constant.questionOkCancel("Do you really want to delete Doctor "
+                + doctor.getSurname() + doctor.getName() + " ?");
+        if (result) {
+            HttpResponse response = DoctorController.deleteDoctor(doctor.getId());
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (checkStatusCode(statusCode)) {
+//                return doctor.getId();
+                for (DoctorEntity doctorEntity : tableView_Doctor.getItems()) {
+                    if (doctorEntity.getId() == doctor.getId()) {
+                        tableView_Doctor.getItems().remove(doctorEntity);
+                        Constant.getAlert(null, "Doctor " + doctorEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
+                        MainMenuController.deactivateAllStackPane();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
 
     public void refreshPage(){
         pagination_Doctor.setPageFactory(this::createPage);

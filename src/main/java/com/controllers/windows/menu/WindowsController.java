@@ -21,7 +21,7 @@ public class WindowsController {
 
     public void start(Stage stage) throws IOException {
         HazelCastMap.createInstanceAndMap();
-        openWindow(Constant.getLoginMenuRoot(), stage, new LoginMenuController(), "User client", false, 341, 236);
+        openWindow(Constant.getLoginMenuRoot(), stage, new LoginMenuController(), "Admin client", false, 341, 236);
     }
 
     public void openWindow(String rootName, Stage stage, MenuController controller, String title, boolean resizable, int width, int height) throws IOException {

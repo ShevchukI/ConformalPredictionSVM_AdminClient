@@ -4,6 +4,7 @@ import com.entity.DoctorEntity;
 import com.google.gson.Gson;
 import com.tools.Constant;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -42,6 +43,13 @@ public class DoctorController extends MainController{
         String url = getUrl() + "/doctor/all/" + pageIndex + "/" + Constant.getObjectOnPage();
         HttpGet request = new HttpGet(url);
         HttpResponse response = crudEntity(null, null, request, null, null);
+        return response;
+    }
+
+    public static HttpResponse deleteDoctor(int id) {
+        String url = getUrl() + "/doctor/" + id;
+        HttpDelete request = new HttpDelete(url);
+        HttpResponse response = crudEntity(null, null, null, null, request);
         return response;
     }
 }

@@ -1,6 +1,7 @@
 package com.controllers.windows.tab;
 
 import com.controllers.requests.ModelDeveloperController;
+import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
@@ -106,6 +107,26 @@ public class ModelDeveloperTabController extends MenuController {
         for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
             if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
                 comboBox_Status.getSelectionModel().select(employeeStatusEntity);
+            }
+        }
+    }
+
+    public void deleteModelDeveloper(ModelDeveloperEntity modelDeveloper) {
+        boolean result = Constant.questionOkCancel("Do you really want to delete Model Developer "
+                + modelDeveloper.getSurname() + modelDeveloper.getName() + " ?");
+        if (result) {
+            HttpResponse response = ModelDeveloperController.deleteModelDeveloper(modelDeveloper.getId());
+            int statusCode = response.getStatusLine().getStatusCode();
+            if (checkStatusCode(statusCode)) {
+//                return doctor.getId();
+                for (ModelDeveloperEntity modelDeveloperEntity : tableView_ModelDeveloper.getItems()) {
+                    if (modelDeveloperEntity.getId() == modelDeveloper.getId()) {
+                        tableView_ModelDeveloper.getItems().remove(modelDeveloperEntity);
+                        Constant.getAlert(null, "Model Developer " + modelDeveloperEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
+                        MainMenuController.deactivateAllStackPane();
+                        break;
+                    }
+                }
             }
         }
     }

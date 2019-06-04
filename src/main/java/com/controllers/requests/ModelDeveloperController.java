@@ -4,6 +4,7 @@ import com.entity.ModelDeveloperEntity;
 import com.google.gson.Gson;
 import com.tools.Constant;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -43,6 +44,13 @@ public class ModelDeveloperController extends MainController {
         String url = getUrl() + "/specialist/all/" + pageIndex + "/" + Constant.getObjectOnPage();
         HttpGet request = new HttpGet(url);
         HttpResponse response = crudEntity(null, null, request, null, null);
+        return response;
+    }
+
+    public static HttpResponse deleteModelDeveloper(int id) {
+        String url = getUrl() + "/specialist/" + id;
+        HttpDelete request = new HttpDelete(url);
+        HttpResponse response = crudEntity(null, null, null, null, request);
         return response;
     }
 }

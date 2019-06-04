@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.apache.http.HttpResponse;
@@ -221,7 +222,22 @@ public class ChangeDoctorController extends MenuController{
             doctorEntity.setId(id);
             doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
             doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-            Constant.getAlert(null, "Login: " + content[1] + "\nPassword: " + content[2], Alert.AlertType.INFORMATION);
+
+            TextArea textArea = new TextArea("Login: " + content[1] + "\nPassword: " + content[2]);
+            textArea.setEditable(false);
+            textArea.setWrapText(true);
+            textArea.setMaxWidth(100);
+            textArea.setMaxHeight(200);
+            GridPane gridPane = new GridPane();
+//            gridPane.setMaxWidth(Double.MAX_VALUE);
+            gridPane.add(textArea, 0, 0);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Doctor created!");
+            alert.getDialogPane().setContent(gridPane);
+            alert.showAndWait();
+//            Constant.getAlert(null, "Login: " + content[1] + "\nPassword: " + content[2], Alert.AlertType.INFORMATION);
+
             TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
             tableView.getItems().add(doctorEntity);
             Constant.getAlert(null, "Doctor saved!", Alert.AlertType.INFORMATION);
