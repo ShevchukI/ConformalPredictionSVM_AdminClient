@@ -67,54 +67,17 @@ public class ChangeEmployeeStatusController extends MenuController implements In
         } else {
             addNew();
         }
-//        if (change) {
-//            boolean result = Constant.questionOkCancel("Do you really want to change employee status "
-//                    + textField_Name.getText() + "?");
-//            if (result) {
-//                employeeStatusEntity.setName(textField_Name.getText());
-//                employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
-//                HttpResponse response = EmployeeStatusController.changeEmployeeStatus(employeeStatusEntity);
-//                setStatusCode(response.getStatusLine().getStatusCode());
-//                if (checkStatusCode(getStatusCode())) {
-//                    TableView<EmployeeStatusEntity> tableView = EmployeeStatusTabController.getEmployeeStatusTable();
-//                    for (EmployeeStatusEntity employeeStatus : tableView.getItems()) {
-//                        if (employeeStatus.getId() == employeeStatusEntity.getId()) {
-//                            employeeStatus.setName(employeeStatusEntity.getName());
-//                            employeeStatus.setWorkEnable(employeeStatusEntity.isWorkEnable());
-//                        }
-//                    }
-//                    tableView.refresh();
-//                    Constant.getAlert(null, "Employee status changed!", Alert.AlertType.INFORMATION);
-//                    close();
-//                }
-//            }
-//        } else {
-//            if (textField_Name.getText() != null) {
-//                employeeStatusEntity = new EmployeeStatusEntity();
-//                employeeStatusEntity.setName(textField_Name.getText());
-//                employeeStatusEntity.setWorkEnable(checkBox_WorkEnable.isSelected());
-//                HttpResponse response = EmployeeStatusController.createEmployeeStatus(employeeStatusEntity);
-//                setStatusCode(response.getStatusLine().getStatusCode());
-//                if (checkStatusCode(getStatusCode())) {
-//                    employeeStatusEntity.setId(Integer.parseInt(Constant.responseToString(response)));
-//                    EmployeeStatusTabController.getEmployeeStatusTable().getItems().add(employeeStatusEntity);
-//                    EmployeeStatusTabController.getEmployeeStatusTable().refresh();
-//                    Constant.getAlert(null, "Employee status saved!", Alert.AlertType.INFORMATION);
-//                    close();
-//                }
-//            }
-//        }
     }
 
     private void addNew() {
-        employeeStatusEntity.addNew(textField_Name.getText(), checkBox_WorkEnable.isSelected());
+        employeeStatusEntity.addNew(name.getText(), workEnable.isSelected());
         EmployeeStatusTabController.getEmployeeStatusTable().getItems().add(employeeStatusEntity);
         EmployeeStatusTabController.getEmployeeStatusTable().refresh();
         close();
     }
 
     private void changeCurrent() {
-        int statusCode = employeeStatusEntity.change(textField_Name.getText(), checkBox_WorkEnable.isSelected());
+        int statusCode = employeeStatusEntity.change(name.getText(), workEnable.isSelected());
         if (statusCode != 0) {
             if (checkStatusCode(getStatusCode())) {
                 TableView<EmployeeStatusEntity> tableView = EmployeeStatusTabController.getEmployeeStatusTable();

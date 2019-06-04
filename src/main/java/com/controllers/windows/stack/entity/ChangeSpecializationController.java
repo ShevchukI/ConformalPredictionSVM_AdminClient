@@ -1,6 +1,5 @@
 package com.controllers.windows.stack.entity;
 
-import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.tab.SpecializationTabController;
@@ -9,11 +8,10 @@ import com.tools.Constant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.apache.http.HttpResponse;
 
 import java.io.IOException;
 
-public class ChangeSpecializationController extends MenuController{
+public class ChangeSpecializationController extends MenuController {
 
     private MenuController menuController;
     private SpecializationEntity specializationEntity;
@@ -28,10 +26,11 @@ public class ChangeSpecializationController extends MenuController{
     @FXML
     private Button button_Cancel;
 
-    public void init(MenuController menuController){
+    public void init(MenuController menuController) {
         this.menuController = menuController;
         button_Save.setGraphic(Constant.okIcon());
         button_Cancel.setGraphic(Constant.cancelIcon());
+        specializationEntity = new SpecializationEntity();
     }
 
     public void create() {
@@ -49,37 +48,34 @@ public class ChangeSpecializationController extends MenuController{
 
     public void save(ActionEvent event) throws IOException {
         if (change) {
-            boolean result = Constant.questionOkCancel("Do you really want to change specialization "
-                    + textField_Name.getText() + "?");
-            if (result) {
-                specializationEntity.setName(textField_Name.getText());
-                HttpResponse response = SpecializationController.changeSpecialization(specializationEntity);
-                setStatusCode(response.getStatusLine().getStatusCode());
-                if (checkStatusCode(getStatusCode())) {
-                    TableView<SpecializationEntity> tableView = SpecializationTabController.getSpecializationTable();
-                    for (SpecializationEntity specialization : tableView.getItems()) {
-                        if (specialization.getId() == specializationEntity.getId()) {
-                            specialization.setName(specializationEntity.getName());
-                        }
-                    }
-                    tableView.refresh();
-                    Constant.getAlert(null, "Specialization changed!", Alert.AlertType.INFORMATION);
-                    close();
-                }
-            }
+            changeCurrent();
         } else {
-            if (textField_Name.getText() != null) {
-                specializationEntity = new SpecializationEntity();
-                specializationEntity.setName(textField_Name.getText());
-                HttpResponse response = SpecializationController.createSpecialization(specializationEntity);
-                setStatusCode(response.getStatusLine().getStatusCode());
-                if (checkStatusCode(getStatusCode())) {
-                    specializationEntity.setId(Integer.parseInt(Constant.responseToString(response)));
-                    SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
-                    SpecializationTabController.getSpecializationTable().refresh();
-                    Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
-                    close();
+            addNew();
+        }
+    }
+
+    private void addNew() {
+        specializationEntity.addNew(textField_Name.getText());
+        SpecializationTabController.getSpecializationTable().getItems().add(specializationEntity);
+        SpecializationTabController.getSpecializationTable().refresh();
+        Constant.getAlert(null, "Specialization saved!", Alert.AlertType.INFORMATION);
+        close();
+    }
+
+
+    private void changeCurrent() {
+        int statusCode = specializationEntity.change(textField_Name.getText());
+        if (statusCode != 0) {
+            if (checkStatusCode(getStatusCode())) {
+                TableView<SpecializationEntity> tableView = SpecializationTabController.getSpecializationTable();
+                for (SpecializationEntity specialization : tableView.getItems()) {
+                    if (specialization.getId() == specializationEntity.getId()) {
+                        specialization.setName(specializationEntity.getName());
+                    }
                 }
+                tableView.refresh();
+                Constant.getAlert(null, "Specialization changed!", Alert.AlertType.INFORMATION);
+                close();
             }
         }
     }

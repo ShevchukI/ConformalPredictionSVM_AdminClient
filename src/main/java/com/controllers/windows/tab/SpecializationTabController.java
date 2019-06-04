@@ -1,6 +1,5 @@
 package com.controllers.windows.tab;
 
-import com.controllers.requests.SpecializationController;
 import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.stack.entityInfo.SpecializationInfoController;
@@ -17,7 +16,7 @@ import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
 
-public class SpecializationTabController extends MenuController{
+public class SpecializationTabController extends MenuController {
 
     private SpecializationInfoController specializationInfoController;
     private MenuController menuController;
@@ -44,7 +43,7 @@ public class SpecializationTabController extends MenuController{
                 new ReadOnlyObjectWrapper<Number>((tableView_Specialization.getItems().
                         indexOf(column.getValue()) + 1)));
         tableColumn_Name.setCellValueFactory(new PropertyValueFactory<SpecializationEntity, String>("name"));
-        HttpResponse response = SpecializationController.getAllSpecialization();
+        HttpResponse response = SpecializationEntity.getAllSpecialization();
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             specializations = SpecializationEntity.getListFromResponse(response);
@@ -62,11 +61,8 @@ public class SpecializationTabController extends MenuController{
     }
 
     public void deleteSpecialization(SpecializationEntity specialization) {
-        boolean result = Constant.questionOkCancel("Do you really want to delete Specialization "
-                + specialization.getName() + " ?");
-        if (result) {
-            HttpResponse response = SpecializationController.deleteSpecialization(specialization.getId());
-            int statusCode = response.getStatusLine().getStatusCode();
+        int statusCode = specialization.deleteSpecialization();
+        if (statusCode != 0) {
             if (checkStatusCode(statusCode)) {
                 for (SpecializationEntity specializationEntity : specializationTable.getItems()) {
                     if (specializationEntity.getId() == specialization.getId()) {

@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e15006b0-8f24-4551-8d44-1febb7e79909" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,21 +40,8 @@
       <file leaf-file-name="DoctorEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1024">
-              <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5944#5945#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModelDeveloperEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="231">
+              <caret line="96" column="15" lean-forward="false" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,25 +52,39 @@
       <file leaf-file-name="EmployeeStatusEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+            <state relative-caret-position="231">
+              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeStatusTabController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java">
+      <file leaf-file-name="SpecializationInfoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4382#4383#0" expanded="true" />
-                <element signature="e#4424#4425#0" expanded="true" />
-                <element signature="e#4704#4705#0" expanded="true" />
-                <element signature="e#4748#4749#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="88">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChangeEmployeeStatusController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="72" column="31" lean-forward="true" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecializationTabController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1130">
+              <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,21 +92,9 @@
       <file leaf-file-name="DoctorTabController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1130">
-              <caret line="158" column="9" lean-forward="false" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+            <state relative-caret-position="188">
+              <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangeDoctorController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-632">
-              <caret line="157" column="9" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="157" selection-end-column="9" />
-              <folding>
-                <element signature="method#cancel#0;class#ChangeDoctorController#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,28 +114,30 @@
       <file leaf-file-name="ChangeSpecializationController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+            <state relative-caret-position="-540">
+              <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChangeEmployeeStatusController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java">
+      <file leaf-file-name="EmployeeStatusTabController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="263">
+              <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainMenuController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
+      <file leaf-file-name="SpecializationEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="161" column="43" lean-forward="false" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
+            <state relative-caret-position="1848">
+              <caret line="101" column="5" lean-forward="false" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -218,22 +208,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/entity/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tools/HazleCastMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/admin/LoginMenuController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MenuBarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/EmployeeStatusInfoController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/admin/loginMenu.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/menu/mainMenu.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeDoctor.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entity/changeModelDeveloper.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/doctorInfo.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/stack/entityInfo/modelDeveloperInfo.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/tools/HazelCastMap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/WindowsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/MainController.java" />
@@ -248,10 +234,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/EmployeeStatusTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java" />
       </list>
     </option>
   </component>
@@ -1226,7 +1216,7 @@
       <workItem from="1557510983878" duration="143000" />
       <workItem from="1559053111262" duration="2612000" />
       <workItem from="1559238119455" duration="3103000" />
-      <workItem from="1559663289115" duration="9805000" />
+      <workItem from="1559663289115" duration="11244000" />
     </task>
     <task id="LOCAL-00001" summary="Specialization and Status CRU">
       <created>1553623388490</created>
@@ -1347,11 +1337,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559672853978</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactor employee status model">
+      <created>1559674757596</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1559674757596</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172553000" />
+    <option name="totallyTimeSpent" value="173992000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1364,7 +1361,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1376,12 +1373,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30093676" sideWeight="0.5021482" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.4903475" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14871195" sideWeight="0.49785176" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34543326" sideWeight="0.49785176" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31417832" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31417832" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.013426423" sideWeight="0.48895434" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31850117" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1422,7 +1419,8 @@
     <MESSAGE value="add new doctor in model" />
     <MESSAGE value="refactor doctor model" />
     <MESSAGE value="refactor model developer model" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor model developer model" />
+    <MESSAGE value="refactor employee status model" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor employee status model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1658,14 +1656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/tools/HazelCastMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
@@ -1696,14 +1686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/DoctorInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1716,14 +1698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="106" column="33" lean-forward="false" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-279">
-          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1744,28 +1718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="255" column="52" lean-forward="false" selection-start-line="255" selection-start-column="52" selection-end-line="255" selection-end-column="52" />
-          <folding>
-            <element signature="e#10466#10467#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/ModelDeveloperController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="770">
           <caret line="35" column="7" lean-forward="false" selection-start-line="30" selection-start-column="6" selection-end-line="35" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1810,10 +1766,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        <state relative-caret-position="-306">
+          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="161" column="43" lean-forward="false" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/ModelDeveloperTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="255" column="52" lean-forward="false" selection-start-line="255" selection-start-column="52" selection-end-line="255" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-500">
+          <caret line="173" column="41" lean-forward="true" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
+          <folding>
+            <element signature="method#cancel#0;class#ChangeDoctorController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1828,49 +1828,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/ModelDeveloperEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entityInfo/SpecializationInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="63" column="9" lean-forward="false" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeDoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-632">
-          <caret line="157" column="9" lean-forward="true" selection-start-line="149" selection-start-column="8" selection-end-line="157" selection-end-column="9" />
-          <folding>
-            <element signature="method#cancel#0;class#ChangeDoctorController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="158" column="9" lean-forward="false" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+        <state relative-caret-position="88">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/DoctorEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1024">
-          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        <state relative-caret-position="231">
+          <caret line="96" column="15" lean-forward="false" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5944#5945#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/EmployeeStatusController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/DoctorTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/requests/SpecializationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1881,34 +1868,38 @@
           <caret line="53" column="53" lean-forward="false" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4382#4383#0" expanded="true" />
-            <element signature="e#4424#4425#0" expanded="true" />
-            <element signature="e#4704#4705#0" expanded="true" />
-            <element signature="e#4748#4749#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/EmployeeStatusEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/SpecializationEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+        <state relative-caret-position="1848">
+          <caret line="101" column="5" lean-forward="false" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/tab/SpecializationTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1130">
+          <caret line="45" column="52" lean-forward="false" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeSpecializationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/stack/entity/ChangeEmployeeStatusController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/windows/menu/MainMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="161" column="43" lean-forward="false" selection-start-line="161" selection-start-column="43" selection-end-line="161" selection-end-column="43" />
+        <state relative-caret-position="1320">
+          <caret line="72" column="31" lean-forward="true" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
           <folding />
         </state>
       </provider>
