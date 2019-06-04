@@ -1,6 +1,5 @@
 package com.controllers.windows.tab;
 
-import com.controllers.requests.DoctorController;
 import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.DoctorEntity;
@@ -22,7 +21,7 @@ import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
 
-public class DoctorTabController extends MenuController{
+public class DoctorTabController extends MenuController {
 
 
     private MenuController menuController;
@@ -79,7 +78,7 @@ public class DoctorTabController extends MenuController{
 
     private Node createPage(int pageIndex) {
         this.pageIndex = pageIndex + 1;
-        HttpResponse response = DoctorController.getDoctorPage(this.pageIndex);
+        HttpResponse response = DoctorEntity.getDoctorPage(this.pageIndex);
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             doctorPage = DoctorPage.fromJson(response);
@@ -113,13 +112,13 @@ public class DoctorTabController extends MenuController{
         }
     }
 
-    public void changeDoctor(){
-        if(tableView_Doctor.getSelectionModel().getSelectedItem()!=null){
+    public void changeDoctor() {
+        if (tableView_Doctor.getSelectionModel().getSelectedItem() != null) {
             changeDoctor(tableView_Doctor);
         }
     }
 
-    public void changeDoctor(TableView<DoctorEntity> tableView){
+    public void changeDoctor(TableView<DoctorEntity> tableView) {
         HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("doctor",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
@@ -129,15 +128,15 @@ public class DoctorTabController extends MenuController{
         textField_SurnameChange.setText(tableView.getSelectionModel().getSelectedItem().getSurname());
         comboBox_Status.setItems(EmployeeStatusTabController.getEmployeeStatusTable().getItems());
         comboBox_Specialization.setItems(SpecializationTabController.getSpecializationTable().getItems());
-        for(SpecializationEntity specializationEntity : comboBox_Specialization.getItems()){
-            if(specializationEntity.getId() == tableView.getSelectionModel().getSelectedItem().getSpecializationEntity().getId()){
+        for (SpecializationEntity specializationEntity : comboBox_Specialization.getItems()) {
+            if (specializationEntity.getId() == tableView.getSelectionModel().getSelectedItem().getSpecializationEntity().getId()) {
                 comboBox_Specialization.getSelectionModel().select(specializationEntity);
             }
         }
         textField_TelephoneChange.setText(tableView.getSelectionModel().getSelectedItem().getTelephone());
         textField_EmailChange.setText(tableView.getSelectionModel().getSelectedItem().getEmail());
-        for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
-            if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
+        for (EmployeeStatusEntity employeeStatusEntity : comboBox_Status.getItems()) {
+            if (employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()) {
                 comboBox_Status.getSelectionModel().select(employeeStatusEntity);
             }
         }
@@ -145,27 +144,20 @@ public class DoctorTabController extends MenuController{
 
 
     public void deleteDoctor(DoctorEntity doctor) {
-        boolean result = Constant.questionOkCancel("Do you really want to delete Doctor "
-                + doctor.getSurname() + doctor.getName() + " ?");
-        if (result) {
-            HttpResponse response = DoctorController.deleteDoctor(doctor.getId());
-            int statusCode = response.getStatusLine().getStatusCode();
-            if (checkStatusCode(statusCode)) {
-//                return doctor.getId();
-                for (DoctorEntity doctorEntity : tableView_Doctor.getItems()) {
-                    if (doctorEntity.getId() == doctor.getId()) {
-                        tableView_Doctor.getItems().remove(doctorEntity);
-                        Constant.getAlert(null, "Doctor " + doctorEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
-                        MainMenuController.deactivateAllStackPane();
-                        break;
-                    }
+        int statusCode = doctor.deleteDoctor();
+        if (checkStatusCode(statusCode)) {
+            for (DoctorEntity doctorEntity : tableView_Doctor.getItems()) {
+                if (doctorEntity.getId() == doctor.getId()) {
+                    tableView_Doctor.getItems().remove(doctorEntity);
+                    Constant.getAlert(null, "Doctor " + doctorEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
+                    MainMenuController.deactivateAllStackPane();
+                    break;
                 }
             }
         }
     }
 
-
-    public void refreshPage(){
+    public void refreshPage() {
         pagination_Doctor.setPageFactory(this::createPage);
     }
 

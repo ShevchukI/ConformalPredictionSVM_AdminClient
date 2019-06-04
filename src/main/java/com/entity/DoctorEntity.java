@@ -1,13 +1,23 @@
 package com.entity;
 
-import com.controllers.requests.DoctorController;
+import com.google.gson.Gson;
 import com.tools.Constant;
+import com.tools.HazelCastMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import static com.controllers.requests.MainController.crudEntity;
+import static com.controllers.requests.MainController.getUrl;
 
 public class DoctorEntity {
     private int id;
@@ -29,11 +39,10 @@ public class DoctorEntity {
         this.email = email;
         this.specialization = specialization;
         this.employeeStatus = employeeStatus;
-        HttpResponse response = DoctorController.createDoctor(this);
+        HttpResponse response = createDoctor(this);
         int statusCode = response.getStatusLine().getStatusCode();
         if (statusCode == 201) {
             String[] content = getContent(response);
-
             TextArea textArea = new TextArea("Login: " + content[1] + "\nPassword: " + content[2]);
             textArea.setEditable(false);
             textArea.setWrapText(true);
@@ -47,6 +56,78 @@ public class DoctorEntity {
             alert.getDialogPane().setContent(gridPane);
             alert.showAndWait();
         }
+    }
+
+    private HttpResponse createDoctor(DoctorEntity doctorEntity) {
+        String json = new Gson().toJson(doctorEntity);
+        String url = getUrl() + "/doctor/" + doctorEntity.getSpecializationEntity().getId() + "/" + doctorEntity.getEmployeeStatus().getId();
+        HttpPost request = new HttpPost(url);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), request, null, null, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public int change(String name, String surname, String telephone, String email,
+                       SpecializationEntity specialization, EmployeeStatusEntity employeeStatus){
+
+        boolean result = Constant.questionOkCancel("Do you really want to change Doctor "
+                +surname + name + "?");
+        if (result) {
+            this.id = Integer.parseInt(HazelCastMap
+                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("doctor").toString());
+            this.name = name;
+            this.surname = surname;
+            this.telephone = telephone;
+            this.email = email;
+            this.specialization = specialization;
+            this.employeeStatus = employeeStatus;
+
+            HttpResponse response = changeDoctor(this);
+            return response.getStatusLine().getStatusCode();
+        }
+        return 0;
+    }
+
+    private HttpResponse changeDoctor(DoctorEntity doctorEntity) {
+        String json = new Gson().toJson(doctorEntity);
+        String url = getUrl() + "/doctor/" + doctorEntity.getId() + "/" + doctorEntity.getSpecializationEntity().getId() + "/" + doctorEntity.getEmployeeStatus().getId();
+        HttpPut request = new HttpPut(url);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), null, null, request, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public int deleteDoctor() {
+        boolean result = Constant.questionOkCancel("Do you really want to delete Doctor "
+                + this.getSurname() + this.getName() + " ?");
+        if (result) {
+            HttpResponse response = deleteDoctor(this);
+            int statusCode = response.getStatusLine().getStatusCode();
+            return statusCode;
+        }
+        return 0;
+    }
+
+    private HttpResponse deleteDoctor(DoctorEntity doctor) {
+        String url = getUrl() + "/doctor/" + doctor.getId();
+        HttpDelete request = new HttpDelete(url);
+        HttpResponse response = crudEntity(null, null, null, null, request);
+        return response;
+    }
+
+    public static HttpResponse getDoctorPage(int pageIndex) {
+        String url = getUrl() + "/doctor/all/" + pageIndex + "/" + Constant.getObjectOnPage();
+        HttpGet request = new HttpGet(url);
+        HttpResponse response = crudEntity(null, null, request, null, null);
+        return response;
     }
 
     private String[] getContent(HttpResponse response) {

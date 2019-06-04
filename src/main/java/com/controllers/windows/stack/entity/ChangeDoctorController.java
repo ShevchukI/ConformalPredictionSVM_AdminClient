@@ -1,6 +1,5 @@
 package com.controllers.windows.stack.entity;
 
-import com.controllers.requests.DoctorController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
@@ -14,11 +13,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
-import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
 
-public class ChangeDoctorController extends MenuController{
+public class ChangeDoctorController extends MenuController {
 
     private MenuController menuController;
     private DoctorEntity doctorEntity;
@@ -173,23 +171,13 @@ public class ChangeDoctorController extends MenuController{
     }
 
     private void changeCurrent() {
-        boolean result = Constant.questionOkCancel("Do you really want to change Doctor "
-                + textField_Name.getText() + "?");
-        if (result) {
-            doctorEntity = new DoctorEntity();
-            doctorEntity.setId(Integer.parseInt(HazelCastMap
-                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("doctor").toString()));
-            doctorEntity.setName(textField_Name.getText());
-            doctorEntity.setSurname(textField_Surname.getText());
-            doctorEntity.setTelephone(textField_Telephone.getText());
-            doctorEntity.setEmail(textField_Email.getText());
-            HttpResponse response = DoctorController.changeDoctor(doctorEntity,
-                    comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
-                    comboBox_Status.getSelectionModel().getSelectedItem().getId());
-            setStatusCode(response.getStatusLine().getStatusCode());
-            if (checkStatusCode(getStatusCode())) {
-                doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
-                doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
+        int statusCode = doctorEntity.change(textField_Name.getText(), textField_Surname.getText(),
+                textField_Telephone.getText(), textField_Email.getText(),
+                comboBox_Specialization.getSelectionModel().getSelectedItem(),
+                comboBox_Status.getSelectionModel().getSelectedItem());
+
+        if (statusCode != 0) {
+            if (checkStatusCode(statusCode)) {
                 TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
                 for (DoctorEntity doctor : tableView.getItems()) {
                     if (doctor.getId() == doctorEntity.getId()) {
@@ -218,12 +206,12 @@ public class ChangeDoctorController extends MenuController{
                 textField_Telephone.getText(), textField_Email.getText(),
                 comboBox_Specialization.getSelectionModel().getSelectedItem(),
                 comboBox_Status.getSelectionModel().getSelectedItem());
-            TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
-            tableView.getItems().add(doctorEntity);
-            StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
-            stackPane.setDisable(true);
-            stackPane.setVisible(false);
-//        }
+
+        TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
+        tableView.getItems().add(doctorEntity);
+        StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
+        stackPane.setDisable(true);
+        stackPane.setVisible(false);
     }
 
 
@@ -245,7 +233,7 @@ public class ChangeDoctorController extends MenuController{
         } else {
             setDefaultTooltip(textField_Telephone, tooltip_Telephone);
         }
-        if (!textField_Email.getText().matches(Constant.getEMAILREG()) && !textField_Email.getText().equals("") ) {
+        if (!textField_Email.getText().matches(Constant.getEMAILREG()) && !textField_Email.getText().equals("")) {
             setErrorTooltip(textField_Email, tooltip_ErrorEmail);
         } else {
             setDefaultTooltip(textField_Email, tooltip_Email);
@@ -253,22 +241,23 @@ public class ChangeDoctorController extends MenuController{
         if (comboBox_Status.getSelectionModel().getSelectedItem() == null) {
             return false;
         }
-        if(textField_Name.getStyle().equals(Constant.getBorderColorInherit())
+        if (textField_Name.getStyle().equals(Constant.getBorderColorInherit())
                 && textField_Surname.getStyle().equals(Constant.getBorderColorInherit())
                 && textField_Telephone.getStyle().equals(Constant.getBorderColorInherit())
-                && textField_Email.getStyle().equals(Constant.getBorderColorInherit())){
+                && textField_Email.getStyle().equals(Constant.getBorderColorInherit())) {
             return true;
         } else {
             return false;
         }
     }
 
-    public void clearFields(){
+    public void clearFields() {
         getTextField_Name().clear();
         getTextField_Surname().clear();
         getTextField_Telephone().clear();
         getTextField_Email().clear();
     }
+
     public ArrayList<SpecializationEntity> getSpecializations() {
         return specializations;
     }
@@ -348,7 +337,6 @@ public class ChangeDoctorController extends MenuController{
     public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
         this.comboBox_Status = comboBox_Status;
     }
-
 
 
 }
