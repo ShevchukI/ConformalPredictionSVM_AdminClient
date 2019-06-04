@@ -12,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.apache.http.HttpResponse;
@@ -136,6 +135,14 @@ public class ChangeDoctorController extends MenuController{
         tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
         tooltip_ErrorEmail = new Tooltip("");
 
+        tooltip_Name.setText(tooltip_ErrorName.getText());
+        tooltip_Surname.setText(tooltip_ErrorSurname.getText());
+        tooltip_Telephone.setText(tooltip_ErrorTelephone.getText());
+        tooltip_Email.setText(tooltip_ErrorEmail.getText());
+
+
+        doctorEntity = new DoctorEntity();
+
         button_Save.setGraphic(Constant.okIcon());
         button_Cancel.setGraphic(Constant.cancelIcon());
     }
@@ -207,44 +214,16 @@ public class ChangeDoctorController extends MenuController{
     }
 
     private void addNew() {
-        doctorEntity = new DoctorEntity();
-        doctorEntity.setName(textField_Name.getText());
-        doctorEntity.setSurname(textField_Surname.getText());
-        doctorEntity.setTelephone(textField_Telephone.getText());
-        doctorEntity.setEmail(textField_Email.getText());
-        HttpResponse response = DoctorController.createDoctor(doctorEntity,
-                comboBox_Specialization.getSelectionModel().getSelectedItem().getId(),
-                comboBox_Status.getSelectionModel().getSelectedItem().getId());
-        setStatusCode(response.getStatusLine().getStatusCode());
-        if (checkStatusCode(getStatusCode())) {
-            String[] content = getContent(response);
-            int id = Integer.parseInt(content[0]);
-            doctorEntity.setId(id);
-            doctorEntity.setSpecializationEntity(comboBox_Specialization.getSelectionModel().getSelectedItem());
-            doctorEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-
-            TextArea textArea = new TextArea("Login: " + content[1] + "\nPassword: " + content[2]);
-            textArea.setEditable(false);
-            textArea.setWrapText(true);
-            textArea.setMaxWidth(100);
-            textArea.setMaxHeight(200);
-            GridPane gridPane = new GridPane();
-//            gridPane.setMaxWidth(Double.MAX_VALUE);
-            gridPane.add(textArea, 0, 0);
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Doctor created!");
-            alert.getDialogPane().setContent(gridPane);
-            alert.showAndWait();
-//            Constant.getAlert(null, "Login: " + content[1] + "\nPassword: " + content[2], Alert.AlertType.INFORMATION);
-
+        doctorEntity.addNew(textField_Name.getText(), textField_Surname.getText(),
+                textField_Telephone.getText(), textField_Email.getText(),
+                comboBox_Specialization.getSelectionModel().getSelectedItem(),
+                comboBox_Status.getSelectionModel().getSelectedItem());
             TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
             tableView.getItems().add(doctorEntity);
-            Constant.getAlert(null, "Doctor saved!", Alert.AlertType.INFORMATION);
             StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
             stackPane.setDisable(true);
             stackPane.setVisible(false);
-        }
+//        }
     }
 
 

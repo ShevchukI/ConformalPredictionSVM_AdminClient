@@ -12,10 +12,23 @@ import org.apache.http.entity.StringEntity;
 
 import java.io.UnsupportedEncodingException;
 
-public class DoctorController extends MainController{
+public class DoctorController extends MainController {
     public static HttpResponse createDoctor(DoctorEntity doctorEntity, int specializationId, int employeeStatusId) {
         String json = new Gson().toJson(doctorEntity);
         String url = getUrl() + "/doctor/" + specializationId + "/" + employeeStatusId;
+        HttpPost request = new HttpPost(url);
+        HttpResponse response = null;
+        try {
+            response = crudEntity(new StringEntity(json), request, null, null, null);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
+    public static HttpResponse createDoctor(DoctorEntity doctorEntity) {
+        String json = new Gson().toJson(doctorEntity);
+        String url = getUrl() + "/doctor/" + doctorEntity.getSpecializationEntity().getId() + "/" + doctorEntity.getEmployeeStatus().getId();
         HttpPost request = new HttpPost(url);
         HttpResponse response = null;
         try {
