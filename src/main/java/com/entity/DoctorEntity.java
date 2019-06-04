@@ -29,7 +29,7 @@ public class DoctorEntity {
     }
 
     public void addNew(String name, String surname, String telephone, String email,
-                       SpecializationEntity specialization, EmployeeStatusEntity employeeStatus){
+                       SpecializationEntity specialization, EmployeeStatusEntity employeeStatus) {
         this.name = name;
         this.surname = surname;
         this.telephone = telephone;
@@ -40,7 +40,7 @@ public class DoctorEntity {
         int statusCode = response.getStatusLine().getStatusCode();
         if (statusCode == 201) {
             String[] content = Constant.getContent(response);
-            Constant.getTextAreaAlert(null,"Doctor saved!",
+            Constant.getTextAreaAlert(null, "Doctor saved!",
                     "Login: " + content[1] + "\nPassword: " + content[2],
                     Alert.AlertType.INFORMATION);
         }
@@ -60,10 +60,10 @@ public class DoctorEntity {
     }
 
     public int change(String name, String surname, String telephone, String email,
-                       SpecializationEntity specialization, EmployeeStatusEntity employeeStatus){
+                      SpecializationEntity specialization, EmployeeStatusEntity employeeStatus) {
 
         boolean result = Constant.questionOkCancel("Do you really want to change Doctor "
-                +surname + name + "?");
+                + surname + name + "?");
         if (result) {
             this.id = Integer.parseInt(HazelCastMap
                     .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("doctor").toString());
@@ -76,8 +76,9 @@ public class DoctorEntity {
 
             HttpResponse response = changeDoctor(this);
             return response.getStatusLine().getStatusCode();
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private HttpResponse changeDoctor(DoctorEntity doctorEntity) {
@@ -99,8 +100,9 @@ public class DoctorEntity {
         if (result) {
             HttpResponse response = deleteDoctor(this);
             return response.getStatusLine().getStatusCode();
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private HttpResponse deleteDoctor(DoctorEntity doctor) {
@@ -172,7 +174,8 @@ public class DoctorEntity {
     public void setEmployeeStatus(EmployeeStatusEntity employeeStatusEntity) {
         this.employeeStatus = employeeStatusEntity;
     }
-    public String getVisibleSpecialization(){
+
+    public String getVisibleSpecialization() {
         return this.getSpecializationEntity().getName();
     }
 }

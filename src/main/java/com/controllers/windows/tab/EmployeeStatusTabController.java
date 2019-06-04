@@ -1,6 +1,5 @@
 package com.controllers.windows.tab;
 
-import com.controllers.requests.EmployeeStatusController;
 import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.stack.entityInfo.EmployeeStatusInfoController;
@@ -52,7 +51,7 @@ public class EmployeeStatusTabController extends MenuController implements Initi
                         indexOf(column.getValue()) + 1)));
         tableColumn_Name.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("name"));
         tableColumn_WorkEnable.setCellValueFactory(new PropertyValueFactory<EmployeeStatusEntity, String>("visibleWorkEnable"));
-        HttpResponse response = EmployeeStatusController.getAllEmployeeStatus();
+        HttpResponse response = EmployeeStatusEntity.getAllEmployeeStatus();
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             statusEntities = EmployeeStatusEntity.getListFromResponse(response);
@@ -71,11 +70,8 @@ public class EmployeeStatusTabController extends MenuController implements Initi
     }
 
     public static void deleteEmployeeStatus(EmployeeStatusEntity employeeStatus) {
-        boolean result = Constant.questionOkCancel("Do you really want to delete Employee Status "
-                + employeeStatus.getName() + " ?");
-        if (result) {
-            HttpResponse response = EmployeeStatusController.deleteEmployeeStatus(employeeStatus.getId());
-            int statusCode = response.getStatusLine().getStatusCode();
+        int statusCode = employeeStatus.deleteEmployeeStatus();
+        if (statusCode != 0) {
             if (checkStatusCode(statusCode)) {
                 for (EmployeeStatusEntity employeeStatusEntity : employeeStatusTable.getItems()) {
                     if (employeeStatusEntity.getId() == employeeStatus.getId()) {
@@ -88,8 +84,6 @@ public class EmployeeStatusTabController extends MenuController implements Initi
             }
         }
     }
-
-
 
 
     public Label getLabel_NameInfo() {
@@ -112,7 +106,8 @@ public class EmployeeStatusTabController extends MenuController implements Initi
         return stackPane_Info;
     }
 
-    public static void setStackPaneInfo(StackPane stackPane) {stackPane_Info = stackPane;
+    public static void setStackPaneInfo(StackPane stackPane) {
+        stackPane_Info = stackPane;
     }
 
     public TableView<EmployeeStatusEntity> getTableView_EmployeeStatus() {
@@ -123,7 +118,8 @@ public class EmployeeStatusTabController extends MenuController implements Initi
         return stackPane_Change;
     }
 
-    public static void setStackPaneChange(StackPane stackPane) {stackPane_Change = stackPane;
+    public static void setStackPaneChange(StackPane stackPane) {
+        stackPane_Change = stackPane;
     }
 
     public Label getLabel_PaneNameChange() {

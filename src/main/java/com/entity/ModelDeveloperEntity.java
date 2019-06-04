@@ -59,8 +59,9 @@ public class ModelDeveloperEntity {
             this.employeeStatus = employeeStatus;
             HttpResponse response = changeModelDeveloper(this);
             return response.getStatusLine().getStatusCode();
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private HttpResponse createModelDeveloper(ModelDeveloperEntity modelDeveloperEntity) {
@@ -95,8 +96,9 @@ public class ModelDeveloperEntity {
         if (result) {
             HttpResponse response = deleteModelDeveloper(this);
             return response.getStatusLine().getStatusCode();
+        } else {
+            return 0;
         }
-        return 0;
     }
 
     private HttpResponse deleteModelDeveloper(ModelDeveloperEntity modelDeveloper) {
