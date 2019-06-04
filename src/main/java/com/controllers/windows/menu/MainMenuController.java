@@ -133,7 +133,7 @@ public class MainMenuController extends MenuController {
         activateStackPane(stackPane_ModelDeveloperChange, stackPanes);
         changeModelDeveloperController.setChange(false);
         changeModelDeveloperController.getLabel_PaneName().setText(ADD_NEW_MODEL_DEVELOPER);
-        changeDoctorController.clearFields();
+        changeModelDeveloperController.clearFields();
 //        changeModelDeveloperController.setEmployeeStatus(statusEntities);
     }
 

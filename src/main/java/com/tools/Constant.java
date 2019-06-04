@@ -3,7 +3,9 @@ package com.tools;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
@@ -85,6 +87,36 @@ public class Constant {
         } else {
             return false;
         }
+    }
+
+    public static String[] getContent(HttpResponse response) {
+        String[] strings = new String[10];
+        String[] content = new String[3];
+        try {
+            strings = Constant.responseToString(response).split("\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String[] login = strings[3].split("_");
+        content[0] = login[2];
+        content[1] = strings[3];
+        content[2] = strings[7];
+        return content;
+    }
+
+    public static void getTextAreaAlert(String title, String header, String content, Alert.AlertType alertType){
+        TextArea textArea = new TextArea(content);
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+        textArea.setMaxWidth(300);
+        textArea.setMaxHeight(100);
+        GridPane gridPane = new GridPane();
+        gridPane.add(textArea, 0, 0);
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.getDialogPane().setContent(gridPane);
+        alert.showAndWait();
     }
 
 

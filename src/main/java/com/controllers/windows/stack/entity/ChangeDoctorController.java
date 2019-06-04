@@ -175,7 +175,6 @@ public class ChangeDoctorController extends MenuController {
                 textField_Telephone.getText(), textField_Email.getText(),
                 comboBox_Specialization.getSelectionModel().getSelectedItem(),
                 comboBox_Status.getSelectionModel().getSelectedItem());
-
         if (statusCode != 0) {
             if (checkStatusCode(statusCode)) {
                 TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");

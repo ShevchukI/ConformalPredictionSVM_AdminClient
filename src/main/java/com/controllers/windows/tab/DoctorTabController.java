@@ -145,13 +145,15 @@ public class DoctorTabController extends MenuController {
 
     public void deleteDoctor(DoctorEntity doctor) {
         int statusCode = doctor.deleteDoctor();
-        if (checkStatusCode(statusCode)) {
-            for (DoctorEntity doctorEntity : tableView_Doctor.getItems()) {
-                if (doctorEntity.getId() == doctor.getId()) {
-                    tableView_Doctor.getItems().remove(doctorEntity);
-                    Constant.getAlert(null, "Doctor " + doctorEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
-                    MainMenuController.deactivateAllStackPane();
-                    break;
+        if(statusCode!=0) {
+            if (checkStatusCode(statusCode)) {
+                for (DoctorEntity doctorEntity : tableView_Doctor.getItems()) {
+                    if (doctorEntity.getId() == doctor.getId()) {
+                        tableView_Doctor.getItems().remove(doctorEntity);
+                        Constant.getAlert(null, "Doctor " + doctorEntity.getName() + " deleted!", Alert.AlertType.INFORMATION);
+                        MainMenuController.deactivateAllStackPane();
+                        break;
+                    }
                 }
             }
         }

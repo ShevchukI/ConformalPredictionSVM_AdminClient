@@ -1,6 +1,5 @@
 package com.controllers.windows.stack.entity;
 
-import com.controllers.requests.ModelDeveloperController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
@@ -11,10 +10,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
-import org.apache.http.HttpResponse;
 
 import java.util.ArrayList;
 
@@ -94,6 +91,14 @@ public class ChangeModelDeveloperController extends MenuController {
         tooltip_ErrorSurname = new Tooltip("Required:\n- not empty\n- minimum 2 characters");
         tooltip_ErrorTelephone = new Tooltip("Maximum 15 characters");
         tooltip_ErrorEmail = new Tooltip("");
+
+        tooltip_Name.setText(tooltip_ErrorName.getText());
+        tooltip_Surname.setText(tooltip_ErrorSurname.getText());
+        tooltip_Telephone.setText(tooltip_ErrorTelephone.getText());
+        tooltip_Email.setText(tooltip_ErrorEmail.getText());
+
+        modelDeveloperEntity = new ModelDeveloperEntity();
+
         button_Save.setGraphic(Constant.okIcon());
         button_Cancel.setGraphic(Constant.cancelIcon());
 
@@ -112,20 +117,11 @@ public class ChangeModelDeveloperController extends MenuController {
     }
 
     private void changeCurrent() {
-        boolean result = Constant.questionOkCancel("Do you really want to change Model Developer "
-                + textField_Name.getText() + "?");
-        if (result) {
-            modelDeveloperEntity = new ModelDeveloperEntity();
-            modelDeveloperEntity.setId(Integer.parseInt(HazelCastMap
-                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString()));
-            modelDeveloperEntity.setName(textField_Name.getText());
-            modelDeveloperEntity.setSurname(textField_Surname.getText());
-            modelDeveloperEntity.setTelephone(textField_Telephone.getText());
-            modelDeveloperEntity.setEmail(textField_Email.getText());
-            modelDeveloperEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-            HttpResponse response = ModelDeveloperController.changeModelDeveloper(modelDeveloperEntity);
-            setStatusCode(response.getStatusLine().getStatusCode());
-            if (checkStatusCode(getStatusCode())) {
+        int statusCode = modelDeveloperEntity.change(textField_Name.getText(), textField_Surname.getText(),
+                textField_Telephone.getText(), textField_Email.getText(),
+                comboBox_Status.getSelectionModel().getSelectedItem());
+        if (statusCode != 0) {
+            if (checkStatusCode(statusCode)) {
                 TableView<ModelDeveloperEntity> tableView = (TableView<ModelDeveloperEntity>) this.menuController.getStage().getScene().lookup("#tableView_ModelDeveloper");
                 for (ModelDeveloperEntity modelDeveloper : tableView.getItems()) {
                     if (modelDeveloper.getId() == modelDeveloperEntity.getId()) {
@@ -148,47 +144,19 @@ public class ChangeModelDeveloperController extends MenuController {
         }
     }
 
-
     private void addNew() {
-        modelDeveloperEntity = new ModelDeveloperEntity();
-        modelDeveloperEntity.setName(textField_Name.getText());
-        modelDeveloperEntity.setSurname(textField_Surname.getText());
-        modelDeveloperEntity.setTelephone(textField_Telephone.getText());
-        modelDeveloperEntity.setEmail(textField_Email.getText());
-        modelDeveloperEntity.setEmployeeStatus(comboBox_Status.getSelectionModel().getSelectedItem());
-        HttpResponse response = ModelDeveloperController.createModelDeveloper(modelDeveloperEntity);
-        setStatusCode(response.getStatusLine().getStatusCode());
-        if (checkStatusCode(getStatusCode())) {
-            String[] content = getContent(response);
-            int id = Integer.parseInt(content[0]);
-            modelDeveloperEntity.setId(id);
-            TextArea textArea = new TextArea("Login: " + content[1] + "\nPassword: " + content[2]);
-            textArea.setEditable(false);
-            textArea.setWrapText(true);
-            textArea.setMaxWidth(300);
-            textArea.setMaxHeight(100);
-            GridPane gridPane = new GridPane();
-            gridPane.add(textArea, 0, 0);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Model Developer created!");
-            alert.setHeaderText("Model developer saved!");
-            alert.getDialogPane().setContent(gridPane);
-            alert.showAndWait();
-//            Constant.getAlert(null, "Login: " + content[1] + "\nPassword: " + content[2], Alert.AlertType.INFORMATION);
-            TableView<ModelDeveloperEntity> tableView = (TableView<ModelDeveloperEntity>) this.menuController.getStage().getScene().lookup("#tableView_ModelDeveloper");
-            tableView.getItems().add(modelDeveloperEntity);
-//            Constant.getAlert(null, "Model developer saved!", Alert.AlertType.INFORMATION);
-            StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
-            stackPane.setDisable(true);
-            stackPane.setVisible(false);
-        }
+        modelDeveloperEntity.addNew(textField_Name.getText(), textField_Surname.getText(),
+                textField_Telephone.getText(), textField_Email.getText(),
+                comboBox_Status.getSelectionModel().getSelectedItem());
+        TableView<ModelDeveloperEntity> tableView = (TableView<ModelDeveloperEntity>) this.menuController.getStage().getScene().lookup("#tableView_ModelDeveloper");
+        tableView.getItems().add(modelDeveloperEntity);
+        StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
+        stackPane.setDisable(true);
+        stackPane.setVisible(false);
     }
 
     public void cancel() {
-        textField_Name.clear();
-        textField_Surname.clear();
-        textField_Telephone.clear();
-        textField_Email.clear();
+        clearFields();
         StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
         stackPane.setDisable(true);
         stackPane.setVisible(false);
@@ -211,7 +179,7 @@ public class ChangeModelDeveloperController extends MenuController {
         } else {
             setDefaultTooltip(textField_Telephone, tooltip_Telephone);
         }
-        if (!textField_Email.getText().matches(Constant.getEMAILREG()) && !textField_Email.getText().equals("") ) {
+        if (!textField_Email.getText().matches(Constant.getEMAILREG()) && !textField_Email.getText().equals("")) {
             setErrorTooltip(textField_Email, tooltip_ErrorEmail);
         } else {
             setDefaultTooltip(textField_Email, tooltip_Email);
@@ -219,10 +187,10 @@ public class ChangeModelDeveloperController extends MenuController {
         if (comboBox_Status.getSelectionModel().getSelectedItem() == null) {
             return false;
         }
-        if(textField_Name.getStyle().equals(Constant.getBorderColorInherit())
+        if (textField_Name.getStyle().equals(Constant.getBorderColorInherit())
                 && textField_Surname.getStyle().equals(Constant.getBorderColorInherit())
                 && textField_Telephone.getStyle().equals(Constant.getBorderColorInherit())
-                && textField_Email.getStyle().equals(Constant.getBorderColorInherit())){
+                && textField_Email.getStyle().equals(Constant.getBorderColorInherit())) {
             return true;
         } else {
             return false;
@@ -230,7 +198,7 @@ public class ChangeModelDeveloperController extends MenuController {
     }
 
 
-    public void clearFields(){
+    public void clearFields() {
         getTextField_Name().clear();
         getTextField_Surname().clear();
         getTextField_Telephone().clear();

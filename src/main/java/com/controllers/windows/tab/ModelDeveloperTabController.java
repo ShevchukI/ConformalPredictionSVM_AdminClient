@@ -1,6 +1,5 @@
 package com.controllers.windows.tab;
 
-import com.controllers.requests.ModelDeveloperController;
 import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
@@ -87,13 +86,13 @@ public class ModelDeveloperTabController extends MenuController {
         }
     }
 
-    public void changeModelDeveloper(){
-        if(tableView_ModelDeveloper.getSelectionModel().getSelectedItem()!=null){
+    public void changeModelDeveloper() {
+        if (tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
             changeModelDeveloper(tableView_ModelDeveloper);
         }
     }
 
-    public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView){
+    public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView) {
         HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("modelDeveloper",
                 tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
@@ -104,21 +103,17 @@ public class ModelDeveloperTabController extends MenuController {
         textField_TelephoneChange.setText(tableView.getSelectionModel().getSelectedItem().getTelephone());
         textField_EmailChange.setText(tableView.getSelectionModel().getSelectedItem().getEmail());
         comboBox_Status.setItems(EmployeeStatusTabController.getEmployeeStatusTable().getItems());
-        for(EmployeeStatusEntity employeeStatusEntity:comboBox_Status.getItems()){
-            if(employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()){
+        for (EmployeeStatusEntity employeeStatusEntity : comboBox_Status.getItems()) {
+            if (employeeStatusEntity.getId() == tableView.getSelectionModel().getSelectedItem().getEmployeeStatus().getId()) {
                 comboBox_Status.getSelectionModel().select(employeeStatusEntity);
             }
         }
     }
 
     public void deleteModelDeveloper(ModelDeveloperEntity modelDeveloper) {
-        boolean result = Constant.questionOkCancel("Do you really want to delete Model Developer "
-                + modelDeveloper.getSurname() + modelDeveloper.getName() + " ?");
-        if (result) {
-            HttpResponse response = ModelDeveloperController.deleteModelDeveloper(modelDeveloper.getId());
-            int statusCode = response.getStatusLine().getStatusCode();
+        int statusCode = modelDeveloper.deleteModelDeveloper();
+        if (statusCode!=0) {
             if (checkStatusCode(statusCode)) {
-//                return doctor.getId();
                 for (ModelDeveloperEntity modelDeveloperEntity : tableView_ModelDeveloper.getItems()) {
                     if (modelDeveloperEntity.getId() == modelDeveloper.getId()) {
                         tableView_ModelDeveloper.getItems().remove(modelDeveloperEntity);
@@ -130,6 +125,7 @@ public class ModelDeveloperTabController extends MenuController {
             }
         }
     }
+
 
     public StackPane getStackPaneChange() {
         return stackPane_Change;
@@ -257,7 +253,7 @@ public class ModelDeveloperTabController extends MenuController {
 
     private Node createPage(int pageIndex) {
         this.pageIndex = pageIndex + 1;
-        HttpResponse response = ModelDeveloperController.getModelDeveloperPage(this.pageIndex);
+        HttpResponse response = ModelDeveloperEntity.getModelDeveloperPage(this.pageIndex);
         setStatusCode(response.getStatusLine().getStatusCode());
         if (checkStatusCode(getStatusCode())) {
             modelDeveloperPage = ModelDeveloperPage.fromJson(response);
@@ -273,7 +269,7 @@ public class ModelDeveloperTabController extends MenuController {
         return tableView_ModelDeveloper;
     }
 
-    public void refreshPage(){
+    public void refreshPage() {
         pagination_ModelDeveloper.setPageFactory(this::createPage);
     }
 }

@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.tools.Constant;
 import com.tools.HazelCastMap;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -13,7 +11,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import static com.controllers.requests.MainController.crudEntity;
@@ -42,19 +39,10 @@ public class DoctorEntity {
         HttpResponse response = createDoctor(this);
         int statusCode = response.getStatusLine().getStatusCode();
         if (statusCode == 201) {
-            String[] content = getContent(response);
-            TextArea textArea = new TextArea("Login: " + content[1] + "\nPassword: " + content[2]);
-            textArea.setEditable(false);
-            textArea.setWrapText(true);
-            textArea.setMaxWidth(300);
-            textArea.setMaxHeight(100);
-            GridPane gridPane = new GridPane();
-            gridPane.add(textArea, 0, 0);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle(null);
-            alert.setHeaderText("Doctor saved!");
-            alert.getDialogPane().setContent(gridPane);
-            alert.showAndWait();
+            String[] content = Constant.getContent(response);
+            Constant.getTextAreaAlert(null,"Doctor saved!",
+                    "Login: " + content[1] + "\nPassword: " + content[2],
+                    Alert.AlertType.INFORMATION);
         }
     }
 
@@ -110,8 +98,7 @@ public class DoctorEntity {
                 + this.getSurname() + this.getName() + " ?");
         if (result) {
             HttpResponse response = deleteDoctor(this);
-            int statusCode = response.getStatusLine().getStatusCode();
-            return statusCode;
+            return response.getStatusLine().getStatusCode();
         }
         return 0;
     }
@@ -128,21 +115,6 @@ public class DoctorEntity {
         HttpGet request = new HttpGet(url);
         HttpResponse response = crudEntity(null, null, request, null, null);
         return response;
-    }
-
-    private String[] getContent(HttpResponse response) {
-        String[] strings = new String[10];
-        String[] content = new String[3];
-        try {
-            strings = Constant.responseToString(response).split("\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String[] login = strings[3].split("_");
-        content[0] = login[2];
-        content[1] = strings[3];
-        content[2] = strings[7];
-        return content;
     }
 
     public int getId() {
