@@ -15,19 +15,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.windows.menu.MainMenuController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.windows.menu.MainMenuController">
     <top>
         <VBox>
             <children>
-                <fx:include fx:id="menuBar" source="menuBar.fxml" />
+                <fx:include fx:id="menuBar" source="menuBar.fxml"/>
                 <AnchorPane>
                     <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="914.0" text="Main Menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="914.0" text="Main Menu"
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
                             <font>
-                                <Font size="24.0" />
+                                <Font size="24.0"/>
                             </font>
                         </Label>
-                        <Separator layoutY="35.0" prefWidth="200.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Separator layoutY="35.0" prefWidth="200.0" AnchorPane.bottomAnchor="-2.0"
+                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
                     </children>
                 </AnchorPane>
             </children>
@@ -36,26 +41,35 @@
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Separator layoutX="889.0" layoutY="51.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                <AnchorPane layoutY="88.0" prefHeight="636.0" prefWidth="874.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                <Separator layoutX="889.0" layoutY="51.0" orientation="VERTICAL" prefHeight="200.0"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                <AnchorPane layoutY="88.0" prefHeight="636.0" prefWidth="874.0" AnchorPane.bottomAnchor="14.0"
+                            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                     <children>
-                        <TextField fx:id="textField_Search" disable="true" prefHeight="31.0" prefWidth="760.0" promptText="Name Surname" visible="false" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="0.0">
+                        <TextField fx:id="textField_Search" disable="true" prefHeight="31.0" prefWidth="760.0"
+                                   promptText="Name Surname" visible="false" AnchorPane.leftAnchor="14.0"
+                                   AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="0.0">
                             <tooltip>
-                                <Tooltip text="Input Name and Surname to search" />
+                                <Tooltip text="Input Name and Surname to search"/>
                             </tooltip>
                         </TextField>
-                        <Button fx:id="button_Search" disable="true" mnemonicParsing="false" text="Search" visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="button_Search" disable="true" mnemonicParsing="false" text="Search"
+                                visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <tooltip>
-                                <Tooltip text="Click to search" />
+                                <Tooltip text="Click to search"/>
                             </tooltip>
                         </Button>
-                        <TabPane layoutY="106.0" prefHeight="320.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="106.0">
+                        <TabPane layoutY="106.0" prefHeight="320.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE"
+                                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                 AnchorPane.topAnchor="106.0">
                             <tabs>
                                 <Tab fx:id="tab_Doctor" text="Doctor">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <fx:include fx:id="doctorTab" source="../tab/doctorTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                                <fx:include fx:id="doctorTab" source="../tab/doctorTab.fxml"
+                                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -64,7 +78,10 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <fx:include fx:id="modelDeveloperTab" source="../tab/modelDeveloperTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                                <fx:include fx:id="modelDeveloperTab"
+                                                            source="../tab/modelDeveloperTab.fxml"
+                                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -73,33 +90,50 @@
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <fx:include fx:id="specializationTab" source="../tab/specializationTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                                <fx:include fx:id="specializationTab"
+                                                            source="../tab/specializationTab.fxml"
+                                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </Tab>
-                        <Tab fx:id="tab_EmployeeStatus" text="Employee Status">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                     <fx:include fx:id="employeeStatusTab" source="../tab/employeeStatusTab.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                        </Tab>
+                                <Tab fx:id="tab_EmployeeStatus" text="Employee Status">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <fx:include fx:id="employeeStatusTab"
+                                                            source="../tab/employeeStatusTab.fxml"
+                                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </Tab>
                             </tabs>
                         </TabPane>
-                        <MenuButton fx:id="menuButton_Add" layoutX="8.0" layoutY="38.0" minWidth="140.0" mnemonicParsing="false" text="Add new" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0">
+                        <MenuButton fx:id="menuButton_Add" layoutX="8.0" layoutY="38.0" minWidth="140.0"
+                                    mnemonicParsing="false" text="Add new" AnchorPane.leftAnchor="14.0"
+                                    AnchorPane.topAnchor="50.0">
                             <items>
-                                <MenuItem fx:id="menuItem_AddDoctor" mnemonicParsing="false" onAction="#addDoctor" text="Doctor" />
-                                <MenuItem fx:id="menuItem_AddModelDeveloper" mnemonicParsing="false" onAction="#addModelDeveloper" text="Model developer" />
-                                <MenuItem fx:id="menuItem_AddSpecialization" mnemonicParsing="false" onAction="#addSpecialization" text="Specialization" />
-                                <MenuItem fx:id="menuItem_AddEmployeeStatus" mnemonicParsing="false" onAction="#addEmployeeStatus" text="Employee status" />
+                                <MenuItem fx:id="menuItem_AddDoctor" mnemonicParsing="false" onAction="#addDoctor"
+                                          text="Doctor"/>
+                                <MenuItem fx:id="menuItem_AddModelDeveloper" mnemonicParsing="false"
+                                          onAction="#addModelDeveloper" text="Model developer"/>
+                                <MenuItem fx:id="menuItem_AddSpecialization" mnemonicParsing="false"
+                                          onAction="#addSpecialization" text="Specialization"/>
+                                <MenuItem fx:id="menuItem_AddEmployeeStatus" mnemonicParsing="false"
+                                          onAction="#addEmployeeStatus" text="Employee status"/>
                             </items>
                         </MenuButton>
-                  <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#change" text="Change" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="50.0" />
-                  <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0" mnemonicParsing="false" onAction="#delete" text="Delete" textFill="RED" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" />
-                  <Button disable="true" layoutX="279.0" layoutY="50.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" visible="false" />
+                        <Button fx:id="button_Change" layoutX="171.0" layoutY="50.0" minWidth="80.0"
+                                mnemonicParsing="false" onAction="#change" text="Change" AnchorPane.leftAnchor="170.0"
+                                AnchorPane.topAnchor="50.0"/>
+                        <Button fx:id="button_Delete" layoutX="389.0" layoutY="50.0" minWidth="80.0"
+                                mnemonicParsing="false" onAction="#delete" text="Delete" textFill="RED"
+                                AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0"/>
+                        <Button disable="true" layoutX="279.0" layoutY="50.0" mnemonicParsing="false"
+                                onAction="#refresh" text="Refresh" visible="false"/>
                     </children>
                 </AnchorPane>
             </children>
@@ -108,78 +142,108 @@
     <right>
         <StackPane fx:id="stackPane_Main" prefHeight="454.0" prefWidth="431.0" BorderPane.alignment="CENTER">
             <children>
-                <StackPane fx:id="stackPane_DoctorInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+                <StackPane fx:id="stackPane_DoctorInfo" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_DoctorInfo" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <fx:include fx:id="doctorInfo" source="../stack/entityInfo/doctorInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="doctorInfo" source="../stack/entityInfo/doctorInfo.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                             </children>
                         </AnchorPane>
                     </children>
                 </StackPane>
-                <StackPane fx:id="stackPane_DoctorChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+                <StackPane fx:id="stackPane_DoctorChange" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_DoctorRegistration" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <fx:include fx:id="changeDoctor" source="../stack/entity/changeDoctor.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="changeDoctor" source="../stack/entity/changeDoctor.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                             </children>
                         </AnchorPane>
                     </children>
                 </StackPane>
-                <StackPane fx:id="stackPane_ModelDeveloperInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+                <StackPane fx:id="stackPane_ModelDeveloperInfo" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_ModelDeveloperInfo">
                             <children>
-                                <fx:include fx:id="modelDeveloperInfo" source="../stack/entityInfo/modelDeveloperInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="modelDeveloperInfo"
+                                            source="../stack/entityInfo/modelDeveloperInfo.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                             </children>
                         </AnchorPane>
                     </children>
                 </StackPane>
-            <StackPane fx:id="stackPane_ModelDeveloperChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
-               <children>
-                   <AnchorPane fx:id="anchorPane_ModelDeveloperChange" prefHeight="200.0" prefWidth="200.0">
-                       <children>
-                           <fx:include fx:id="changeModelDeveloper" source="../stack/entity/changeModelDeveloper.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                       </children>
-                   </AnchorPane>
-               </children>
-            </StackPane>
-                <StackPane fx:id="stackPane_SpecializationInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
+                <StackPane fx:id="stackPane_ModelDeveloperChange" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
+                    <children>
+                        <AnchorPane fx:id="anchorPane_ModelDeveloperChange" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <fx:include fx:id="changeModelDeveloper"
+                                            source="../stack/entity/changeModelDeveloper.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="stackPane_SpecializationInfo" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
                     <children>
                         <AnchorPane fx:id="anchorPane_SpecializationInfo" prefHeight="200.0" prefWidth="200.0">
                             <children>
-                                <fx:include fx:id="specializationInfo" source="../stack/entityInfo/specializationInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                                <fx:include fx:id="specializationInfo"
+                                            source="../stack/entityInfo/specializationInfo.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
                             </children>
                         </AnchorPane>
                     </children>
                 </StackPane>
-            <StackPane fx:id="stackPane_SpecializationChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
-               <children>
-                   <AnchorPane fx:id="anchorPane_SpecializationChange" prefHeight="200.0" prefWidth="200.0">
-                       <children>
-                           <fx:include fx:id="changeSpecialization" source="../stack/entity/changeSpecialization.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                       </children>
-                   </AnchorPane>
-               </children>
-            </StackPane>
-            <StackPane fx:id="stackPane_EmployeeStatusInfo" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
-               <children>
-                   <AnchorPane fx:id="anchorPane_EmployeeStatusInfo" prefHeight="200.0" prefWidth="200.0">
-                       <children>
-                           <fx:include fx:id="employeeStatusInfo" source="../stack/entityInfo/employeeStatusInfo.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                       </children>
-                   </AnchorPane>
-               </children>
-            </StackPane>
-            <StackPane fx:id="stackPane_EmployeeStatusChange" disable="true" prefHeight="150.0" prefWidth="200.0" visible="false">
-               <children>
-                   <AnchorPane fx:id="anchorPane_EmployeeStatusChange" prefHeight="200.0" prefWidth="200.0">
-                       <children>
-                           <fx:include fx:id="changeEmployeeStatus" source="../stack/entity/changeEmployeeStatus.fxml" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
-                       </children>
-                   </AnchorPane>
-               </children>
-            </StackPane>
+                <StackPane fx:id="stackPane_SpecializationChange" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
+                    <children>
+                        <AnchorPane fx:id="anchorPane_SpecializationChange" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <fx:include fx:id="changeSpecialization"
+                                            source="../stack/entity/changeSpecialization.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="stackPane_EmployeeStatusInfo" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
+                    <children>
+                        <AnchorPane fx:id="anchorPane_EmployeeStatusInfo" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <fx:include fx:id="employeeStatusInfo"
+                                            source="../stack/entityInfo/employeeStatusInfo.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
+                <StackPane fx:id="stackPane_EmployeeStatusChange" disable="true" prefHeight="150.0" prefWidth="200.0"
+                           visible="false">
+                    <children>
+                        <AnchorPane fx:id="anchorPane_EmployeeStatusChange" prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <fx:include fx:id="changeEmployeeStatus"
+                                            source="../stack/entity/changeEmployeeStatus.fxml"
+                                            AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+                                            AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </StackPane>
             </children>
         </StackPane>
     </right>

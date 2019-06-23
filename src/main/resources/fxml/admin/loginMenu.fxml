@@ -8,29 +8,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.windows.admin.LoginMenuController">
-   <children>
-      <Label alignment="CENTER" layoutX="283.0" layoutY="25.0" text="Authorization" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="66.0" text="Login:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="66.0" />
-      <TextField fx:id="textField_Login" layoutX="122.0" layoutY="61.0" onAction="#signIn" prefHeight="31.0" prefWidth="219.0" promptText="login" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="61.0">
-         <tooltip>
-            <Tooltip fx:id="tooltip_Login" text="It`s your login" />
-         </tooltip>
-      </TextField>
-      <Label layoutX="14.0" layoutY="106.0" text="Password:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="106.0" />
-      <PasswordField fx:id="passwordField_Password" layoutX="90.0" layoutY="101.0" onAction="#signIn" promptText="password" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="101.0">
-         <tooltip>
-            <Tooltip fx:id="tooltip_Password" text="It`s your password" />
-         </tooltip>
-      </PasswordField>
-      <Button fx:id="button_SignIn" layoutX="122.0" layoutY="148.0" mnemonicParsing="false" onAction="#signIn" text="Sign In" AnchorPane.bottomAnchor="14.0">
-         <tooltip>
-            <Tooltip text="Click to authorization" />
-         </tooltip>
-      </Button>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0"
+            prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.windows.admin.LoginMenuController">
+    <children>
+        <Label alignment="CENTER" layoutX="283.0" layoutY="25.0" text="Authorization" AnchorPane.leftAnchor="0.0"
+               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="66.0" text="Login:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="66.0"/>
+        <TextField fx:id="textField_Login" layoutX="122.0" layoutY="61.0" onAction="#signIn" prefHeight="31.0"
+                   prefWidth="219.0" promptText="login" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="14.0"
+                   AnchorPane.topAnchor="61.0">
+            <tooltip>
+                <Tooltip fx:id="tooltip_Login" text="It`s your login"/>
+            </tooltip>
+        </TextField>
+        <Label layoutX="14.0" layoutY="106.0" text="Password:" AnchorPane.leftAnchor="14.0"
+               AnchorPane.topAnchor="106.0"/>
+        <PasswordField fx:id="passwordField_Password" layoutX="90.0" layoutY="101.0" onAction="#signIn"
+                       promptText="password" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="14.0"
+                       AnchorPane.topAnchor="101.0">
+            <tooltip>
+                <Tooltip fx:id="tooltip_Password" text="It`s your password"/>
+            </tooltip>
+        </PasswordField>
+        <Button fx:id="button_SignIn" layoutX="122.0" layoutY="148.0" mnemonicParsing="false" onAction="#signIn"
+                text="Sign In" AnchorPane.bottomAnchor="14.0">
+            <tooltip>
+                <Tooltip text="Click to authorization"/>
+            </tooltip>
+        </Button>
+    </children>
 </AnchorPane>

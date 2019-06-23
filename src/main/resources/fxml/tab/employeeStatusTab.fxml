@@ -4,17 +4,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.windows.tab.EmployeeStatusTabController">
-   <children>
-      <TableView fx:id="tableView_EmployeeStatus" layoutX="10.0" layoutY="10.0" onMouseClicked="#viewEmployeeStatus" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <columns>
-            <TableColumn fx:id="tableColumn_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#" />
-            <TableColumn fx:id="tableColumn_Name" minWidth="200.0" prefWidth="-1.0" text="Name" />
-            <TableColumn fx:id="tableColumn_WorkEnable" maxWidth="200.0" minWidth="100.0" prefWidth="-1.0" text="Work Enable" />
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.windows.tab.EmployeeStatusTabController">
+    <children>
+        <TableView fx:id="tableView_EmployeeStatus" layoutX="10.0" layoutY="10.0" onMouseClicked="#viewEmployeeStatus"
+                   prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="tableColumn_Number" maxWidth="80.0" minWidth="50.0" prefWidth="-1.0" text="#"/>
+                <TableColumn fx:id="tableColumn_Name" minWidth="200.0" prefWidth="-1.0" text="Name"/>
+                <TableColumn fx:id="tableColumn_WorkEnable" maxWidth="200.0" minWidth="100.0" prefWidth="-1.0"
+                             text="Work Enable"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </children>
 </AnchorPane>
