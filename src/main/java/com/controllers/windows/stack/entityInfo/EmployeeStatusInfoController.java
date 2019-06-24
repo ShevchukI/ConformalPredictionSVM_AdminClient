@@ -29,22 +29,4 @@ public class EmployeeStatusInfoController implements Initializable{
         workEnable.setText(employeeStatusEntity.getVisibleWorkEnable());
     }
 
-    public Label getLabel_Name() {
-        return label_Name;
-    }
-
-    public void setLabel_Name(Label label_Name) {
-        this.label_Name = label_Name;
-    }
-
-    public Label getLabel_WorkEnable() {
-        return label_WorkEnable;
-    }
-
-    public void setLabel_WorkEnable(Label label_WorkEnable) {
-        this.label_WorkEnable = label_WorkEnable;
-    }
-
-
-
 }

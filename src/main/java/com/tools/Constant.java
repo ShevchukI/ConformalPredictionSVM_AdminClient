@@ -59,12 +59,6 @@ public class Constant {
         String password = Encryptor.decrypt(GlobalMap.getKeyMap().get(KEY),
                 GlobalMap.getKeyMap().get(VECTOR),
                 GlobalMap.getUserMap().get(PASSWORD));
-//        String login = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
-//                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(),
-//                HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(LOGIN).toString());
-//        String password = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
-//                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(),
-//                HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(PASSWORD).toString());
         auth[0] = login;
         auth[1] = password;
         return auth;
@@ -194,50 +188,6 @@ public class Constant {
         return APPLICATION_ICON;
     }
 
-    public static String getAddIcon() {
-        return ADD_ICON;
-    }
-
-    public static String getCancelIcon() {
-        return CANCEL_ICON;
-    }
-
-    public static String getDeleteIcon() {
-        return DELETE_ICON;
-    }
-
-    public static String getInfoIcon() {
-        return INFO_ICON;
-    }
-
-    public static String getOkIcon() {
-        return OK_ICON;
-    }
-
-    public static String getReturnIcon() {
-        return RETURN_ICON;
-    }
-
-    public static String getRunIcon() {
-        return RUN_ICON;
-    }
-
-    public static String getSearchIcon() {
-        return SEARCH_ICON;
-    }
-
-    public static String getEditIcon() {
-        return EDIT_ICON;
-    }
-
-    public static ImageView signInIcon() {
-        return new ImageView(SIGN_IN_ICON);
-    }
-
-    public static ImageView applicationIcon() {
-        return new ImageView(APPLICATION_ICON);
-    }
-
     public static ImageView addIcon() {
         return new ImageView(ADD_ICON);
     }
@@ -250,24 +200,8 @@ public class Constant {
         return new ImageView(DELETE_ICON);
     }
 
-    public static ImageView infoIcon() {
-        return new ImageView(INFO_ICON);
-    }
-
     public static ImageView okIcon() {
         return new ImageView(OK_ICON);
-    }
-
-    public static ImageView returnIcon() {
-        return new ImageView(RETURN_ICON);
-    }
-
-    public static ImageView runIcon() {
-        return new ImageView(RUN_ICON);
-    }
-
-    public static ImageView searchIcon() {
-        return new ImageView(SEARCH_ICON);
     }
 
     public static ImageView editIcon() {

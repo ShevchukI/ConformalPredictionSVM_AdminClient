@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 
 public class SpecializationInfoController{
 
-
     private MenuController menuController;
 
     @FXML
@@ -20,11 +19,5 @@ public class SpecializationInfoController{
     public void viewSpecializationInfo(SpecializationEntity specializationEntity){
         label_Name.setText(specializationEntity.getName());
     }
-
-    public Label getLabel_Name() {
-        return label_Name;
-    }
-
-
 
 }

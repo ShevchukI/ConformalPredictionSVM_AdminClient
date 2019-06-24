@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class DoctorTabController extends MenuController {
 
-
     private MenuController menuController;
     private StackPane stackPane_Change;
     private StackPane stackPane_Info;
@@ -64,7 +63,6 @@ public class DoctorTabController extends MenuController {
     public void init(MenuController menuController) {
         this.menuController = menuController;
         pageIndex = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getPageIndexDoctor()));
-//        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get(Constant.getPageIndexDoctor()).toString());
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_Doctor.getItems().
                 indexOf(column.getValue()) + 1) + (pageIndex - 1) * Constant.getObjectOnPage()));
@@ -122,8 +120,6 @@ public class DoctorTabController extends MenuController {
     public void changeDoctor(TableView<DoctorEntity> tableView) {
         GlobalMap.getMiscMap().put(Constant.getDOCTOR(),
                 String.valueOf(tableView.getSelectionModel().getSelectedItem().getId()));
-//        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("doctor",
-//                tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Doctor");
         textField_NameChange
@@ -237,10 +233,6 @@ public class DoctorTabController extends MenuController {
 
     public void setStackPaneInfo(StackPane stackPaneInfo) {
         this.stackPane_Info = stackPaneInfo;
-    }
-
-    public Label getLabel_SpecializationInfo() {
-        return label_SpecializationInfo;
     }
 
     public void setLabel_SpecializationInfo(Label label_SpecializationInfo) {

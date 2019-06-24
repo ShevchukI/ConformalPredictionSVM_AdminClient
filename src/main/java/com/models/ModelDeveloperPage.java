@@ -29,15 +29,8 @@ public class ModelDeveloperPage {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-    }
-
     public List<ModelDeveloperEntity> getSpecialistEntities() {
         return specialistEntities;
     }
 
-    public void setSpecialistEntities(List<ModelDeveloperEntity> specialistEntities) {
-        this.specialistEntities = specialistEntities;
-    }
 }

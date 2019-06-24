@@ -58,8 +58,6 @@ public class ModelDeveloperTabController extends MenuController {
     public void init(MenuController menuController) {
         this.menuController = menuController;
         pageIndex = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getPageIndexModelDeveloper()));
-//        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
-
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_ModelDeveloper.getItems().
                 indexOf(column.getValue()) + 1) + (pageIndex - 1) * Constant.getObjectOnPage()));
@@ -96,8 +94,6 @@ public class ModelDeveloperTabController extends MenuController {
     public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView) {
         GlobalMap.getMiscMap().put(Constant.getMODELDEVELOPER(),
                 String.valueOf(tableView.getSelectionModel().getSelectedItem().getId()));
-//        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("modelDeveloper",
-//                tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Model Developer");
         textField_NameChange
@@ -129,25 +125,12 @@ public class ModelDeveloperTabController extends MenuController {
         }
     }
 
-
-    public StackPane getStackPaneChange() {
-        return stackPane_Change;
-    }
-
     public void setStackPaneChange(StackPane stackPane_Change) {
         this.stackPane_Change = stackPane_Change;
     }
 
-    public StackPane getStackPaneInfo() {
-        return stackPane_Info;
-    }
-
     public void setStackPaneInfo(StackPane stackPane_Info) {
         this.stackPane_Info = stackPane_Info;
-    }
-
-    public ArrayList<StackPane> getStackPanes() {
-        return stackPanes;
     }
 
     public void setStackPanes(ArrayList<StackPane> stackPanes) {
@@ -158,96 +141,48 @@ public class ModelDeveloperTabController extends MenuController {
         return tableView_ModelDeveloper;
     }
 
-    public Label getLabel_NameInfo() {
-        return label_NameInfo;
-    }
-
     public void setLabel_NameInfo(Label label_NameInfo) {
         this.label_NameInfo = label_NameInfo;
-    }
-
-    public Label getLabel_SurnameInfo() {
-        return label_SurnameInfo;
     }
 
     public void setLabel_SurnameInfo(Label label_SurnameInfo) {
         this.label_SurnameInfo = label_SurnameInfo;
     }
 
-    public Label getLabel_TelephoneInfo() {
-        return label_TelephoneInfo;
-    }
-
     public void setLabel_TelephoneInfo(Label label_TelephoneInfo) {
         this.label_TelephoneInfo = label_TelephoneInfo;
-    }
-
-    public Label getLabel_EmailInfo() {
-        return label_EmailInfo;
     }
 
     public void setLabel_EmailInfo(Label label_EmailInfo) {
         this.label_EmailInfo = label_EmailInfo;
     }
 
-    public Label getLabel_StatusInfo() {
-        return label_StatusInfo;
-    }
-
     public void setLabel_StatusInfo(Label label_StatusInfo) {
         this.label_StatusInfo = label_StatusInfo;
-    }
-
-    public ArrayList<EmployeeStatusEntity> getEmployeeStatusEntities() {
-        return employeeStatusEntities;
     }
 
     public void setEmployeeStatusEntities(ArrayList<EmployeeStatusEntity> employeeStatusEntities) {
         this.employeeStatusEntities = employeeStatusEntities;
     }
 
-    public Label getLabel_PaneNameChange() {
-        return label_PaneNameChange;
-    }
-
     public void setLabel_PaneNameChange(Label label_PaneNameChange) {
         this.label_PaneNameChange = label_PaneNameChange;
-    }
-
-    public TextField getTextField_NameChange() {
-        return textField_NameChange;
     }
 
     public void setTextField_NameChange(TextField textField_NameChange) {
         this.textField_NameChange = textField_NameChange;
     }
 
-    public TextField getTextField_SurnameChange() {
-        return textField_SurnameChange;
-    }
-
     public void setTextField_SurnameChange(TextField textField_SurnameChange) {
         this.textField_SurnameChange = textField_SurnameChange;
-    }
-
-    public TextField getTextField_TelephoneChange() {
-        return textField_TelephoneChange;
     }
 
     public void setTextField_TelephoneChange(TextField textField_TelephoneChange) {
         this.textField_TelephoneChange = textField_TelephoneChange;
     }
 
-    public TextField getTextField_EmailChange() {
-        return textField_EmailChange;
-    }
-
     public void setTextField_EmailChange(TextField textField_EmailChange) {
         this.textField_EmailChange = textField_EmailChange;
-    }
-
-    public ComboBox<EmployeeStatusEntity> getComboBox_Status() {
-        return comboBox_Status;
     }
 
     public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {

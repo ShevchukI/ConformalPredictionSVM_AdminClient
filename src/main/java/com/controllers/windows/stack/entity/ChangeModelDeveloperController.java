@@ -137,7 +137,6 @@ public class ChangeModelDeveloperController extends MenuController {
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
                 GlobalMap.getMiscMap().remove(Constant.getMODELDEVELOPER());
-//                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("modelDeveloper");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
@@ -218,56 +217,29 @@ public class ChangeModelDeveloperController extends MenuController {
         return label_PaneName;
     }
 
-    public void setLabel_PaneName(Label label_PaneName) {
-        this.label_PaneName = label_PaneName;
-    }
-
     public TextField getTextField_Name() {
         return textField_Name;
-    }
-
-    public void setTextField_Name(TextField textField_Name) {
-        this.textField_Name = textField_Name;
     }
 
     public TextField getTextField_Surname() {
         return textField_Surname;
     }
 
-    public void setTextField_Surname(TextField textField_Surname) {
-        this.textField_Surname = textField_Surname;
-    }
-
     public TextField getTextField_Telephone() {
         return textField_Telephone;
-    }
-
-    public void setTextField_Telephone(TextField textField_Telephone) {
-        this.textField_Telephone = textField_Telephone;
     }
 
     public TextField getTextField_Email() {
         return textField_Email;
     }
 
-    public void setTextField_Email(TextField textField_Email) {
-        this.textField_Email = textField_Email;
-    }
 
     public ComboBox<EmployeeStatusEntity> getComboBox_Status() {
         return comboBox_Status;
     }
 
-    public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
-        this.comboBox_Status = comboBox_Status;
-    }
-
     public ArrayList<EmployeeStatusEntity> getEmployeeStatus() {
         return employeeStatus;
-    }
-
-    public void setEmployeeStatus(ArrayList<EmployeeStatusEntity> employeeStatus) {
-        this.employeeStatus = employeeStatus;
     }
 
 }

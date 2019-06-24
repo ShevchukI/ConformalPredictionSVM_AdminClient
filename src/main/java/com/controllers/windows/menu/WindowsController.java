@@ -19,7 +19,6 @@ public class WindowsController {
     private Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public void start(Stage stage) throws IOException {
-//        HazelCastMap.createInstanceAndMap();
         openWindow(Constant.getLoginMenuRoot(), stage, new LoginMenuController(), "Admin client", false, 341, 236);
     }
 

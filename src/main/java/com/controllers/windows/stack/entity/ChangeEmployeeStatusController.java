@@ -22,7 +22,6 @@ public class ChangeEmployeeStatusController extends MenuController implements In
     private static TextField name;
     private static CheckBox workEnable;
 
-
     @FXML
     private Label label_PaneName;
     @FXML
@@ -114,30 +113,5 @@ public class ChangeEmployeeStatusController extends MenuController implements In
     public void setChange(boolean change) {
         this.change = change;
     }
-
-    public Label getLabel_PaneName() {
-        return label_PaneName;
-    }
-
-    public void setLabel_PaneName(Label label_PaneName) {
-        this.label_PaneName = label_PaneName;
-    }
-
-    public TextField getTextField_Name() {
-        return textField_Name;
-    }
-
-    public void setTextField_Name(TextField textField_Name) {
-        this.textField_Name = textField_Name;
-    }
-
-    public CheckBox getCheckBox_WorkEnable() {
-        return checkBox_WorkEnable;
-    }
-
-    public void setCheckBox_WorkEnable(CheckBox checkBox_WorkEnable) {
-        this.checkBox_WorkEnable = checkBox_WorkEnable;
-    }
-
 
 }

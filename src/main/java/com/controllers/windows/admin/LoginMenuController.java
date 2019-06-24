@@ -38,9 +38,6 @@ public class LoginMenuController extends MenuController {
     private Tooltip tooltip_ErrorPassword;
 
     public void initialize(Stage stage) {
-//        stage.setOnHidden(event -> {
-//            HazelCastMap.getInstance().getLifecycleService().shutdown();
-//        });
         setStage(stage);
         mainMenuController = new MainMenuController();
         windowsController = new WindowsController();
@@ -59,7 +56,6 @@ public class LoginMenuController extends MenuController {
                 HttpResponse response = adminController.getAdminAuth(authorization);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if(checkStatusCode(getStatusCode())) {
-//                    HazelCastMap.fillUserMap(authorization);
                     GlobalMap.fillMap(authorization);
                     windowsController.openWindow(Constant.getMainMenuRoot(), getStage(), mainMenuController,
                             null, true, 950, 650);

@@ -51,8 +51,6 @@ public class ModelDeveloperEntity {
                 + surname + name + "?");
         if (result) {
             this.id = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getMODELDEVELOPER()));
-//            this.id = Integer.parseInt(HazelCastMap
-//                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString());
             this.name = name;
             this.surname = surname;
             this.telephone = telephone;

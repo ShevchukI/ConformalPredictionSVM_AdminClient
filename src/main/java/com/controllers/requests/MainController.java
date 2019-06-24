@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public abstract class MainController {
     private final static String LOCALHOST_URL = "http://localhost:8888";
-//    private final static String LOCALHOST_URL = "http://111810cd.ngrok.io";
     private final static String DOCTOR_URL = "/doctor-system/admin";
     private final static String URL = LOCALHOST_URL + DOCTOR_URL;
     private final static String SETTING_FILE_NAME = "config.ini";
@@ -39,21 +38,17 @@ public abstract class MainController {
         CloseableHttpClient client = HttpClientBuilder.create().build();
         HttpRequestBase request = null;
         if (post != null) {
-
             post.setHeader("Content-Type", "application/json");
             if(httpEntity!=null) {
                 post.setEntity(httpEntity);
             }
             request = post;
-
         } else if (put != null) {
-
             put.setHeader("Content-Type", "application/json");
             if(httpEntity!=null) {
                 put.setEntity(httpEntity);
             }
             request = put;
-
         } else if (get != null) {
             request = get;
         } else if (delete != null) {

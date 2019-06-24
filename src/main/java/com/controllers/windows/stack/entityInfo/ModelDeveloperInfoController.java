@@ -27,39 +27,20 @@ public class ModelDeveloperInfoController {
         return label_Name;
     }
 
-    public void setLabel_Name(Label label_Name) {
-        this.label_Name = label_Name;
-    }
-
     public Label getLabel_Surname() {
         return label_Surname;
-    }
-
-    public void setLabel_Surname(Label label_Surname) {
-        this.label_Surname = label_Surname;
     }
 
     public Label getLabel_Telephone() {
         return label_Telephone;
     }
 
-    public void setLabel_Telephone(Label label_Telephone) {
-        this.label_Telephone = label_Telephone;
-    }
-
     public Label getLabel_Email() {
         return label_Email;
-    }
-
-    public void setLabel_Email(Label label_Email) {
-        this.label_Email = label_Email;
     }
 
     public Label getLabel_Status() {
         return label_Status;
     }
 
-    public void setLabel_Status(Label label_Status) {
-        this.label_Status = label_Status;
-    }
 }

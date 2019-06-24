@@ -25,9 +25,6 @@ public class DoctorEntity {
     private String email;
     private EmployeeStatusEntity employeeStatus;
 
-    public DoctorEntity() {
-    }
-
     public void addNew(String name, String surname, String telephone, String email,
                        SpecializationEntity specialization, EmployeeStatusEntity employeeStatus) {
         this.name = name;
@@ -66,8 +63,6 @@ public class DoctorEntity {
                 + surname + name + "?");
         if (result) {
             this.id = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getDOCTOR()));
-//            this.id = Integer.parseInt(HazelCastMap
-//                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("doctor").toString());
             this.name = name;
             this.surname = surname;
             this.telephone = telephone;

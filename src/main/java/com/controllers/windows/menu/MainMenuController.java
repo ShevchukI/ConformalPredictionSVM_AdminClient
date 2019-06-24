@@ -90,19 +90,14 @@ public class MainMenuController extends MenuController {
 
 
     public void initialize(Stage stage) {
-//        stage.setOnHidden(event -> {
-//            HazelCastMap.getInstance().getLifecycleService().shutdown();
-//        });
         setStage(stage);
         this.menuBarController.init(this);
-//        this.specializationInfoController.init(this);
         this.specializationTabController.init(this);
         this.changeSpecializationController.init(this);
         this.doctorInfoController.init(this);
         this.modelDeveloperInfoController.init(this);
 
         prepareStackPanes();
-
         prepareDoctorTab();
         prepareModelDeveloperTab();
 
@@ -165,15 +160,12 @@ public class MainMenuController extends MenuController {
     public void delete() {
         if (tab_Doctor.isSelected() && tableView_Doctor.getSelectionModel().getSelectedItem() != null) {
             doctorTabController.deleteDoctor(tableView_Doctor.getSelectionModel().getSelectedItem());
-//            Constant.getAlert(null, "You can`t delete Doctor", Alert.AlertType.ERROR);
         } else if (tab_ModelDeveloper.isSelected() && tableView_ModelDeveloper.getSelectionModel().getSelectedItem() != null) {
-//            Constant.getAlert(null, "You can`t delete Model Developer", Alert.AlertType.ERROR);
             modelDeveloperTabController.deleteModelDeveloper(tableView_ModelDeveloper.getSelectionModel().getSelectedItem());
         } else if (tab_Specialization.isSelected() && SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem() != null) {
             specializationTabController.deleteSpecialization(SpecializationTabController.getSpecializationTable().getSelectionModel().getSelectedItem());
         } else if (tab_EmployeeStatus.isSelected()) {
             EmployeeStatusTabController.deleteEmployeeStatus(EmployeeStatusTabController.getEmployeeStatusTable().getSelectionModel().getSelectedItem());
-//            employeeStatusTabController.deleteEmployee();
         } else {
             Constant.getAlert(null, "Please, select an item to delete!", Alert.AlertType.ERROR);
         }

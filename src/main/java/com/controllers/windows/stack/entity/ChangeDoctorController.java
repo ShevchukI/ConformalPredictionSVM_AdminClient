@@ -43,8 +43,6 @@ public class ChangeDoctorController extends MenuController {
     @FXML
     private ComboBox<SpecializationEntity> comboBox_Specialization;
     @FXML
-    private Tooltip tooltip_Specialization;
-    @FXML
     private TextField textField_Telephone;
     @FXML
     private Tooltip tooltip_Telephone;
@@ -138,7 +136,6 @@ public class ChangeDoctorController extends MenuController {
         tooltip_Telephone.setText(tooltip_ErrorTelephone.getText());
         tooltip_Email.setText(tooltip_ErrorEmail.getText());
 
-
         doctorEntity = new DoctorEntity();
 
         button_Save.setGraphic(Constant.okIcon());
@@ -193,7 +190,6 @@ public class ChangeDoctorController extends MenuController {
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
                 GlobalMap.getMiscMap().remove(Constant.getDOCTOR());
-//                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("doctor");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
@@ -206,7 +202,6 @@ public class ChangeDoctorController extends MenuController {
                 textField_Telephone.getText(), textField_Email.getText(),
                 comboBox_Specialization.getSelectionModel().getSelectedItem(),
                 comboBox_Status.getSelectionModel().getSelectedItem());
-
         TableView<DoctorEntity> tableView = (TableView<DoctorEntity>) this.menuController.getStage().getScene().lookup("#tableView_Doctor");
         tableView.getItems().add(doctorEntity);
         StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
@@ -258,21 +253,6 @@ public class ChangeDoctorController extends MenuController {
         getTextField_Email().clear();
     }
 
-    public ArrayList<SpecializationEntity> getSpecializations() {
-        return specializations;
-    }
-
-    public void setSpecializations(ArrayList<SpecializationEntity> specializations) {
-        this.specializations = specializations;
-    }
-
-    public ArrayList<EmployeeStatusEntity> getEmployeeStatus() {
-        return employeeStatus;
-    }
-
-    public void setEmployeeStatus(ArrayList<EmployeeStatusEntity> employeeStatus) {
-        this.employeeStatus = employeeStatus;
-    }
 
     public boolean isChange() {
         return change;
@@ -286,57 +266,28 @@ public class ChangeDoctorController extends MenuController {
         return label_PaneName;
     }
 
-    public void setLabel_PaneName(Label label_PaneName) {
-        this.label_PaneName = label_PaneName;
-    }
-
     public TextField getTextField_Name() {
         return textField_Name;
-    }
-
-    public void setTextField_Name(TextField textField_Name) {
-        this.textField_Name = textField_Name;
     }
 
     public TextField getTextField_Surname() {
         return textField_Surname;
     }
 
-    public void setTextField_Surname(TextField textField_Surname) {
-        this.textField_Surname = textField_Surname;
-    }
-
     public ComboBox<SpecializationEntity> getComboBox_Specialization() {
         return comboBox_Specialization;
-    }
-
-    public void setComboBox_Specialization(ComboBox<SpecializationEntity> comboBox_Specialization) {
-        this.comboBox_Specialization = comboBox_Specialization;
     }
 
     public TextField getTextField_Telephone() {
         return textField_Telephone;
     }
 
-    public void setTextField_Telephone(TextField textField_Telephone) {
-        this.textField_Telephone = textField_Telephone;
-    }
-
     public TextField getTextField_Email() {
         return textField_Email;
-    }
-
-    public void setTextField_Email(TextField textField_Email) {
-        this.textField_Email = textField_Email;
     }
 
     public ComboBox<EmployeeStatusEntity> getComboBox_Status() {
         return comboBox_Status;
     }
-
-    public void setComboBox_Status(ComboBox<EmployeeStatusEntity> comboBox_Status) {
-        this.comboBox_Status = comboBox_Status;
-    }
-
 
 }

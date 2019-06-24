@@ -29,16 +29,8 @@ public class DoctorPage {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-    }
-
     public List<DoctorEntity> getDoctorEntities() {
         return doctorEntities;
-    }
-
-    public void setDoctorEntities(List<DoctorEntity> doctorEntityList) {
-        this.doctorEntities = doctorEntityList;
     }
 
 }

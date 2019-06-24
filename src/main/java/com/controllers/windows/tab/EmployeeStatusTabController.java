@@ -86,83 +86,20 @@ public class EmployeeStatusTabController extends MenuController implements Initi
     }
 
 
-    public Label getLabel_NameInfo() {
-        return label_NameInfo;
-    }
-
-    public void setLabel_NameInfo(Label label_Name) {
-        this.label_NameInfo = label_Name;
-    }
-
-    public Label getLabel_WorkEnableInfo() {
-        return label_WorkEnableInfo;
-    }
-
-    public void setLabel_WorkEnableInfo(Label label_WorkEnable) {
-        this.label_WorkEnableInfo = label_WorkEnable;
-    }
-
-    public static StackPane getStackPaneInfo() {
-        return stackPane_Info;
-    }
-
     public static void setStackPaneInfo(StackPane stackPane) {
         stackPane_Info = stackPane;
-    }
-
-    public TableView<EmployeeStatusEntity> getTableView_EmployeeStatus() {
-        return tableView_EmployeeStatus;
-    }
-
-    public static StackPane getStackPaneChange() {
-        return stackPane_Change;
     }
 
     public static void setStackPaneChange(StackPane stackPane) {
         stackPane_Change = stackPane;
     }
 
-    public Label getLabel_PaneNameChange() {
-        return label_PaneNameChange;
-    }
-
-    public void setLabel_PaneNameChange(Label label_PaneName) {
-        this.label_PaneNameChange = label_PaneName;
-    }
-
-    public TextField getTextField_NameChange() {
-        return textField_NameChange;
-    }
-
-    public void setTextField_NameChange(TextField textField_NameChange) {
-        this.textField_NameChange = textField_NameChange;
-    }
-
-    public CheckBox getCheckBox_WorkEnableChange() {
-        return checkBox_WorkEnableChange;
-    }
-
-    public void setCheckBox_WorkEnableChange(CheckBox checkBox_WorkEnableChange) {
-        this.checkBox_WorkEnableChange = checkBox_WorkEnableChange;
-    }
-
     public static ArrayList<EmployeeStatusEntity> getStatusEntities() {
         return statusEntities;
-    }
-
-    public static void setStatusEntities(ArrayList<EmployeeStatusEntity> statuses) {
-        statusEntities = statuses;
     }
 
     public static TableView<EmployeeStatusEntity> getEmployeeStatusTable() {
         return employeeStatusTable;
     }
 
-    public static ObservableList<EmployeeStatusEntity> getEmployeeStatusEntities() {
-        return employeeStatusEntities;
-    }
-
-    public static void setEmployeeStatusEntities(ObservableList<EmployeeStatusEntity> employeeStatusEntities) {
-        EmployeeStatusTabController.employeeStatusEntities = employeeStatusEntities;
-    }
 }

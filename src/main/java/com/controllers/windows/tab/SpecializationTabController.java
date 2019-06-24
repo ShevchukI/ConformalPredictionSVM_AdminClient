@@ -76,48 +76,12 @@ public class SpecializationTabController extends MenuController {
         }
     }
 
-    public StackPane getStackPaneChange() {
-        return stackPane_Change;
-    }
-
     public void setStackPaneChange(StackPane stackPane) {
         this.stackPane_Change = stackPane;
     }
 
-    public StackPane getStackPaneInfo() {
-        return stackPane_Info;
-    }
-
     public void setStackPaneInfo(StackPane stackPane) {
         this.stackPane_Info = stackPane;
-    }
-
-    public Label getLabel_PaneNameChange() {
-        return label_PaneNameChange;
-    }
-
-    public void setLabel_PaneNameChange(Label label_PaneNameChange) {
-        this.label_PaneNameChange = label_PaneNameChange;
-    }
-
-    public TextField getTextField_NameChange() {
-        return textField_NameChange;
-    }
-
-    public void setTextField_NameChange(TextField textField_NameChange) {
-        this.textField_NameChange = textField_NameChange;
-    }
-
-    public Label getLabel_NameInfo() {
-        return label_NameInfo;
-    }
-
-    public void setLabel_NameInfo(Label label_NameInfo) {
-        this.label_NameInfo = label_NameInfo;
-    }
-
-    public TableView<SpecializationEntity> getTableView_Specialization() {
-        return tableView_Specialization;
     }
 
     public static TableView<SpecializationEntity> getSpecializationTable() {

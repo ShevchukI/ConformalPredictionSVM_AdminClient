@@ -16,13 +16,9 @@ import java.util.ArrayList;
 public abstract class MenuController {
 
     private Stage stage;
-    private Stage newWindow;
     private int statusCode;
 
     public void initialize(Stage stage) throws IOException {
-//        stage.setOnHidden(event -> {
-//            HazelCastMap.getInstance().getLifecycleService().shutdown();
-//        });
         setStage(stage);
     }
 
@@ -56,12 +52,6 @@ public abstract class MenuController {
         }
     }
 
-    public void initialize(Stage stage, Stage newWindow, boolean change) throws IOException {
-    }
-
-    public void initialize(Stage stage, Stage newWindow) throws IOException {
-    }
-
     public void activateStackPane(StackPane pane, ArrayList<StackPane> stackPanes) {
         for (StackPane stackPane : stackPanes) {
             if (stackPane.equals(pane)) {
@@ -83,21 +73,6 @@ public abstract class MenuController {
     public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
     }
-
-//    protected String[] getContent(HttpResponse response) {
-//        String[] strings = new String[10];
-//        String[] content = new String[3];
-//        try {
-//            strings = Constant.responseToString(response).split("\"");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        String[] login = strings[3].split("_");
-//        content[0] = login[2];
-//        content[1] = strings[3];
-//        content[2] = strings[7];
-//        return content;
-//    }
 
     protected void setErrorTooltip(TextField textField, Tooltip tooltip_Error){
         textField.setTooltip(tooltip_Error);
