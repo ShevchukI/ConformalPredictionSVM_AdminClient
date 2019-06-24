@@ -2,7 +2,6 @@ package com.controllers.windows.menu;
 
 import com.controllers.windows.admin.LoginMenuController;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -20,7 +19,7 @@ public class WindowsController {
     private Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public void start(Stage stage) throws IOException {
-        HazelCastMap.createInstanceAndMap();
+//        HazelCastMap.createInstanceAndMap();
         openWindow(Constant.getLoginMenuRoot(), stage, new LoginMenuController(), "Admin client", false, 341, 236);
     }
 

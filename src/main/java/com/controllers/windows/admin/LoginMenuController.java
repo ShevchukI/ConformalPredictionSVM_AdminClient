@@ -5,7 +5,7 @@ import com.controllers.windows.menu.MainMenuController;
 import com.controllers.windows.menu.MenuController;
 import com.controllers.windows.menu.WindowsController;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,9 +38,9 @@ public class LoginMenuController extends MenuController {
     private Tooltip tooltip_ErrorPassword;
 
     public void initialize(Stage stage) {
-        stage.setOnHidden(event -> {
-            HazelCastMap.getInstance().getLifecycleService().shutdown();
-        });
+//        stage.setOnHidden(event -> {
+//            HazelCastMap.getInstance().getLifecycleService().shutdown();
+//        });
         setStage(stage);
         mainMenuController = new MainMenuController();
         windowsController = new WindowsController();
@@ -59,7 +59,8 @@ public class LoginMenuController extends MenuController {
                 HttpResponse response = adminController.getAdminAuth(authorization);
                 setStatusCode(response.getStatusLine().getStatusCode());
                 if(checkStatusCode(getStatusCode())) {
-                    HazelCastMap.fillUserMap(authorization);
+//                    HazelCastMap.fillUserMap(authorization);
+                    GlobalMap.fillMap(authorization);
                     windowsController.openWindow(Constant.getMainMenuRoot(), getStage(), mainMenuController,
                             null, true, 950, 650);
                 }

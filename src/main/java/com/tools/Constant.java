@@ -45,16 +45,26 @@ public class Constant {
     private final static String LOGIN_MENU_ROOT = "fxml/admin/loginMenu.fxml";
 
     //Miscellaneous
+    private static final String MODEL_DEVELOPER = "modelDeveloper";
+    private static final String DOCTOR = "doctor";
     private static final int OBJECT_ON_PAGE = 30;
     private final static String BORDER_COLOR_INHERIT = "-fx-border-color: inherit";
     private final static String BORDER_COLOR_RED = "-fx-border-color: red";
 
     public static String[] getAuth() {
         String[] auth = new String[2];
-        String login = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
-                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(), HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(LOGIN).toString());
-        String password = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
-                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(), HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(PASSWORD).toString());
+        String login = Encryptor.decrypt(GlobalMap.getKeyMap().get(KEY),
+                GlobalMap.getKeyMap().get(VECTOR),
+                GlobalMap.getUserMap().get(LOGIN));
+        String password = Encryptor.decrypt(GlobalMap.getKeyMap().get(KEY),
+                GlobalMap.getKeyMap().get(VECTOR),
+                GlobalMap.getUserMap().get(PASSWORD));
+//        String login = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
+//                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(),
+//                HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(LOGIN).toString());
+//        String password = Encryptor.decrypt(HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(KEY).toString(),
+//                HazelCastMap.getMapByName(HazelCastMap.getKeyMapName()).get(VECTOR).toString(),
+//                HazelCastMap.getMapByName(HazelCastMap.getUserMapName()).get(PASSWORD).toString());
         auth[0] = login;
         auth[1] = password;
         return auth;
@@ -104,7 +114,7 @@ public class Constant {
         return content;
     }
 
-    public static void getTextAreaAlert(String title, String header, String content, Alert.AlertType alertType){
+    public static void getTextAreaAlert(String title, String header, String content, Alert.AlertType alertType) {
         TextArea textArea = new TextArea(content);
         textArea.setEditable(false);
         textArea.setWrapText(true);
@@ -118,7 +128,6 @@ public class Constant {
         alert.getDialogPane().setContent(gridPane);
         alert.showAndWait();
     }
-
 
 
     public static String getPHONEREG() {
@@ -143,6 +152,14 @@ public class Constant {
 
     public static String getPASSWORD() {
         return PASSWORD;
+    }
+
+    public static String getMODELDEVELOPER() {
+        return MODEL_DEVELOPER;
+    }
+
+    public static String getDOCTOR() {
+        return DOCTOR;
     }
 
     public static String getPageIndexDoctor() {

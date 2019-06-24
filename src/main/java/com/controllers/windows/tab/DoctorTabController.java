@@ -7,7 +7,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
 import com.models.DoctorPage;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -63,7 +63,8 @@ public class DoctorTabController extends MenuController {
 
     public void init(MenuController menuController) {
         this.menuController = menuController;
-        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get(Constant.getPageIndexDoctor()).toString());
+        pageIndex = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getPageIndexDoctor()));
+//        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get(Constant.getPageIndexDoctor()).toString());
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_Doctor.getItems().
                 indexOf(column.getValue()) + 1) + (pageIndex - 1) * Constant.getObjectOnPage()));
@@ -119,8 +120,10 @@ public class DoctorTabController extends MenuController {
     }
 
     public void changeDoctor(TableView<DoctorEntity> tableView) {
-        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("doctor",
-                tableView.getSelectionModel().getSelectedItem().getId());
+        GlobalMap.getMiscMap().put(Constant.getDOCTOR(),
+                String.valueOf(tableView.getSelectionModel().getSelectedItem().getId()));
+//        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("doctor",
+//                tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Doctor");
         textField_NameChange

@@ -1,7 +1,6 @@
 package com.controllers.windows.menu;
 
 import com.tools.Constant;
-import com.tools.HazelCastMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
@@ -21,9 +20,9 @@ public abstract class MenuController {
     private int statusCode;
 
     public void initialize(Stage stage) throws IOException {
-        stage.setOnHidden(event -> {
-            HazelCastMap.getInstance().getLifecycleService().shutdown();
-        });
+//        stage.setOnHidden(event -> {
+//            HazelCastMap.getInstance().getLifecycleService().shutdown();
+//        });
         setStage(stage);
     }
 

@@ -2,7 +2,7 @@ package com.entity;
 
 import com.google.gson.Gson;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.scene.control.Alert;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -50,8 +50,9 @@ public class ModelDeveloperEntity {
         boolean result = Constant.questionOkCancel("Do you really want to change Model Developer "
                 + surname + name + "?");
         if (result) {
-            this.id = Integer.parseInt(HazelCastMap
-                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString());
+            this.id = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getMODELDEVELOPER()));
+//            this.id = Integer.parseInt(HazelCastMap
+//                    .getMapByName(HazelCastMap.getMiscellaneousMapName()).get("modelDeveloper").toString());
             this.name = name;
             this.surname = surname;
             this.telephone = telephone;

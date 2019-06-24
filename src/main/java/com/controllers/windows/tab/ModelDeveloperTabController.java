@@ -6,7 +6,7 @@ import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.models.ModelDeveloperPage;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,7 +57,8 @@ public class ModelDeveloperTabController extends MenuController {
 
     public void init(MenuController menuController) {
         this.menuController = menuController;
-        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
+        pageIndex = Integer.parseInt(GlobalMap.getMiscMap().get(Constant.getPageIndexModelDeveloper()));
+//        pageIndex = Integer.parseInt(HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).get("pageIndexModelDeveloper").toString());
 
         tableColumn_Number.setSortable(false);
         tableColumn_Number.setCellValueFactory(column -> new ReadOnlyObjectWrapper<Number>((tableView_ModelDeveloper.getItems().
@@ -93,8 +94,10 @@ public class ModelDeveloperTabController extends MenuController {
     }
 
     public void changeModelDeveloper(TableView<ModelDeveloperEntity> tableView) {
-        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("modelDeveloper",
-                tableView.getSelectionModel().getSelectedItem().getId());
+        GlobalMap.getMiscMap().put(Constant.getMODELDEVELOPER(),
+                String.valueOf(tableView.getSelectionModel().getSelectedItem().getId()));
+//        HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).put("modelDeveloper",
+//                tableView.getSelectionModel().getSelectedItem().getId());
         activateStackPane(stackPane_Change, stackPanes);
         label_PaneNameChange.setText("Change Model Developer");
         textField_NameChange
@@ -112,7 +115,7 @@ public class ModelDeveloperTabController extends MenuController {
 
     public void deleteModelDeveloper(ModelDeveloperEntity modelDeveloper) {
         int statusCode = modelDeveloper.deleteModelDeveloper();
-        if (statusCode!=0) {
+        if (statusCode != 0) {
             if (checkStatusCode(statusCode)) {
                 for (ModelDeveloperEntity modelDeveloperEntity : tableView_ModelDeveloper.getItems()) {
                     if (modelDeveloperEntity.getId() == modelDeveloper.getId()) {

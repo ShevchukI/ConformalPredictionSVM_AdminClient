@@ -4,7 +4,7 @@ import com.controllers.windows.menu.MenuController;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -136,7 +136,8 @@ public class ChangeModelDeveloperController extends MenuController {
                 Constant.getAlert(null, "Model developer changed!", Alert.AlertType.INFORMATION);
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
-                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("modelDeveloper");
+                GlobalMap.getMiscMap().remove(Constant.getMODELDEVELOPER());
+//                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("modelDeveloper");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_ModelDeveloperChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);

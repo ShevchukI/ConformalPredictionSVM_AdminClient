@@ -15,7 +15,6 @@ import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.ModelDeveloperEntity;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -91,9 +90,9 @@ public class MainMenuController extends MenuController {
 
 
     public void initialize(Stage stage) {
-        stage.setOnHidden(event -> {
-            HazelCastMap.getInstance().getLifecycleService().shutdown();
-        });
+//        stage.setOnHidden(event -> {
+//            HazelCastMap.getInstance().getLifecycleService().shutdown();
+//        });
         setStage(stage);
         this.menuBarController.init(this);
 //        this.specializationInfoController.init(this);

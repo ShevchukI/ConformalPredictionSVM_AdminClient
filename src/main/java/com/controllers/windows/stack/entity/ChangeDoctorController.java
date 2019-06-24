@@ -5,7 +5,7 @@ import com.entity.DoctorEntity;
 import com.entity.EmployeeStatusEntity;
 import com.entity.SpecializationEntity;
 import com.tools.Constant;
-import com.tools.HazelCastMap;
+import com.tools.GlobalMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -192,7 +192,8 @@ public class ChangeDoctorController extends MenuController {
                 Constant.getAlert(null, "Doctor changed!", Alert.AlertType.INFORMATION);
                 TextField textField = (TextField) this.menuController.getStage().getScene().lookup("#textField_Name");
                 textField.clear();
-                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("doctor");
+                GlobalMap.getMiscMap().remove(Constant.getDOCTOR());
+//                HazelCastMap.getMapByName(HazelCastMap.getMiscellaneousMapName()).delete("doctor");
                 StackPane stackPane = (StackPane) this.menuController.getStage().getScene().lookup("#stackPane_DoctorChange");
                 stackPane.setDisable(true);
                 stackPane.setVisible(false);
